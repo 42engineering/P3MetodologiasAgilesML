@@ -1,9 +1,11 @@
 # Team Data Science Project Template
+# Alcance del proyecto.
+* Se encuentra en el archivo project_charter_tsl.md en la carpeta business_understanding.
 
-Esta plantilla es una implementación de la plantilla de proyecto de Team Data Science Process que actualmente se utiliza en el "Programa de Formación en Machine Learning y Data Science" en la Universidad Nacional de Colombia.
+# Data de acciones de Tesla
+* Se encuentra en el archivo tsl_stock_data.ipynb en la carpeta script.
 
-Esta plantilla proporciona las siguientes carpetas y archivos:
-
+# Otros
 * `src`: acá debe ir el código o implementación del proyecto en Python.
 * `docs`: en esta carpeta se encuentran las plantillas de los documentos definidos en la metodología.
 * `scripts`: esta carpeta debe contener los scripts/notebooks que se ejecutarán.
