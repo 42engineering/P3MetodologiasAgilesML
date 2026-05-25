@@ -6,6 +6,9 @@ TSLA Financial Direction Prediction Using Neural Networks.
 # Tesla Stock Data
 * ✅ [Data Definition](/tdsp_template/P3_tsla/scripts/tsl_stock_data.ipynb) - Data structure and source
 
+# NoteBooks
+
+* ✅ [Notebook1](/tdsp_template/P3_tsla/notebooks/tsl_stock_data.ipyn - Notebook implementation model
 
 # Pending
 * ⏳ [Data Dictionary](/tdsp_template/P3_tsla/docs/data/data_dictionary.md) - Detailed variable description
