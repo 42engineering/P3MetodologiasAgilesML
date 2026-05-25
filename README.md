@@ -1,12 +1,27 @@
-# Team Data Science Project Template
-# Alcance del proyecto.
-* Se encuentra en el archivo project_charter_tsl.md en la carpeta business_understanding.
+# Project Name
+TSLA Financial Direction Prediction Using Neural Networks.
 
-# Data de acciones de Tesla
-* Se encuentra en el archivo tsl_stock_data.ipynb en la carpeta script.
+* ✅ [Project Charter](/tdsp_template/P3_tsla/docs/business_understanding/project_charter_tsla.md) - Objectives, scope, and methodology
 
-# Otros
-* `src`: acá debe ir el código o implementación del proyecto en Python.
-* `docs`: en esta carpeta se encuentran las plantillas de los documentos definidos en la metodología.
-* `scripts`: esta carpeta debe contener los scripts/notebooks que se ejecutarán.
-* `pyproject.toml`: archivo de definición del proyecto en Python.
+# Tesla Stock Data
+* ✅ [Data Definition](/tdsp_template/P3_tsla/scripts/tsl_stock_data.ipynb) - Data structure and source
+
+
+# Pending
+* ⏳ [Data Dictionary](/tdsp_template/P3_tsla/docs/data/data_dictionary.md) - Detailed variable description
+* ⏳ [Data Summary](/tdsp_template/P3_tsla/docs/data/data_summary.md) - Statistical summary and data quality
+
+## Documentation
+* ✅ [Project Charter](/tdsp_template/P3_tsla/docs/business_understanding/project_charter_tsla.md) - Objectives, scope, and methodology
+* ⏳ [Data Definition](/tdsp_template/P3_tsla/scripts/tsl_stock_data.ipynb) - Data structure and source
+* ⏳ [Data Dictionary](/tdsp_template/P3_tsla/docs/data/data_dictionary.md)
+* [Data Summary](/tdsp_template/P3_tsla/docs/data/data_summary.md)
+* [Data Acquisition Report](/tdsp_template/P3_tsla/docs/data/data_acquisition_report.md)
+* [Deployment Guide](/tdsp_template/P3_tsla/docs/deployment/deploymentdoc.md)
+* [exit_report](/tdsp_template/P3_tsla/docs/deployment/exit_report.md)
+
+# Notes
+* ⏳ `src`: this folder should contain the project code or Python implementation.
+* ⏳ `docs`: this folder contains the document templates defined in the methodology.
+* ⏳ `scripts`: this folder should contain the scripts/notebooks to be executed.
+* ⏳ `pyproject.toml`: Python project definition file.

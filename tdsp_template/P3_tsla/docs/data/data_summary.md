@@ -1,3 +1,5 @@
+[Volver al README](../../../../README.md)
+
 # Reporte de Datos
 
 Este documento contiene los resultados del análisis exploratorio de datos.
@@ -25,3 +27,5 @@ En esta sección se presenta un ranking de las variables más importantes para p
 ## Relación entre variables explicativas y variable objetivo
 
 En esta sección se presenta un análisis de la relación entre las variables explicativas y la variable objetivo. Se utilizan gráficos como la matriz de correlación y el diagrama de dispersión para entender mejor la relación entre las variables. Además, se pueden utilizar técnicas como la regresión lineal para modelar la relación entre las variables.
+
+[Volver al README](../README.md)
