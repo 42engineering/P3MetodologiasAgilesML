@@ -1,21 +1,20 @@
-# Usar una imagen base de Python
+# Imagen base
 FROM python:3.10.12
 
-# Establecer el directorio de trabajo
+# Directorio de trabajo
 WORKDIR /app
 
-# Copiar el archivo de dependencias
-COPY deployment/requirements.txt .
+# Copiar archivo de configuración del proyecto
+COPY pyproject.toml .
 
-# Instalar las dependencias
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copiar el código de la aplicación y el modelo
-# NOTA: La estructura de directorios debe coincidir
+# Copiar el resto del proyecto
 COPY . .
-# COPY data/processed/feature_info.json .
 
-# Exponer el puerto que usará la aplicación
+# Instalar dependencias desde pyproject.toml
+RUN pip install --no-cache-dir -e .
+
+# Exponer puerto
 EXPOSE 8080
 
-CMD ["python", "app.py"] 
+# Ejecutar aplicación
+CMD ["python", "app.py"]
