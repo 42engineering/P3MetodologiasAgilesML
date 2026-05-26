@@ -12,7 +12,8 @@ dependencies = [
     "matplotlib==3.10.0",
     "numpy==2.0.2",
     "pandas==2.2.2",
-    "yfinance==0.2.66"
+    "yfinance==0.2.66",
+    "dvc[gdrive]==3.67.1"
 ]
 
 [tool.setuptools.packages.find]

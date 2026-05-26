@@ -2,3 +2,5 @@ P3env/
 PT1.1.egg-info/
 __pycache__/
 *.pyc
+PT3_tesla.egg-info/
+*.egg-info/
