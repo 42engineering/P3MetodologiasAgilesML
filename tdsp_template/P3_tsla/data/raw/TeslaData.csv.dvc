@@ -1,0 +1,5 @@
+outs:
+- md5: 66a71ede4214f9dc9432a1be3e18cdf7
+  size: 255384
+  hash: md5
+  path: TeslaData.csv
