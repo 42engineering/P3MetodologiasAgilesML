@@ -3,14 +3,17 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "nombre_paquete"
+name = "PT3_tesla"
 version = "0.1.0"
 authors = [{name = "autor1", email = "correo@correo.com"}]
-description = "Descripción del proyecto"
-requires-python = ">3.8"
+description = "TSLA Financial Direction Prediction Using Neural Networks"
+requires-python = ">3.9"
 dependencies = [
-    "numpy"
+    "matplotlib==3.10.0",
+    "numpy==2.0.2",
+    "pandas==2.2.2",
+    "yfinance==0.2.66"
 ]
 
 [tool.setuptools.packages.find]
-where = ["src/"]
+where = ["P3_tsla/src"]

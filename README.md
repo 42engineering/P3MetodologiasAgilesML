@@ -24,7 +24,8 @@ TSLA Financial Direction Prediction Using Neural Networks.
 * [exit_report](/tdsp_template/P3_tsla/docs/deployment/exit_report.md)
 
 # Notes
+
 * ⏳ `src`: this folder should contain the project code or Python implementation.
 * ⏳ `docs`: this folder contains the document templates defined in the methodology.
-* ⏳ `scripts`: this folder should contain the scripts/notebooks to be executed.
+* ⏳ `scripts`: this folder should contain the scripts to be executed.
 * ⏳ `pyproject.toml`: Python project definition file.
