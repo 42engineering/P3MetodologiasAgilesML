@@ -12,8 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar el código de la aplicación y el modelo
 # NOTA: La estructura de directorios debe coincidir
-COPY deployment/app.py .
-COPY models/ ./models/
+COPY . .
 # COPY data/processed/feature_info.json .
 
 # Exponer el puerto que usará la aplicación
