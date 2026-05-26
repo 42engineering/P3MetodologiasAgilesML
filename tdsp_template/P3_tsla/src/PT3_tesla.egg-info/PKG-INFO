@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: PT3_tesla
+Version: 0.1.0
+Summary: TSLA Financial Direction Prediction Using Neural Networks
+Author-email: autor1 <correo@correo.com>
+Requires-Python: >3.9
+Requires-Dist: matplotlib==3.10.0
+Requires-Dist: numpy==2.0.2
+Requires-Dist: pandas==2.2.2
+Requires-Dist: yfinance==0.2.66
