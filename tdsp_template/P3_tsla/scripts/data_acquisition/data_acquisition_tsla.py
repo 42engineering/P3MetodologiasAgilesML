@@ -2,7 +2,6 @@ import os
 import yfinance as yf
 import pandas as pd
 
-
 def dataTeslaCsv():
 
     filePath = "data/raw/TeslaData.csv"

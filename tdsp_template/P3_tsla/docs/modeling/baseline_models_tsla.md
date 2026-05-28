@@ -14,41 +14,112 @@ El modelo debe clasificar si:
 utilizando información histórica del mercado financiero.
 
 ---
-
 # Reporte del Modelo Baseline
 
-[Pending]Este documento contiene los resultados del modelo baseline.
+Este documento presenta los resultados obtenidos con el modelo baseline desarrollado para la predicción de la dirección del precio de la acción de Tesla (TSLA) utilizando redes neuronales LSTM.
 
-## Descripción del modelo
+---
 
-[Pending] El modelo baseline es el primer modelo construido y se utiliza para establecer una línea base para el rendimiento de los modelos posteriores.
+# Descripción del modelo
 
-## Variables de entrada
+El modelo baseline implementado corresponde a una arquitectura `SimpleLSTM`, utilizada como primera aproximación para resolver el problema de clasificación binaria sobre la dirección futura del precio de Tesla.
 
-[Pending] Lista de las variables de entrada utilizadas en el modelo.
+El modelo está compuesto por:
 
-## Variable objetivo
+* Una capa LSTM con 64 neuronas.
+* Una capa densa de salida con función de activación sigmoide.
 
-[Pending] Nombre de la variable objetivo utilizada en el modelo.
+La arquitectura fue diseñada para capturar patrones temporales presentes en las series financieras utilizando secuencias históricas de precios y volumen.
 
-## Evaluación del modelo
+---
 
-### Métricas de evaluación
+# Variables de entrada
 
-[Pending] Descripción de las métricas utilizadas para evaluar el rendimiento del modelo.
+Las variables utilizadas como entrada del modelo fueron:
 
-### Resultados de evaluación
+* Open
+* High
+* Low
+* Close
+* Volume
 
-[Pending] Tabla que muestra los resultados de evaluación del modelo baseline, incluyendo las métricas de evaluación.
+Estas variables fueron normalizadas utilizando `MinMaxScaler` y posteriormente transformadas en secuencias temporales para el entrenamiento de la red neuronal.
 
-## Análisis de los resultados
+---
 
-[Pending]Descripción de los resultados del modelo baseline, incluyendo fortalezas y debilidades del modelo.
+# Variable objetivo
 
-## Conclusiones
+La variable objetivo utilizada fue:
 
-[Pending]  Conclusiones generales sobre el rendimiento del modelo baseline y posibles áreas de mejora.
+* `SubeBaja`
 
-## Referencias
+Esta variable representa la dirección futura del precio de cierre de Tesla:
 
-[Pending] Lista de referencias utilizadas para construir el modelo baseline y evaluar su rendimiento.
+* `1`: el precio subirá.
+* `0`: el precio bajará o permanecerá igual.
+
+La variable fue generada comparando el precio de cierre actual con el precio de cierre del siguiente día bursátil.
+
+---
+
+# Evaluación del modelo
+
+## Métricas de evaluación
+
+Las métricas utilizadas para evaluar el rendimiento del modelo fueron:
+
+* Accuracy
+* Precision
+* Recall
+* F1-Score
+* Confusion Matrix
+
+Estas métricas permiten evaluar la capacidad del modelo para clasificar correctamente la dirección del precio de la acción.
+
+---
+
+## Resultados de evaluación
+
+| Modelo     | Accuracy | Loss                | Observaciones                                                  |
+| ---------- | -------- | ------------------- | -------------------------------------------------------------- |
+| SimpleLSTM | ~0.51    | Binary Crossentropy | Rendimiento cercano al azar, pero útil como línea base inicial |
+
+El modelo obtuvo un accuracy cercano al 51%, indicando una capacidad limitada para predecir correctamente la dirección futura del precio.
+
+---
+
+# Análisis de los resultados
+
+El modelo baseline permitió validar el funcionamiento completo del pipeline de entrenamiento, evaluación y predicción utilizando datos financieros de Tesla. La arquitectura LSTM logró capturar parcialmente patrones temporales presentes en la serie de tiempo.
+
+Sin embargo, el rendimiento obtenido fue limitado debido a la alta volatilidad y complejidad inherente de los mercados financieros. El accuracy cercano al 50% sugiere que el modelo aún presenta dificultades para generalizar patrones predictivos robustos.
+
+Entre las principales debilidades del modelo se encuentran:
+
+* Arquitectura relativamente simple.
+* Limitada profundidad de aprendizaje.
+* Sensibilidad al ruido financiero.
+* Ausencia de variables técnicas adicionales.
+
+---
+
+# Conclusiones
+
+El modelo `SimpleLSTM` funcionó como una línea base adecuada para el proyecto y permitió establecer un punto de comparación para arquitecturas más complejas.
+
+Los resultados muestran que la predicción de movimientos bursátiles es un problema altamente complejo y no lineal. Como posibles mejoras futuras se recomienda:
+
+* Utilizar arquitecturas LSTM más profundas.
+* Incorporar capas Dropout y técnicas de regularización.
+* Incluir indicadores técnicos financieros.
+* Ajustar hiperparámetros.
+* Incrementar el tamaño y diversidad de los datos históricos.
+
+---
+
+# Referencias
+
+* Yahoo Finance (`yfinance`) – Fuente de datos financieros históricos de Tesla.
+* TensorFlow/Keras – Implementación de redes neuronales LSTM.
+* Scikit-learn – Preprocesamiento, normalización y métricas de evaluación.
+* MLflow – Seguimiento y registro de experimentos de machine learning.
