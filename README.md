@@ -23,6 +23,7 @@ TSLA Financial Direction Prediction Using Neural Networks.
 * ✅ [Data Dictionary](/tdsp_template/P3_tsla/docs/data/data_dictionary.md) - Data Dictionary
 * ✅ [Data Summary](/tdsp_template/P3_tsla/docs/data/data_summary_es.md) - Data Summary
 * ✅ [Baseline_models](/root/Diplomado/P3/tdsp_template/P3_tsla/docs/modeling/baseline_models_tsla.md) - Baseline models
+* ✅ [Raw Data stock price](/root/Diplomado/P3/tdsp_template/P3_tsla/data/raw/TeslaData.csv) - Raw data stock price
 
 ## Pending
 * ⏳ [Data Acquisition Report](/tdsp_template/P3_tsla/docs/data/data_acquisition_report.md)
