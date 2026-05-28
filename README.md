@@ -8,7 +8,7 @@ TSLA Financial Direction Prediction Using Neural Networks.
 
 # NoteBooks
 
-* ✅ [Notebook1](/tdsp_template/P3_tsla/scripts/data_acquisition/PT1.1ColabV1.ipynb) - Notebook implementation model
+* ✅ [Notebook1](/tdsp_template/P3_tsla/scripts/data_acquisition/PT1.1ColabV2.ipynb) - Notebook implementation model
 
 # Pending
 * ⏳ [Data Dictionary](/tdsp_template/P3_tsla/docs/data/data_dictionary.md) - Detailed variable description
