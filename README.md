@@ -15,7 +15,7 @@ TSLA Financial Direction Prediction Using Neural Networks.
 
 # Pending
 * ⏳ [Data Dictionary](/tdsp_template/P3_tsla/docs/data/data_dictionary.md) - Detailed variable description
-* [Data Summary](/tdsp_template/P3_tsla/docs/data/data_summary.md) - Statistical summary and data quality
+* ⏳ [Data Summary](/tdsp_template/P3_tsla/docs/data/data_summary.md) - Statistical summary and data quality
 
 ## Documentation
 * ✅ [Project Charter](/tdsp_template/P3_tsla/docs/business_understanding/project_charter_tsla.md) - Objectives, scope, and methodology
