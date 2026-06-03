@@ -3,10 +3,10 @@ from pydantic import BaseModel
 
 import numpy as np
 import pandas as pd
+import traceback
 
 from P3_tsla.api.model_loader import model
 from P3_tsla.api.utils import getWindowFromDate
-
 
 from P3_tsla.api.constants import (
     FEATURES,
@@ -18,73 +18,108 @@ from P3_tsla.api.constants import (
 
 router = APIRouter()
 
+
 class PredictionRequest(BaseModel):
 
-    start_date:str
+    start_date: str
 
 
 @router.post("/predict")
-
 def predict(
-    request:PredictionRequest
+    request: PredictionRequest
 ):
 
-    window = getWindowFromDate(
-        request.start_date
-    )
+    try:
 
-    xInput = window[
-        FEATURES
-    ].values
+        print("=" * 50)
+        print("REQUEST RECIBIDO")
+        print(request)
+        print("=" * 50)
 
-    xInput = np.expand_dims(
-        xInput,
-        axis=0
-    )
+        print("1. Obteniendo ventana...")
 
-    prediction = model.predict(
-        xInput
-    )
+        window = getWindowFromDate(
+            request.start_date
+        )
 
-    probability = float(
-        prediction[0][0]
-    )
+        print("Ventana obtenida")
+        print(window.head())
 
-    predictionLabel = (
-        "SUBIRÁ"
-        if probability > 0.5
-        else "BAJARÁ"
-    )
+        print("2. Construyendo xInput...")
 
-    realMovement = (
-        "SUBIÓ"
-        if window.iloc[-1]['Close']
-        >
-        window.iloc[-2]['Close']
-        else "BAJÓ"
-    )
+        xInput = window[
+            FEATURES
+        ].values
 
-    return {
+        print("Shape antes expand_dims:", xInput.shape)
 
-        "prediction":
-        predictionLabel,
+        xInput = np.expand_dims(
+            xInput,
+            axis=0
+        )
 
-        "probability":
-        probability,
+        print("Shape final:", xInput.shape)
 
-        "real_movement":
-        realMovement,
+        print("3. Ejecutando predicción...")
 
-        "window_start":
-        str(window.iloc[0]['Date']),
+        prediction = model.predict(
+            xInput
+        )
 
-        "window_end":
-        str(window.iloc[-1]['Date'])
-    }
+        print("Predicción cruda:", prediction)
+
+        probability = float(
+            prediction[0][0]
+        )
+
+        predictionLabel = (
+            "SUBIRÁ"
+            if probability > 0.5
+            else "BAJARÁ"
+        )
+
+        realMovement = (
+            "SUBIÓ"
+            if window.iloc[-1]['Close']
+            >
+            window.iloc[-2]['Close']
+            else "BAJÓ"
+        )
+
+        print("Predicción completada correctamente")
+
+        return {
+
+            "prediction":
+            predictionLabel,
+
+            "probability":
+            probability,
+
+            "real_movement":
+            realMovement,
+
+            "window_start":
+            str(window.iloc[0]['Date']),
+
+            "window_end":
+            str(window.iloc[-1]['Date'])
+        }
+
+    except Exception as e:
+
+        print("=" * 50)
+        print("ERROR EN /predict")
+        print(str(e))
+        traceback.print_exc()
+        print("=" * 50)
+
+        return {
+            "error": str(e)
+        }
 
 
 @router.get("/latest-window")
-
 def latestWindow():
 
     df = pd.read_csv(CSV_PATH)
@@ -104,12 +139,11 @@ def latestWindow():
 
 
 @router.get("/health")
-
 def health():
 
     return {
 
-        "status":"running",
+        "status": "running",
 
         "pipeline":
         PIPELINE_NAME,
