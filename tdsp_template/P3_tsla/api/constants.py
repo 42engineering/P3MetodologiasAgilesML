@@ -7,12 +7,12 @@ MODEL_NAME = (
 )
 
 MODEL_PATH = (
-    "P3_tsla/models/"
+    "models/"
     "PT1_1_TSLA_30DAYS_LSTM.keras"
 )
 
 CSV_PATH = (
-    "P3_tsla/data/raw/TeslaData.csv"
+    "data/raw/TeslaData.csv"
 )
 
 SEQUENCE_LENGTH = 30
