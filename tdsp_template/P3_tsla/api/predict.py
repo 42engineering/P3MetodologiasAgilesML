@@ -42,6 +42,9 @@ def predict(
             request.start_date
         )
 
+        print("COLUMNAS DEL WINDOW:")
+        print(window.columns)
+
         print("Ventana obtenida")
         print(window.head())
 
