@@ -10,7 +10,7 @@ CSV_PATH = (
 )
 
 MODEL_PATH = (
-    P3_TSLA_ROOT /
+    P3_TSLA_ROOT.parent /
     "models" /
     "PT1_1_TSLA_30DAYS_LSTM.keras"
 )
