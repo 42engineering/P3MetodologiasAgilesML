@@ -97,7 +97,7 @@ async function predictMovement(){
 
             <p>
 
-                Confidence Score:
+                Predicted Class Probability:
                 ${(data.probability * 100)
                     .toFixed(2)}%
 
