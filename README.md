@@ -13,10 +13,6 @@ TSLA Financial Direction Prediction Using Neural Networks.
 # Scripts
 * ✅ [data_acquisition_tsla.py](/root/Diplomado/P3/tdsp_template/P3_tsla/scripts/data_acquisition/data_acquisition_tsla.py) - Data acqusition tsla stocks
 
-# Pending
-* ⏳ [Data Dictionary](/tdsp_template/P3_tsla/docs/data/data_dictionary.md) - Detailed variable description
-* ⏳ [Data Summary](/tdsp_template/P3_tsla/docs/data/data_summary.md) - Statistical summary and data quality
-
 ## Documentation
 * ✅ [Project Charter](/tdsp_template/P3_tsla/docs/business_understanding/project_charter_tsla.md) - Objectives, scope, and methodology
 * ✅ [Data Definition](/tdsp_template/P3_tsla/scripts/tsl_stock_data.ipynb) - Data structure and source
@@ -24,10 +20,12 @@ TSLA Financial Direction Prediction Using Neural Networks.
 * ✅ [Data Summary](/tdsp_template/P3_tsla/docs/data/data_summary_es.md) - Data Summary
 * ✅ [Baseline_models](/root/Diplomado/P3/tdsp_template/P3_tsla/docs/modeling/baseline_models_tsla.md) - Baseline models
 * ✅ [Raw Data stock price](/root/Diplomado/P3/tdsp_template/P3_tsla/data/raw/TeslaData.csv) - Raw data stock price
+* ✅ [Deployment Guide](/tdsp_template/P3_tsla/docs/deployment/deploymentdoc.md) -Deployement guide information
 
 ## Pending
+* ⏳ [Data Dictionary](/tdsp_template/P3_tsla/docs/data/data_dictionary.md) - Detailed variable description
+* ⏳ [Data Summary](/tdsp_template/P3_tsla/docs/data/data_summary.md) - Statistical summary and data quality
 * ⏳ [Data Acquisition Report](/tdsp_template/P3_tsla/docs/data/data_acquisition_report.md)
-* ⏳ [Deployment Guide](/tdsp_template/P3_tsla/docs/deployment/deploymentdoc.md)
 * ⏳ [Exit_report](/tdsp_template/P3_tsla/docs/deployment/exit_report.md)
 * ⏳ [Report final model](/root/Diplomado/P3/tdsp_template/P3_tsla/docs/modeling/model_report.md)
 
