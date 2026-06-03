@@ -5,22 +5,49 @@ from P3_tsla.api.constants import (
     SEQUENCE_LENGTH
 )
 
-def getWindowFromDate(startDate:str):
 
-    df = pd.read_csv(CSV_PATH)
+def getWindowFromDate(
+    startDate: str
+):
 
-    df['Date'] = pd.to_datetime(
-        df['Date']
+    df = pd.read_csv(
+        CSV_PATH
     )
 
-    df = df.sort_values("Date")
 
-    startIndex = df[
-        df['Date'] == startDate
-    ].index[0]
+    if 'Date' in df.columns:
 
-    window = df.iloc[
-        startIndex:startIndex+SEQUENCE_LENGTH
+        dateColumn = 'Date'
+
+    elif 'date' in df.columns:
+
+        dateColumn = 'date'
+
+    else:
+
+        raise Exception(
+            "No date column found"
+        )
+
+    df[dateColumn] = pd.to_datetime(
+        df[dateColumn]
+    )
+
+    startDate = pd.to_datetime(
+        startDate
+    )
+    filtered = df[
+        df[dateColumn] >= startDate
     ]
+
+    if len(filtered) < SEQUENCE_LENGTH:
+
+        raise Exception(
+            f"Not enough rows after {startDate}"
+        )
+
+    window = filtered.head(
+        SEQUENCE_LENGTH
+    )
 
     return window

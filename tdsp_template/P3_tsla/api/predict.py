@@ -54,22 +54,33 @@ def predict(
             FEATURES
         ].values
 
-        print("Shape antes expand_dims:", xInput.shape)
+        print(
+            "Shape antes expand_dims:",
+            xInput.shape
+        )
 
         xInput = np.expand_dims(
             xInput,
             axis=0
         )
 
-        print("Shape final:", xInput.shape)
+        print(
+            "Shape final:",
+            xInput.shape
+        )
 
-        print("3. Ejecutando predicción...")
+        print(
+            "3. Ejecutando predicción..."
+        )
 
         prediction = model.predict(
             xInput
         )
 
-        print("Predicción cruda:", prediction)
+        print(
+            "Predicción cruda:",
+            prediction
+        )
 
         probability = float(
             prediction[0][0]
@@ -89,7 +100,43 @@ def predict(
             else "BAJÓ"
         )
 
-        print("Predicción completada correctamente")
+        # ---------------------------------
+        # MANEJO ROBUSTO FECHAS
+        # ---------------------------------
+
+        if 'Date' in window.columns:
+
+            windowStart = str(
+                window.iloc[0]['Date']
+            )
+
+            windowEnd = str(
+                window.iloc[-1]['Date']
+            )
+
+        elif 'date' in window.columns:
+
+            windowStart = str(
+                window.iloc[0]['date']
+            )
+
+            windowEnd = str(
+                window.iloc[-1]['date']
+            )
+
+        else:
+
+            windowStart = str(
+                window.index[0]
+            )
+
+            windowEnd = str(
+                window.index[-1]
+            )
+
+        print(
+            "Predicción completada correctamente"
+        )
 
         return {
 
@@ -103,10 +150,10 @@ def predict(
             realMovement,
 
             "window_start":
-            str(window.iloc[0]['Date']),
+            windowStart,
 
             "window_end":
-            str(window.iloc[-1]['Date'])
+            windowEnd
         }
 
     except Exception as e:
