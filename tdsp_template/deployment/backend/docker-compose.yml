@@ -1,0 +1,14 @@
+services:
+
+  tsla-api:
+
+    build:
+      context: ../../
+      dockerfile: deployment/backend/Dockerfile
+
+    container_name: tsla-api
+
+    ports:
+      - "8000:8000"
+
+    restart: always
