@@ -8,6 +8,10 @@
 
 PT1_1_TSLA_30DAYS_LSTM.h5
 
+### Despliegue com frontend
+
+- https://p3-metodologias-agiles-ml.vercel.app/
+
 ### Plataforma de despliegue
 
 - Backend API: Render
