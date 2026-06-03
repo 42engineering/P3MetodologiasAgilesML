@@ -3,12 +3,12 @@ PIPELINE_NAME = (
 )
 
 MODEL_NAME = (
-    "PT1_1_TSLA_30DAYS_LSTM.keras"
+    "PT1_1_TSLA_30DAYS_LSTM.h5"
 )
 
 MODEL_PATH = (
     "models/"
-    "PT1_1_TSLA_30DAYS_LSTM.keras"
+    "PT1_1_TSLA_30DAYS_LSTM.h5"
 )
 
 CSV_PATH = (

@@ -3,8 +3,8 @@ services:
   tsla-api:
 
     build:
-      context: ../../
-      dockerfile: deployment/backend/Dockerfile
+      context: ..
+      dockerfile: deployment/Dockerfile
 
     container_name: tsla-api
 
