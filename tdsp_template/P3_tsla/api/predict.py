@@ -77,6 +77,22 @@ def predict(
             xInput
         )
 
+        print("=" * 50)
+
+        print(
+            "Fecha solicitada:",
+            request.start_date
+        )
+
+        print("Ventana inicio:",window.iloc[0]["Date"])
+        print("Ventana fin:",window.iloc[-1]["Date"])
+        print("Primer registro:")
+        print(xInput[0][0])
+        print("Último registro:")
+        print(xInput[0][-1])
+
+        print("=" * 50)
+
         print(
             "Predicción cruda:",
             prediction
@@ -99,10 +115,6 @@ def predict(
             window.iloc[-2]['Close']
             else "BAJÓ"
         )
-
-        # ---------------------------------
-        # MANEJO ROBUSTO FECHAS
-        # ---------------------------------
 
         if 'Date' in window.columns:
 
