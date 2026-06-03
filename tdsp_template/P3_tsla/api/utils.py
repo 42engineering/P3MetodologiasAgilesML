@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 
 from P3_tsla.api.constants import (
@@ -11,23 +13,29 @@ def getWindowFromDate(
 ):
 
     df = pd.read_csv(
-        CSV_PATH
+        CSV_PATH,
+        skiprows=[1]
     )
 
+    df = df.rename(
+        columns={
+            "Price": "Date"
+        }
+    )
 
-    if 'Date' in df.columns:
+    df = df.iloc[1:].copy()
 
-        dateColumn = 'Date'
+    print("=" * 50)
+    print("COLUMNAS")
+    print(df.columns.tolist())
 
-    elif 'date' in df.columns:
+    print("=" * 50)
+    print("HEAD")
+    print(df.head(10))
 
-        dateColumn = 'date'
+    print("=" * 50)
 
-    else:
-
-        raise Exception(
-            "No date column found"
-        )
+    dateColumn = "Date"
 
     df[dateColumn] = pd.to_datetime(
         df[dateColumn]
@@ -36,6 +44,7 @@ def getWindowFromDate(
     startDate = pd.to_datetime(
         startDate
     )
+
     filtered = df[
         df[dateColumn] >= startDate
     ]
@@ -48,6 +57,12 @@ def getWindowFromDate(
 
     window = filtered.head(
         SEQUENCE_LENGTH
+    )
+
+    print("CSV_PATH =", CSV_PATH)
+    print(
+        "EXISTS =",
+        Path(CSV_PATH).exists()
     )
 
     return window
