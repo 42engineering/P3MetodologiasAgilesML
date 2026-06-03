@@ -89,3 +89,59 @@ async function predictMovement(){
         resultBox.innerHTML = `
 
             <h2>
+
+                Prediction:
+                ${data.prediction}
+
+            </h2>
+
+            <p>
+
+                Confidence Score:
+                ${(data.probability * 100)
+                    .toFixed(2)}%
+
+            </p>
+
+            <p>
+
+                Real Movement:
+                ${data.real_movement}
+
+            </p>
+
+            <p>
+
+                Window:
+                ${data.window_start}
+                →
+                ${data.window_end}
+
+            </p>
+
+            <p>
+
+                Model:
+                PT1_1_TSLA_30DAYS_LSTM
+
+            </p>
+
+        `;
+
+    }catch(error){
+
+        resultBox.innerHTML = `
+
+            <h2>
+                Connection Error
+            </h2>
+
+            <p>
+                Unable to connect API.
+            </p>
+
+        `;
+
+        console.error(error);
+    }
+}
