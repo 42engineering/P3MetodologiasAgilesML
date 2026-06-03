@@ -13,7 +13,19 @@ dependencies = [
     "numpy==2.0.2",
     "pandas==2.2.2",
     "yfinance==0.2.66",
-    "dvc[gdrive]==3.67.1"
+
+    "dvc[gdrive]==3.67.1",
+
+    "scikit-learn >= 1.2.1",
+    # "mlflow >= 2.1.1",      #se esta usando en colab
+    # "tensorflow==2.18.0",   #se esta usando en colab
+
+    "requests==2.32.3",
+    "fastapi==0.115.12",
+    "uvicorn==0.34.0",
+    "python-multipart==0.0.20",
+    "pydantic==2.10.6",
+
 ]
 
 [tool.setuptools.packages.find]
