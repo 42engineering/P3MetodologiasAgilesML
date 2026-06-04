@@ -1,12 +1,12 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-
 import numpy as np
 import pandas as pd
 import traceback
 
 from P3_tsla.api.model_loader import model
 from P3_tsla.api.utils import getWindowFromDate
+from P3_tsla.api.scaler_loader import scaler
 
 from P3_tsla.api.constants import (
     FEATURES,
@@ -16,22 +16,15 @@ from P3_tsla.api.constants import (
     MODEL_NAME
 )
 
-from P3_tsla.api.scaler_loader import (
-    scaler
-)
-
 router = APIRouter()
 
 
 class PredictionRequest(BaseModel):
-
     start_date: str
 
 
 @router.post("/predict")
-def predict(
-    request: PredictionRequest
-):
+def predict(request: PredictionRequest):
 
     try:
 
@@ -40,75 +33,30 @@ def predict(
         print(request)
         print("=" * 50)
 
-        print("1. Obteniendo ventana...")
-
-        window = getWindowFromDate(
-            request.start_date
-        )
+        window = getWindowFromDate(request.start_date)
 
         print("COLUMNAS DEL WINDOW:")
         print(window.columns)
 
-        print("Ventana obtenida")
-        print(window.head())
-
-        print("2. Construyendo xInput...")
-
         xInput = window[FEATURES].values
+
+        print("Shape original:", xInput.shape)
+
         xInput = scaler.transform(xInput)
 
-        print(
-            "Shape antes expand_dims:",
-            xInput.shape
-        )
+        print("Shape despues scaler:", xInput.shape)
+        print("Min valor:", xInput.min())
+        print("Max valor:", xInput.max())
 
-        xInput = np.expand_dims(
-            xInput,
-            axis=0
-        )
+        xInput = np.expand_dims(xInput, axis=0)
 
-        xInput = np.expand_dims(
-        xInput,
-        axis=0
-        )
+        print("Shape final:", xInput.shape)
 
-        print(
-            "Shape final:",
-            xInput.shape
-        )
+        prediction = model.predict(xInput, verbose=0)
 
-        print(
-            "3. Ejecutando predicción..."
-        )
+        print("Prediccion cruda:", prediction)
 
-        prediction = model.predict(
-            xInput
-        )
-
-        print("=" * 50)
-
-        print(
-            "Fecha solicitada:",
-            request.start_date
-        )
-
-        print("Ventana inicio:",window.iloc[0]["Date"])
-        print("Ventana fin:",window.iloc[-1]["Date"])
-        print("Primer registro:")
-        print(xInput[0][0])
-        print("Último registro:")
-        print(xInput[0][-1])
-
-        print("=" * 50)
-
-        print(
-            "Predicción cruda:",
-            prediction
-        )
-
-        probability = float(
-            prediction[0][0]
-        )
+        probability = float(prediction[0][0])
 
         predictionLabel = (
             "SUBIRÁ"
@@ -118,62 +66,26 @@ def predict(
 
         realMovement = (
             "SUBIÓ"
-            if window.iloc[-1]['Close']
-            >
-            window.iloc[-2]['Close']
+            if window.iloc[-1]["Close"] > window.iloc[-2]["Close"]
             else "BAJÓ"
         )
 
-        if 'Date' in window.columns:
-
-            windowStart = str(
-                window.iloc[0]['Date']
-            )
-
-            windowEnd = str(
-                window.iloc[-1]['Date']
-            )
-
-        elif 'date' in window.columns:
-
-            windowStart = str(
-                window.iloc[0]['date']
-            )
-
-            windowEnd = str(
-                window.iloc[-1]['date']
-            )
-
+        if "Date" in window.columns:
+            windowStart = str(window.iloc[0]["Date"])
+            windowEnd = str(window.iloc[-1]["Date"])
+        elif "date" in window.columns:
+            windowStart = str(window.iloc[0]["date"])
+            windowEnd = str(window.iloc[-1]["date"])
         else:
-
-            windowStart = str(
-                window.index[0]
-            )
-
-            windowEnd = str(
-                window.index[-1]
-            )
-
-        print(
-            "Predicción completada correctamente"
-        )
+            windowStart = str(window.index[0])
+            windowEnd = str(window.index[-1])
 
         return {
-
-            "prediction":
-            predictionLabel,
-
-            "probability":
-            probability,
-
-            "real_movement":
-            realMovement,
-
-            "window_start":
-            windowStart,
-
-            "window_end":
-            windowEnd
+            "prediction": predictionLabel,
+            "probability": probability,
+            "real_movement": realMovement,
+            "window_start": windowStart,
+            "window_end": windowEnd
         }
 
     except Exception as e:
@@ -193,18 +105,11 @@ def predict(
 def latestWindow():
 
     df = pd.read_csv(CSV_PATH)
-
     latest = df.tail(SEQUENCE_LENGTH)
 
     return {
-
-        "sequence_length":
-        SEQUENCE_LENGTH,
-
-        "values":
-        latest.to_dict(
-            orient="records"
-        )
+        "sequence_length": SEQUENCE_LENGTH,
+        "values": latest.to_dict(orient="records")
     }
 
 
@@ -212,18 +117,9 @@ def latestWindow():
 def health():
 
     return {
-
         "status": "running",
-
-        "pipeline":
-        PIPELINE_NAME,
-
-        "model":
-        MODEL_NAME,
-
-        "sequence_length":
-        SEQUENCE_LENGTH,
-
-        "framework":
-        "TensorFlow"
+        "pipeline": PIPELINE_NAME,
+        "model": MODEL_NAME,
+        "sequence_length": SEQUENCE_LENGTH,
+        "framework": "TensorFlow"
     }
