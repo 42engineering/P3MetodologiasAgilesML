@@ -28,3 +28,10 @@ FEATURES = [
     "Close",
     "Volume"
 ]
+
+SCALER_PATH = (
+    P3_TSLA_ROOT.parent /
+    "models" /
+    "minmax_scaler.pkl"
+)
+

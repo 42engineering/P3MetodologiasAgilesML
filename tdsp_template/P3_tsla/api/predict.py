@@ -16,6 +16,10 @@ from P3_tsla.api.constants import (
     MODEL_NAME
 )
 
+from P3_tsla.api.scaler_loader import (
+    scaler
+)
+
 router = APIRouter()
 
 
@@ -50,9 +54,8 @@ def predict(
 
         print("2. Construyendo xInput...")
 
-        xInput = window[
-            FEATURES
-        ].values
+        xInput = window[FEATURES].values
+        xInput = scaler.transform(xInput)
 
         print(
             "Shape antes expand_dims:",
@@ -62,6 +65,11 @@ def predict(
         xInput = np.expand_dims(
             xInput,
             axis=0
+        )
+
+        xInput = np.expand_dims(
+        xInput,
+        axis=0
         )
 
         print(
