@@ -10,7 +10,14 @@ PT1_1_TSLA_30DAYS_LSTM.h5
 
 ### Despliegue com frontend
 
-- https://p3-metodologias-agiles-ml.vercel.app/
+- https://tslastockpredictormain.vercel.app/
+
+### Swager backend
+- https://p3metodologiasagilesml-1.onrender.com/docs
+
+### Vercel framework
+
+- https://vercel.com/42engineering-projects/tsla_stock_predictor_main
 
 ### Plataforma de despliegue
 
