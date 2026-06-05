@@ -19,18 +19,14 @@ html{
 body{
     background:var(--bg);
     color:var(--text);
-    font-family:'Libre Baskerville', serif;
+    font-family:'Libre Baskerville',serif;
     line-height:1.8;
 }
-
-/* ---------- GLOBAL ---------- */
 
 .container{
     width:min(980px,90%);
     margin:auto;
 }
-
-/* ---------- NAV ---------- */
 
 nav{
     padding:32px 0;
@@ -66,8 +62,6 @@ nav{
     color:var(--text);
 }
 
-/* ---------- HERO ---------- */
-
 .hero{
     padding:110px 0 90px;
 }
@@ -85,8 +79,6 @@ nav{
     font-size:1.1rem;
 }
 
-/* ---------- BUTTON ---------- */
-
 .primary-btn{
     margin-top:36px;
     display:inline-block;
@@ -102,8 +94,6 @@ nav{
     background:var(--accent);
 }
 
-/* ---------- SECTION ---------- */
-
 .section-title{
     font-size:.85rem;
     font-family:'Inter',sans-serif;
@@ -112,8 +102,6 @@ nav{
     margin-bottom:30px;
     color:var(--muted);
 }
-
-/* ---------- PREDICTION ---------- */
 
 .prediction{
     padding:60px 0;
@@ -133,6 +121,16 @@ input{
     margin-bottom:24px;
 }
 
+select{
+    width:100%;
+    border:1px solid var(--line);
+    padding:18px;
+    font-size:1rem;
+    font-family:'Inter',sans-serif;
+    margin-bottom:24px;
+    background:white;
+}
+
 button{
     background:#111;
     color:white;
@@ -147,8 +145,6 @@ button:hover{
     background:var(--accent);
 }
 
-/* ---------- RESULT ---------- */
-
 .result{
     margin-top:40px;
     padding:30px;
@@ -161,7 +157,9 @@ button:hover{
     font-size:2rem;
 }
 
-/* ---------- METRICS ---------- */
+.result p{
+    margin-bottom:10px;
+}
 
 .metrics{
     padding:80px 0;
@@ -187,8 +185,6 @@ button:hover{
     color:var(--muted);
 }
 
-/* ---------- VISUAL ---------- */
-
 .visuals{
     padding:20px 0 100px;
 }
@@ -203,7 +199,19 @@ button:hover{
     font-family:'Inter',sans-serif;
 }
 
-/* ---------- FOOTER ---------- */
+.prediction-images{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.prediction-images img{
+    width:100%;
+    height:auto;
+    border:1px solid var(--line);
+    border-radius:6px;
+}
 
 footer{
     border-top:1px solid var(--line);
@@ -212,8 +220,6 @@ footer{
     color:var(--muted);
     font-family:'Inter',sans-serif;
 }
-
-/* ---------- MOBILE ---------- */
 
 @media(max-width:768px){
 
@@ -229,4 +235,7 @@ footer{
         padding:24px;
     }
 
+    .prediction-images{
+        grid-template-columns:1fr;
+    }
 }

@@ -3,11 +3,57 @@ const API_URL =
     // "https://p3metodologiasagilesml.onrender.com";
 
 
-async function predictMovement(){
+window.onload = async () => {
+
+    try {
+
+        const response = await fetch(
+            `${API_URL}/models`
+        );
+
+        const data = await response.json();
+
+        const select =
+            document.getElementById(
+                "modelSelect"
+            );
+
+        select.innerHTML = "";
+
+        data.models.forEach(model => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value = model;
+
+            option.textContent = model;
+
+            select.appendChild(
+                option
+            );
+        });
+
+    } catch(error) {
+
+        console.error(error);
+
+    }
+
+};
+
+async function predictMovement() {
 
     const startDate =
         document.getElementById(
             "startDate"
+        ).value;
+
+    const modelName =
+        document.getElementById(
+            "modelSelect"
         ).value;
 
     const resultBox =
@@ -15,57 +61,31 @@ async function predictMovement(){
             "resultBox"
         );
 
-    if(!startDate){
+    resultBox.innerHTML =
+        "<h2>Loading prediction...</h2>";
 
-        resultBox.innerHTML = `
+    try {
 
-            <h2>
-                No Date Selected
-            </h2>
+        const response = await fetch(
+            `${API_URL}/predict`,
+            {
+                method: "POST",
 
-            <p>
-                Please select a valid date.
-            </p>
+                headers: {
+                    "Content-Type":
+                    "application/json"
+                },
 
-        `;
+                body: JSON.stringify({
 
-        return;
-    }
+                    start_date:
+                    startDate,
 
-    resultBox.innerHTML = `
-
-        <h2>
-            Running Prediction...
-        </h2>
-
-        <p>
-            Executing TensorFlow model.
-        </p>
-
-    `;
-
-    try{
-
-        const response =
-            await fetch(
-
-                `${API_URL}/predict`,
-
-                {
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":
-                        "application/json"
-                    },
-
-                    body:JSON.stringify({
-
-                        start_date:
-                        startDate
-                    })
-                }
-            );
+                    model_name:
+                    modelName
+                })
+            }
+        );
 
         const data =
             await response.json();
@@ -90,46 +110,37 @@ async function predictMovement(){
         resultBox.innerHTML = `
 
             <h2>
-
-                Prediction:
                 ${data.prediction}
-
             </h2>
 
             <p>
-
-                Predicted Class Probability:
-                ${(data.probability * 100)
-                    .toFixed(2)}%
-
+                <b>Model:</b>
+                ${data.model}
             </p>
 
             <p>
+                <b>Probability:</b>
+                ${(data.probability * 100).toFixed(2)}%
+            </p>
 
-                Real Movement:
+            <p>
+                <b>Real Movement:</b>
                 ${data.real_movement}
-
             </p>
 
             <p>
-
-                Window:
+                <b>Window Start:</b>
                 ${data.window_start}
-                →
-                ${data.window_end}
-
             </p>
 
             <p>
-
-                Model:
-                PT1_1_TSLA_30DAYS_LSTM
-
+                <b>Window End:</b>
+                ${data.window_end}
             </p>
 
         `;
 
-    }catch(error){
+    } catch(error) {
 
         resultBox.innerHTML = `
 
@@ -138,11 +149,11 @@ async function predictMovement(){
             </h2>
 
             <p>
-                Unable to connect API.
+                ${error}
             </p>
 
         `;
 
-        console.error(error);
     }
+
 }
