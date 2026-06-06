@@ -39,9 +39,27 @@ FEATURES = [
     "Volume"
 ]
 
-SCALER_PATH = (
+FEATURES_INDICADORES1 = [
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume",
+    "RSI_14",
+    "MACD",
+    "MACD_SIGNAL",
+    "ATR_14",
+    "EMA_20"
+]
+
+SCALER_PATH_5 = (
     MODELS_DIR /
     "minmax_scaler.pkl"
+)
+
+SCALER_PATH_10 = (
+    MODELS_DIR /
+    "minmax_scaler_indicadores1.pkl"
 )
 
 AVAILABLE_MODELS = {
@@ -108,4 +126,40 @@ AVAILABLE_MODELS = {
 
     "CNNLSTM1_20":
     "PT1_1_TSLA_20DAYS_CNNLSTM1.keras"
+}
+
+MODEL_FEATURES = {
+
+    "LSTM_5": FEATURES,
+    "LSTM_10": FEATURES,
+    "LSTM_15": FEATURES,
+    "LSTM_20": FEATURES,
+    "LSTM_30": FEATURES,
+
+    "LSTM1_5": FEATURES,
+    "LSTM1_10": FEATURES,
+    "LSTM1_15": FEATURES,
+    "LSTM1_20": FEATURES,
+
+    "DeepLSTM1_5": FEATURES,
+    "DeepLSTM1_10": FEATURES,
+    "DeepLSTM1_15": FEATURES,
+    "DeepLSTM1_20": FEATURES,
+
+    "CNNLSTM1_5": FEATURES,
+    "CNNLSTM1_10": FEATURES,
+    "CNNLSTM1_15": FEATURES,
+    "CNNLSTM1_20": FEATURES,
+
+    "DeepLSTM1_Indicadores1_5":
+    FEATURES_INDICADORES1,
+
+    "DeepLSTM1_Indicadores1_10":
+    FEATURES_INDICADORES1,
+
+    "DeepLSTM1_Indicadores1_15":
+    FEATURES_INDICADORES1,
+
+    "DeepLSTM1_Indicadores1_20":
+    FEATURES_INDICADORES1
 }

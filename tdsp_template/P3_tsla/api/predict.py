@@ -9,37 +9,40 @@ from P3_tsla.api.scaler_loader import scaler
 from P3_tsla.api.model_loader import getModel
 
 from P3_tsla.api.constants import (
-    FEATURES,
     CSV_PATH,
     PIPELINE_NAME,
     AVAILABLE_MODELS,
-    MODELS_DIR
+    MODELS_DIR,
+    MODEL_FEATURES
 )
 
 router = APIRouter()
-
 
 class PredictionRequest(BaseModel):
     start_date: str
     model_name: str
 
-
 @router.get("/models")
 def getModels():
 
     return {
-
         "models":
         list(
             AVAILABLE_MODELS.keys()
         )
     }
 
-
 @router.post("/predict")
-def predict(request: PredictionRequest):
+def predict(
+    request: PredictionRequest
+):
 
     try:
+
+        print("=" * 50)
+        print("REQUEST RECIBIDO")
+        print(request)
+        print("=" * 50)
 
         if request.model_name not in AVAILABLE_MODELS:
 
@@ -52,16 +55,33 @@ def predict(request: PredictionRequest):
             request.model_name
         ]
 
-        sequenceLength = int(
-            modelFile.split("_")[3].replace(
-                "DAYS",
-                ""
-            )
-        )
-
         modelPath = (
             MODELS_DIR /
             modelFile
+        )
+
+        sequenceLength = int(
+            modelFile.split("_")[3]
+            .replace("DAYS", "")
+        )
+
+        features = MODEL_FEATURES[
+            request.model_name
+        ]
+
+        print(
+            "MODEL:",
+            modelFile
+        )
+
+        print(
+            "SEQUENCE_LENGTH:",
+            sequenceLength
+        )
+
+        print(
+            "FEATURES:",
+            features
         )
 
         model = getModel(
@@ -73,9 +93,19 @@ def predict(request: PredictionRequest):
             sequenceLength
         )
 
+        print(
+            "WINDOW SHAPE:",
+            window.shape
+        )
+
         xInput = window[
-            FEATURES
+            features
         ].values
+
+        print(
+            "X ORIGINAL:",
+            xInput.shape
+        )
 
         xInput = scaler.transform(
             xInput
@@ -84,6 +114,11 @@ def predict(request: PredictionRequest):
         xInput = np.expand_dims(
             xInput,
             axis=0
+        )
+
+        print(
+            "X FINAL:",
+            xInput.shape
         )
 
         prediction = model.predict(
@@ -103,9 +138,12 @@ def predict(request: PredictionRequest):
 
         realMovement = (
             "SUBIÓ"
-            if window.iloc[-1]["Close"]
-            >
-            window.iloc[-2]["Close"]
+            if float(
+                window.iloc[-1]["Close"]
+            ) >
+            float(
+                window.iloc[-2]["Close"]
+            )
             else "BAJÓ"
         )
 
@@ -176,7 +214,6 @@ def predict(request: PredictionRequest):
             str(e)
         }
 
-
 @router.get("/latest-window")
 def latestWindow():
 
@@ -185,11 +222,9 @@ def latestWindow():
     )
 
     return {
-
         "rows":
         len(df)
     }
-
 
 @router.get("/health")
 def health():
