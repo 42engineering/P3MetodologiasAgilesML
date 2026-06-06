@@ -103,17 +103,17 @@ AVAILABLE_MODELS = {
     "DeepLSTM1_20":
     "PT1_1_TSLA_20DAYS_DeepLSTM1.keras",
 
-    "DeepLSTM1_Indicadores1_5":
-    "PT1_1_TSLA_5DAYS_DeepLSTM1_INDICADORES1.keras",
+    # "DeepLSTM1_Indicadores1_5":
+    # "PT1_1_TSLA_5DAYS_DeepLSTM1_INDICADORES1.keras",
 
-    "DeepLSTM1_Indicadores1_10":
-    "PT1_1_TSLA_10DAYS_DeepLSTM1_INDICADORES1.keras",
+    # "DeepLSTM1_Indicadores1_10":
+    # "PT1_1_TSLA_10DAYS_DeepLSTM1_INDICADORES1.keras",
 
-    "DeepLSTM1_Indicadores1_15":
-    "PT1_1_TSLA_15DAYS_DeepLSTM1_INDICADORES1.keras",
+    # "DeepLSTM1_Indicadores1_15":
+    # "PT1_1_TSLA_15DAYS_DeepLSTM1_INDICADORES1.keras",
 
-    "DeepLSTM1_Indicadores1_20":
-    "PT1_1_TSLA_20DAYS_DeepLSTM1_INDICADORES1.keras",
+    # "DeepLSTM1_Indicadores1_20":
+    # "PT1_1_TSLA_20DAYS_DeepLSTM1_INDICADORES1.keras",
 
     "CNNLSTM1_5":
     "PT1_1_TSLA_5DAYS_CNNLSTM1.keras",
@@ -151,15 +151,15 @@ MODEL_FEATURES = {
     "CNNLSTM1_15": FEATURES,
     "CNNLSTM1_20": FEATURES,
 
-    "DeepLSTM1_Indicadores1_5":
-    FEATURES_INDICADORES1,
+    # "DeepLSTM1_Indicadores1_5":
+    # FEATURES_INDICADORES1,
 
-    "DeepLSTM1_Indicadores1_10":
-    FEATURES_INDICADORES1,
+    # "DeepLSTM1_Indicadores1_10":
+    # FEATURES_INDICADORES1,
 
-    "DeepLSTM1_Indicadores1_15":
-    FEATURES_INDICADORES1,
+    # "DeepLSTM1_Indicadores1_15":
+    # FEATURES_INDICADORES1,
 
-    "DeepLSTM1_Indicadores1_20":
-    FEATURES_INDICADORES1
+    # "DeepLSTM1_Indicadores1_20":
+    # FEATURES_INDICADORES1
 }
