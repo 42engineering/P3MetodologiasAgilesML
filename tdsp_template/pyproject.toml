@@ -19,7 +19,6 @@ dependencies = [
     "numpy==2.0.2",
     "pandas==2.2.2",
     "yfinance==0.2.66",
-    "pandas-ta==0.4.71b0",
 
     "dvc[gdrive]==3.67.1",
 
