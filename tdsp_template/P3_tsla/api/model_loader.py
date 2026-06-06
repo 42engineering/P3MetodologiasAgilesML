@@ -1,10 +1,22 @@
 import tensorflow as tf
 
-from P3_tsla.api.constants import (
-    MODEL_PATH
-)
+loadedModels = {}
 
-model = tf.keras.models.load_model(
-    MODEL_PATH,
-    compile=False
-)
+def getModel(modelPath):
+
+    modelPath = str(modelPath)
+
+    if modelPath not in loadedModels:
+
+        print(
+            f"Loading model: {modelPath}"
+        )
+
+        loadedModels[modelPath] = (
+            tf.keras.models.load_model(
+                modelPath,
+                compile=False
+            )
+        )
+
+    return loadedModels[modelPath]
