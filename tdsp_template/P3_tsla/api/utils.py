@@ -3,13 +3,12 @@ from pathlib import Path
 import pandas as pd
 
 from P3_tsla.api.constants import (
-    CSV_PATH,
-    SEQUENCE_LENGTH
+    CSV_PATH
 )
 
-
 def getWindowFromDate(
-    startDate: str
+    startDate: str,
+    sequenceLength: int
 ):
 
     df = pd.read_csv(
@@ -19,7 +18,7 @@ def getWindowFromDate(
 
     df = df.rename(
         columns={
-            "Price": "Date"
+            "Price":"Date"
         }
     )
 
@@ -49,17 +48,21 @@ def getWindowFromDate(
         df[dateColumn] >= startDate
     ]
 
-    if len(filtered) < SEQUENCE_LENGTH:
+    if len(filtered) < sequenceLength:
 
         raise Exception(
             f"Not enough rows after {startDate}"
         )
 
     window = filtered.head(
-        SEQUENCE_LENGTH
+        sequenceLength
     )
 
-    print("CSV_PATH =", CSV_PATH)
+    print(
+        "CSV_PATH =",
+        CSV_PATH
+    )
+
     print(
         "EXISTS =",
         Path(CSV_PATH).exists()
