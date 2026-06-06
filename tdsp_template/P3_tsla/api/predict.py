@@ -5,7 +5,7 @@ import pandas as pd
 import traceback
 
 from P3_tsla.api.utils import getWindowFromDate
-from P3_tsla.api.scaler_loader import scaler
+from P3_tsla.api.scaler_loader import scaler5, scaler10
 from P3_tsla.api.model_loader import getModel
 
 from P3_tsla.api.constants import (
@@ -98,14 +98,14 @@ def predict(
             window.shape
         )
 
-        xInput = window[
-            features
-        ].values
+        xInput = window[features].values
 
-        print(
-            "X ORIGINAL:",
-            xInput.shape
-        )
+        print("X ORIGINAL:",xInput.shape)
+
+        if len(features) == 5:
+            scaler = scaler5
+        else:
+            scaler = scaler10
 
         xInput = scaler.transform(
             xInput
