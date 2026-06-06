@@ -1,6 +1,6 @@
 [Volver al README](../../../../README.md)
 
-# Predicción de Dirección Financiera de TSLA mediante Redes Neuronales
+# Predicción de Dirección Financiera de la accion de TSLA mediante Redes Neuronales
 ---
 
 ###  Objetivo 
@@ -45,4 +45,6 @@ Posibles soluciones:
 - Reincorporar los modelos basados en indicadores técnicos mediante una implementación propia de RSI, MACD, ATR y EMA utilizando únicamente Pandas y NumPy, eliminando dependencias externas que dificulten la portabilidad del sistema
 -Incluir el trabajo de colab en el container de docker para evitar problemas de versionamiento.
 
-- La senal de entrenamiento es baja aun usando Indicadores financieros,  es posible incorporar nuevas fuentes de información, tales como indicadores macroeconómicos, sentimiento de noticias financieras o variables derivadas de redes sociales, con el objetivo de enriquecer la capacidad predictiva de los modelos.s
+- La senal de entrenamiento es baja aun usando Indicadores financieros,  es posible incorporar nuevas fuentes de información, tales como indicadores macroeconómicos, sentimiento de noticias financieras o variables derivadas de redes sociales, con el objetivo de enriquecer la capacidad predictiva de los modelos.
+
+- Es posible mejorar la interfase de usuario para incluir las graficas del mercado y los datos en tiempo real para realizar las predicciones.
