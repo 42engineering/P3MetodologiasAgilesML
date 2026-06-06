@@ -1,33 +1,48 @@
 [Volver al README](../../../../README.md)
 
-##Objetivo General
+# Predicción de Dirección Financiera de TSLA mediante Redes Neuronales
+---
+
+###  Objetivo 
 Diseñar, entrenar y desplegar un modelo de aprendizaje profundo que permita predecir la dirección del precio de cierre de la acción de Tesla utilizando datos históricos de mercado.
 
-## Adquisición de Datos
+- [Notebook](https://colab.research.google.com/github/42engineering/P3MetodologiasAgilesML/blob/main/tdsp_template/P3_tsla/scripts/data_acquisition/PT1.1ColabV2.ipynb#scrollTo=A6qEKHZACutI) - Notebook.
 
-Se recopilan datos históricos de Tesla incluyendo variables fundamentales del mercado:
+### Plataforma de despliegue
 
-Open
-High
-Low
-Close
-Volume
+- Backend API: Fast- API- Render
+- Frontend: Vercel
+- Control de versiones: GitHub, DVC, MLflow
+- Contenerización: Docker
 
-# Se generan variables derivadas y etiquetas binarias que representan la dirección futura del mercado:
+### Requisitos técnicos
 
-1: el precio sube.
-0: el precio baja o permanece estable.
-s
-# Construccion de secuencias de tiempo:
+- Python
+- TensorFlow 
+- FastAPI 
+- Uvicorn 0.34.0
+- Mlflow
+- NumPy 
+- Pandas 
+- Scikit-learn 
+- Docker
+- Git
+- dvc
 
-Los datos son transformados en ventanas temporales utilizando diferentes valores de Sequence Length:
+### Despliegue
 
-5 días
-10 días
-15 días
-20 días
-30 días
+https://tslastockpredictormain.vercel.app/
 
-# Entrenamiento
 
-Se evaluaron diferentes arquitecturas de redes neuronales.active
+### Conclusiones y oportunidades de Mejora:
+
+
+* Problemas de infrastructura encontrados:
+
+- Se utilizo la librerias pandas-ta  para general variables financieras en el modelo DeepLStm con indicadores durante el entrenamiento se utilizo una version pandas-ta==0.4.71b0 en `Colab` que sin embargo esa version no esta disponible dede PyPI para ser instalada automaticamente en render.
+Posibles soluciones:
+
+- Reincorporar los modelos basados en indicadores técnicos mediante una implementación propia de RSI, MACD, ATR y EMA utilizando únicamente Pandas y NumPy, eliminando dependencias externas que dificulten la portabilidad del sistema
+-Incluir el trabajo de colab en el container de docker para evitar problemas de versionamiento.
+
+- La senal de entrenamiento es baja aun usando Indicadores financieros,  es posible incorporar nuevas fuentes de información, tales como indicadores macroeconómicos, sentimiento de noticias financieras o variables derivadas de redes sociales, con el objetivo de enriquecer la capacidad predictiva de los modelos.s

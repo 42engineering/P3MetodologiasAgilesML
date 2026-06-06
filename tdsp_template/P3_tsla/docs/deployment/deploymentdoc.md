@@ -21,40 +21,69 @@ PT1_1_TSLA_30DAYS_LSTM.h5
 
 ### Plataforma de despliegue
 
-- Backend API: Render
+- Backend API: Fast- API- Render
 - Frontend: Vercel
-- Control de versiones: GitHub
+- Control de versiones: GitHub, DVC, MLflow
+- 
 - Contenerización: Docker
 
 ### Requisitos técnicos
 
-- Python 3.12
-- TensorFlow 2.20.0
-- FastAPI 0.115.12
+- Python
+- TensorFlow \
+- FastAPI 
 - Uvicorn 0.34.0
-- NumPy 1.26.4
-- Pandas 2.2.2
-- Scikit-learn 1.6.1
+- NumPy 
+- Pandas 
+- Scikit-learn 
 - Docker
 - Git
-- Navegador web moderno
-- Conexión a internet
+- Dvc
+- Mlflow
+
 
 
 ### Diagrama de arquitectura
 
 ```md
+### Diagrama de arquitectura desplegada
+
+```text
 Usuario
    ↓
-Frontend FE_TSLA_V1_0 (Vercel)
+Frontend
+(HTML + CSS + JavaScript)
+(Vercel)
    ↓
-FastAPI REST API (Render)
+REST API FastAPI
+(Render)
+   ↓
+Endpoint /models
+(Lista de modelos disponibles)
+   ↓
+Endpoint /predict
+(Fecha + Modelo seleccionado)
+   ↓
+Model Loader
+(getModel)
    ↓
 TensorFlow CPU
    ↓
-Modelo LSTM PT1_1_TSLA_30DAYS_LSTM
+Modelo seleccionado dinámicamente
+
    ↓
-Predicción bursátil TSLA
+MinMaxScaler
+(minmax_scaler.pkl)
+   ↓
+TeslaData.csv
+   ↓
+Predicción de movimiento bursátil TSLA
+(Probabilidad + Dirección)
+```
+
+
+
+
 ```
 
 ---
