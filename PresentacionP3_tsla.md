@@ -40,8 +40,6 @@ https://p3metodologiasagilesml-1.onrender.com/docs
 # Vercel framework
 https://vercel.com/42engineering-projects/tsla_stock_predictor_main
 
-### Conclusiones y oportunidades de Mejora:
-
 # Problemas de infrastructura encontrados:
 
 - Se utilizo la librerias pandas-ta  para general variables financieras en el modelo DeepLStm con indicadores durante el entrenamiento se utilizo una version pandas-ta==0.4.71b0 en `Colab` que sin embargo esa version no esta disponible dede PyPI para ser instalada automaticamente en render.

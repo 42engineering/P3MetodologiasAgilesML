@@ -14,7 +14,6 @@ TSLA Financial Direction Prediction Using Neural Networks.
 * ✅ [data_acquisition_tsla.py](/tdsp_template/P3_tsla/scripts/data_acquisition/data_acquisition_tsla.py) - Data acqusition tsla stocks
 
 ## Documentation
-* ✅ [Project Charter](/tdsp_template/P3_tsla/docs/business_understanding/project_charter_tsla.md) - Objectives, scope, and methodology
 * ✅ [Data Dictionary](/tdsp_template/P3_tsla/docs/data/data_dictionary.md) - Data Dictionary
 * ✅ [Data Summary](/tdsp_template/P3_tsla/docs/data/data_summary_es.md) - Data Summary
 * ✅ [Baseline_models](/tdsp_template/P3_tsla/docs/modeling/baseline_models_tsla.md) - Baseline models
