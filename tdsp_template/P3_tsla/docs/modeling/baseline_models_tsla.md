@@ -2,7 +2,7 @@
 
 # Objetivo del modelamiento
 
-PT1.1 — Predicción de Dirección Sube/Baja usando LSTM
+PT1.1 — Predicción de Dirección Sube/Baja usando LSTM y modelos hibridos LSTM+CNN
 
 Predecir la dirección del precio de cierre de la acción de Tesla (TSLA) para el siguiente día bursátil.
 
@@ -16,13 +16,16 @@ utilizando información histórica del mercado financiero.
 ---
 # Reporte del Modelo Baseline
 
-Este documento presenta los resultados obtenidos con el modelo baseline desarrollado para la predicción de la dirección del precio de la acción de Tesla (TSLA) utilizando redes neuronales LSTM.
+El modelo baseline corresponde al primer enfoque de aprendizaje mediante LSTM a este modelo se le llamo LSTM1.
+Su objetivo es establecer una línea base de desempeño que permita comparar posteriormente arquitecturas más complejas como DeepLSTM1 y CNNLSTM1.
+
+El modelo utiliza una arquitectura LSTM simple para capturar patrones temporales presentes en los datos históricos del mercado financiero. La salida del modelo corresponde a una clasificación binaria que indica si el precio de cierre de la acción aumentará o disminuirá en el siguiente período de análisis.
 
 ---
 
 # Descripción del modelo
 
-El modelo baseline implementado corresponde a una arquitectura `SimpleLSTM`, utilizada como primera aproximación para resolver el problema de clasificación binaria sobre la dirección futura del precio de Tesla.
+El modelo baseline implementado corresponde a una arquitectura `LSTM1`, utilizada como primera aproximación para resolver el problema de clasificación binaria sobre la dirección futura del precio de Tesla.
 
 El modelo está compuesto por:
 
@@ -45,7 +48,10 @@ Las variables utilizadas como entrada del modelo fueron:
 
 Estas variables fueron normalizadas utilizando `MinMaxScaler` y posteriormente transformadas en secuencias temporales para el entrenamiento de la red neuronal.
 
----
+# Variable objetivo
+Se emplearon difetente series de tiempo para lo que planteo un configuracionse de [5, 10, 15, 20, 30] dias.
+
+---https://chatgpt.com/g/g-p-6a067a71c9508191b761906706e43f36/c/6a22532d-5980-83eb-bd21-efec1732c6a9
 
 # Variable objetivo
 
@@ -59,8 +65,6 @@ Esta variable representa la dirección futura del precio de cierre de Tesla:
 * `0`: el precio bajará o permanecerá igual.
 
 La variable fue generada comparando el precio de cierre actual con el precio de cierre del siguiente día bursátil.
-
----
 
 # Evaluación del modelo
 
@@ -82,9 +86,10 @@ Estas métricas permiten evaluar la capacidad del modelo para clasificar correct
 
 | Modelo     | Accuracy | Loss                | Observaciones                                                  |
 | ---------- | -------- | ------------------- | -------------------------------------------------------------- |
-| SimpleLSTM | ~0.51    | Binary Crossentropy | Rendimiento cercano al azar, pero útil como línea base inicial |
+| SimpleLSTM | ~0.5    | Binary Crossentropy | Rendimiento cercano al azar, pero útil como línea base inicial |
 
-El modelo obtuvo un accuracy cercano al 51%, indicando una capacidad limitada para predecir correctamente la dirección futura del precio.
+El modelo obtuvo un accuracy cercano al 52%, indicando una capacidad limitada para predecir correctamente la dirección futura del precio. Por lo que se procedio a
+
 
 ---
 

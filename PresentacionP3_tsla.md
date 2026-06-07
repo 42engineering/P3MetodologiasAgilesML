@@ -31,19 +31,26 @@ Diseñar, entrenar y desplegar un modelo de aprendizaje profundo que permita pre
 
 ### Despliegue
 
+# Despliegue com frontend
 https://tslastockpredictormain.vercel.app/
 
+# Swager backend
+https://p3metodologiasagilesml-1.onrender.com/docs
+
+# Vercel framework
+https://vercel.com/42engineering-projects/tsla_stock_predictor_main
 
 ### Conclusiones y oportunidades de Mejora:
 
-
-* Problemas de infrastructura encontrados:
+# Problemas de infrastructura encontrados:
 
 - Se utilizo la librerias pandas-ta  para general variables financieras en el modelo DeepLStm con indicadores durante el entrenamiento se utilizo una version pandas-ta==0.4.71b0 en `Colab` que sin embargo esa version no esta disponible dede PyPI para ser instalada automaticamente en render.
 Posibles soluciones:
 
 - Reincorporar los modelos basados en indicadores técnicos mediante una implementación propia de RSI, MACD, ATR y EMA utilizando únicamente Pandas y NumPy, eliminando dependencias externas que dificulten la portabilidad del sistema
 -Incluir el trabajo de colab en el container de docker para evitar problemas de versionamiento.
+
+# Conclusion sobre modelacion:
 
 - La senal de entrenamiento es baja aun usando Indicadores financieros,  es posible incorporar nuevas fuentes de información, tales como indicadores macroeconómicos, sentimiento de noticias financieras o variables derivadas de redes sociales, con el objetivo de enriquecer la capacidad predictiva de los modelos.
 

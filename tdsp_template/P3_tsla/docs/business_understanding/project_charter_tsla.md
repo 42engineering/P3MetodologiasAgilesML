@@ -1,41 +1,71 @@
 [Back to README](../../../../README.md)
 
-# Project Charter - Business Understanding
+#  (Project Charter) – Comprensión del Negocio
 
-## Project Name
-TSLA Financial Direction Prediction Using Neural Networks
+## Nombre del Proyecto
 
-## Project Objective
-The project proposes the development of a hybrid Deep Learning model based on LSTM architectures for predicting TSLA stock behavior using exclusively historical market data and technical indicators.
+Predicción de la Dirección Financiera de TSLA mediante Redes Neuronales
 
-## Project Beneficiaries
+## Objetivo del Proyecto
 
-The beneficiaries of the project include investors, financial analysts, academic researchers, and organizations related to the financial and technology sectors interested in predictive stock market analysis.
+El proyecto propone el desarrollo de un modelo híbrido de Deep Learning basado en arquitecturas LSTM para predecir el comportamiento de la acción de Tesla (TSLA), utilizando exclusivamente datos históricos del mercado e indicadores técnicos financieros.
 
-The project is developed within the domain of computational finance applied to the stock market.
+## Beneficiarios del Proyecto
 
-## Project Scope
+Los beneficiarios del proyecto incluyen inversionistas, analistas financieros, investigadores académicos y organizaciones relacionadas con los sectores financiero y tecnológico interesadas en el análisis predictivo del mercado bursátil.
 
-### Includes:
+El proyecto se desarrolla dentro del dominio de las finanzas computacionales aplicadas al mercado de valores.
 
-The data available for the development of the project consists of historical TSLA stock market information obtained from financial platforms such as Yahoo Finance through Python-based data extraction tools. The dataset includes daily financial variables such as Open, High, Low, Close, and Volume (OHLCV) for the period between 2015 and 2025. Additionally, derived technical indicators such as RSI, MACD, moving averages, and Bollinger Bands will be incorporated to enrich the time series analysis and provide relevant information to the Deep Learning model.
+## Alcance del Proyecto
 
-The project success criteria will focus on evaluating both predictive performance and the model’s generalization capability on unseen data. For this purpose, evaluation metrics such as Accuracy, Precision, Recall, and F1-Score will be used.
+### Incluye
 
-### Specific Scope
+Los datos disponibles para el desarrollo del proyecto consisten en información histórica de la acción de Tesla obtenida a través de plataformas financieras como Yahoo Finance mediante herramientas de extracción de datos basadas en Python.
 
-PT1.1 — Up/Down Direction Prediction Using LSTM
+El conjunto de datos incluye variables financieras diarias como:
 
-## Methodology
+* Open (Precio de apertura)
+* High (Precio máximo)
+* Low (Precio mínimo)
+* Close (Precio de cierre)
+* Volume (Volumen de negociación)
 
-The expected results of the project consist of developing an LSTM model capable of identifying patterns in the historical behavior of Tesla stocks and predicting the future direction of the stock price, specifically whether the value will tend to rise or fall in the next trading period. The model is expected to leverage the capabilities of convolutional neural networks to detect local patterns and LSTM networks to model long-term temporal dependencies, enabling more robust and useful predictions for financial analysis.
+Estas variables corresponden al período comprendido entre los años 2015 y 2025.
 
-## Timeline
+Adicionalmente, se incorporarán indicadores técnicos derivados como:
 
-| Stage                                                                                            | Estimated Duration | Dates                        |
-| ------------------------------------------------------------------------------------------------ | ------------------ | ---------------------------- |
-| Business understanding and loading of historical TSLA data                                       | 1 week             | May 1 to May 7               |
-| Preprocessing and exploratory analysis of financial data                                         | 1 week             | May 8 to May 14              |
-| Modeling and feature extraction using technical indicators and temporal windows                  | 1 week             | May 15 to May 21             |
-| CNN-LSTM model deployment and prediction testing                                                 | 1 week             | May 22 to May 28             |
-| Model evaluation, financial backtesting, and final delivery                                      | 1 week             | May 29 to June 4             |
+* RSI (Relative Strength Index)
+* MACD (Moving Average Convergence Divergence)
+* Medias móviles (Moving Averages)
+* Bandas de Bollinger (Bollinger Bands)
+
+con el propósito de enriquecer el análisis de series temporales y proporcionar información relevante al modelo de Deep Learning.
+
+Los criterios de éxito del proyecto se centrarán en evaluar tanto el desempeño predictivo como la capacidad de generalización del modelo sobre datos no vistos previamente.
+
+Para ello se utilizarán métricas de evaluación como:
+
+* Accuracy
+* Precision
+* Recall
+* F1-Score
+
+### Alcance Específico
+
+**PT1.1 — Predicción de la Dirección Subida/Bajada mediante LSTM**
+
+## Metodología
+
+Los resultados esperados del proyecto consisten en desarrollar un modelo LSTM capaz de identificar patrones en el comportamiento histórico de las acciones de Tesla y predecir la dirección futura del precio de la acción, específicamente si el valor tenderá a subir o bajar durante el siguiente período de negociación.
+
+Se espera que el modelo aproveche las capacidades de las redes neuronales convolucionales para detectar patrones locales y de las redes LSTM para modelar dependencias temporales de largo plazo, permitiendo generar predicciones más robustas y útiles para el análisis financiero.
+
+## Cronograma
+
+| Etapa                                                                                        | Duración Estimada | Fechas                   |
+| -------------------------------------------------------------------------------------------- | ----------------- | ------------------------ |
+| Comprensión del negocio y carga de datos históricos de TSLA                                  | 1 semana          | 1 de mayo al 7 de mayo   |
+| Preprocesamiento y análisis exploratorio de datos financieros                                | 1 semana          | 8 de mayo al 14 de mayo  |
+| Modelado y extracción de características mediante indicadores técnicos y ventanas temporales | 1 semana          | 15 de mayo al 21 de mayo |
+| Despliegue del modelo CNN-LSTM y pruebas de predicción                                       | 1 semana          | 22 de mayo al 28 de mayo |
+| Evaluación del modelo, backtesting financiero y entrega final                                | 1 semana          | 29 de mayo al 4 de junio |
