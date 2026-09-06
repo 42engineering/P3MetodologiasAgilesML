@@ -1,172 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Portfolio</title>
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<title>
-    Neural Network TSLA Movement Predictor
-</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
 
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
-      rel="stylesheet">
-
-<link rel="stylesheet"
-      href="./style.css">
-
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
 <nav>
-
     <div class="container nav-inner">
-
-        <a href="#"
-           class="logo">
-
-            Neural Network TSLA Movement Predictor
-
-        </a>
+        <a href="#hero" class="logo">Portfolio</a>
 
         <div class="links">
-
-            <a href="#">
-                GitHub
-            </a>
-
-            <a href="#">
-                Documentation
-            </a>
-
-            <a href="#">
-                About
-            </a>
-
+            <a href="#profile">Profile</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
-
     </div>
-
 </nav>
 
-<header class="hero container">
+<main>
 
-    <h1>
+    <!-- HERO -->
+    <header class="hero container" id="hero">
+        <p class="eyebrow">Portfolio / Selected Work</p>
+        <div class="band-spectrum-rule" aria-hidden="true"></div>
 
-        Tesla Stock Movement Prediction
-        using Deep Learning AI.
+        <h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </h1>
 
-    </h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam.
+        </p>
 
-    <p>
+        <a href="#projects" class="primary-btn">
+            View Projects
+        </a>
+    </header>
 
-        Deep learning system based on
-        LSTM, DeepLSTM and CNN-LSTM
-        architectures for forecasting
-        Tesla stock market direction.
+    <!-- PROFILE -->
+    <section class="profile container" id="profile">
+        <div class="section-title">Profile</div>
+        <div class="band-spectrum-rule" aria-hidden="true"></div>
 
-    </p>
-
-    <a href="#predict"
-       class="primary-btn">
-
-        Try Prediction
-
-    </a>
-
-</header>
-
-<section
-    class="prediction container"
-    id="predict"
->
-
-    <div class="section-title">
-
-        Live Prediction Engine
-
-    </div>
-
-    <div class="predict-box">
-
-        <div class="section-title">
-
-            Select Model
-
-        </div>
-
-        <select id="modelSelect">
-
-            <option>
-
-                Loading models...
-
-            </option>
-
-        </select>
-
-        <input
-            type="date"
-            id="startDate"
-            value="2016-01-06"
-            min="2016-01-06"
-            max="2025-12-31"
-        >
-
-        <button onclick="predictMovement()">
-
-            Predict Movement
-
-        </button>
-
-        <div
-            class="result"
-            id="resultBox"
-        >
-
-            <h2>
-
-                Waiting Prediction...
-
-            </h2>
-
-            <p>
-
-                Select a model and a date
-                to start.
-
+        <div class="profile-copy">
+            <p class="profile-lead">
+                Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>.
+                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam,
+                <strong>sed nisi</strong>. Nulla quis sem at nibh elementum imperdiet.
             </p>
 
+            <p>
+                Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue
+                semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
+                Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+                per inceptos himenaeos.
+            </p>
+
+            <p>
+                Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.
+                Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem
+                at dolor. Maecenas mattis. Sed convallis tristique sem.
+            </p>
+
+            <p>
+                Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus,
+                iaculis vel, suscipit quis, luctus non, massa.
+                <strong>Fusce ac turpis quis ligula lacinia aliquet</strong>.
+                Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed,
+                euismod in, nibh.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects container" id="projects">
+        <div class="projects-heading">
+            <div>
+                <div class="section-title">Projects</div>
+                <div class="band-spectrum-rule" aria-hidden="true"></div>
+            </div>
+
+            <p class="projects-intro">
+                Selected work across artificial intelligence, natural language
+                processing and time-series analysis.
+            </p>
         </div>
 
-    </div>
+        <div id="projectsList" class="projects-list">
+            <div class="projects-status">
+                Loading projects...
+            </div>
+        </div>
+    </section>
 
-</section>
+    <!-- CONTACT -->
+    <section class="contact container" id="contact">
+        <div class="section-title">Contact</div>
+        <div class="band-spectrum-rule" aria-hidden="true"></div>
+
+        <div class="contact-grid">
+            <h2>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </h2>
+
+            <div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+
+                <a href="mailto:hello@example.com" class="primary-btn">
+                    hello@example.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 <footer>
-
-    © 2026 TSLA_AI_MOVEMENT_PRED_V1_0 · Always improving
-
+    © 2026 Portfolio · Lorem ipsum dolor sit amet
 </footer>
 
 <script src="./script.js"></script>
-
 </body>
-
 </html>

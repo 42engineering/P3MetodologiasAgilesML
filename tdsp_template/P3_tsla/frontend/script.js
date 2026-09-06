@@ -1,160 +1,94 @@
-const API_URL = window.location.origin;
-// const API_URL = 
-    // "https://p3metodologiasagilesml-1.onrender.com";
-    // "https://p3metodologiasagilesml.onrender.com";
+const projectsList = document.getElementById("projectsList");
 
-
-window.onload = async () => {
-
+async function loadProjects() {
     try {
+        const response = await fetch("./projects.json");
 
-        const response = await fetch(
-            `${API_URL}/models`
-        );
-
-        const data = await response.json();
-
-        const select =
-            document.getElementById(
-                "modelSelect"
-            );
-
-        select.innerHTML = "";
-
-        data.models.forEach(model => {
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-            option.value = model;
-
-            option.textContent = model;
-
-            select.appendChild(
-                option
-            );
-        });
-
-    } catch(error) {
-
-        console.error(error);
-
-    }
-
-};
-
-async function predictMovement() {
-
-    const startDate =
-        document.getElementById(
-            "startDate"
-        ).value;
-
-    const modelName =
-        document.getElementById(
-            "modelSelect"
-        ).value;
-
-    const resultBox =
-        document.getElementById(
-            "resultBox"
-        );
-
-    resultBox.innerHTML =
-        "<h2>Loading prediction...</h2>";
-
-    try {
-
-        const response = await fetch(
-            `${API_URL}/predict`,
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type":
-                    "application/json"
-                },
-
-                body: JSON.stringify({
-
-                    start_date:
-                    startDate,
-
-                    model_name:
-                    modelName
-                })
-            }
-        );
-
-        const data =
-            await response.json();
-
-        if(data.error){
-
-            resultBox.innerHTML = `
-
-                <h2>
-                    Prediction Error
-                </h2>
-
-                <p>
-                    ${data.error}
-                </p>
-
-            `;
-
-            return;
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
         }
 
-        resultBox.innerHTML = `
+        const projects = await response.json();
 
-            <h2>
-                ${data.prediction}
-            </h2>
+        projectsList.innerHTML = "";
 
-            <p>
-                <b>Model:</b>
-                ${data.model}
-            </p>
+        projects.forEach((project) => {
+            const item = document.createElement("article");
+            item.className = "project-item";
 
-            <p>
-                <b>Probability:</b>
-                ${(data.probability * 100).toFixed(2)}%
-            </p>
+            const technologies = Array.isArray(project.technologies)
+                ? project.technologies
+                : String(project.technologies || "")
+                    .split(",")
+                    .map((technology) => technology.trim())
+                    .filter(Boolean);
 
-            <p>
-                <b>Real Movement:</b>
-                ${data.real_movement}
-            </p>
+            const stackHTML = technologies
+                .map((technology) => `<span>${escapeHTML(technology)}</span>`)
+                .join("");
 
-            <p>
-                <b>Window Start:</b>
-                ${data.window_start}
-            </p>
+            item.innerHTML = `
+                <div class="project-meta">
+                    <span class="project-number">
+                        Project ${String(projects.indexOf(project) + 1).padStart(2, "0")}
+                    </span>
 
-            <p>
-                <b>Window End:</b>
-                ${data.window_end}
-            </p>
+                    <div class="project-short-title">
+                        ${escapeHTML(project.shortTitle)}
+                    </div>
 
+                    <div class="project-category">
+                        ${escapeHTML(project.category)}
+                    </div>
+                </div>
+
+                <div class="project-content">
+                    <h3 class="project-main-title">
+                        ${escapeHTML(project.mainTitle)}
+                    </h3>
+
+                    <p class="project-description">
+                        ${escapeHTML(project.description)}
+                    </p>
+
+                    <div class="stack">
+                        ${stackHTML}
+                    </div>
+
+                    <div class="project-actions">
+                        <a
+                            class="github-repo"
+                            href="${escapeHTML(project.githubRepo || "#")}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub Repo
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            projectsList.appendChild(item);
+        });
+    } catch (error) {
+        console.error("Could not load projects.json:", error);
+
+        projectsList.innerHTML = `
+            <div class="projects-status">
+                Projects could not be loaded. Run the site from a local web server
+                (for example VS Code Live Server) so that fetch() can read projects.json.
+            </div>
         `;
-
-    } catch(error) {
-
-        resultBox.innerHTML = `
-
-            <h2>
-                Connection Error
-            </h2>
-
-            <p>
-                ${error}
-            </p>
-
-        `;
-
     }
-
 }
+
+function escapeHTML(value = "") {
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+loadProjects();
