@@ -1,5 +1,6 @@
 [
   {
+    "projectId":"P2",
     "shortTitle": "Cell Morphology AI",
     "mainTitle": "Deep Learning for Biological Cell Morphology Analysis",
     "category": "Deep Learning / Biomedical AI / Computer Vision",
@@ -13,9 +14,13 @@
       "Pandas",
       "Numpy"
     ],
-    "githubRepo": "#"
+    "githubRepo": "#",
+    "cfg": {
+      "prediction":  false
+    }
   },
   {
+    "projectId":"P2",
     "shortTitle": "Odyssey Sentiment Analysis",
     "mainTitle": "NLP Sentiment Analysis of Emotion and Divine Intervention in Homer's Odyssey",
     "category": "Natural Language Processing / Sentiment Analysis / Digital Humanities",
@@ -33,13 +38,17 @@
       "Pandas",
       "Numpy"
     ],
-    "githubRepo": "#"
+    "githubRepo": "#",
+    "cfg": {
+      "prediction":  true
+    }
   },
   {
+    "projectId":"P3",
     "shortTitle": "TSLA Market Prediction",
     "mainTitle": "Hybrid LSTM-CNN Model for Tesla Stock Market Prediction",
     "category": "Deep Learning / Time Series / Financial Analytics",
-    "description": "Hybrid deep learning model combining LSTM and CNN architectures to analyze historical Tesla (TSLA) market data and technical indicators. The project explores temporal and local patterns in financial time series to predict stock market behavior.",
+    "description": "Hybrid deep learning model combining LSTM and CNN architectures to analyze historical Tesla (TSLA) market data and technical indicators. The project explores temporal and local patterns in financial time series to predict stock market direction.",
     "technologies": [
       "LSTM",
       "CNN",
@@ -51,6 +60,9 @@
       "Pandas",
       "Numpy"
     ],
-    "githubRepo": "#"
+    "githubRepo": "#",
+    "cfg": {
+      "prediction":  true,
+    }
   }
 ]
