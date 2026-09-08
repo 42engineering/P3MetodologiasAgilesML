@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./templateStyle.css">
+</head>
+<body>
+<nav>
+    <div class="container nav-inner">
+        <a href="./index.html" class="logo" id="logoText">MyPortafolio</a>
+        <div class="links">
+            <a href="./index.html#projects">Projects</a>
+            <a href="#overview">Overview</a>
+            <a href="#prediction">Prediction</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <header class="hero container" id="hero">
+        <p class="eyebrow" id="projectEyebrow">Portfolio / Project 01: Project</p>
+        <div class="band-spectrum-rule" aria-hidden="true"></div>
+        <h1 id="projectMainTitle">Loading project...</h1>
+        <p id="projectCategory"></p>
+    </header>
+
+    <section class="project-section container" id="overview">
+        <div class="section-title">Project Overview</div>
+        <div class="band-spectrum-rule section-rule" aria-hidden="true"></div>
+
+        <div class="overview-content">
+            <h2 id="overviewShortTitle">Project</h2>
+            <p id="projectDescription"></p>
+        </div>
+    </section>
+
+    <section class="project-section container" id="prediction">
+        <div class="section-title">Prediction</div>
+        <div class="band-spectrum-rule section-rule" aria-hidden="true"></div>
+
+        <div class="editorial-grid">
+            <div class="editorial-meta">
+                <span class="meta-kicker">Prediction Demo</span>
+                <h2>Explore the model</h2>
+            </div>
+            <div class="editorial-content">
+                <article class="prediction-preview">
+                    <div id="predictionVisual" class="prediction-visual"></div>
+                    <p id="predictionText"></p>
+                    <a id="launchPredictionButton" class="primary-btn" href="#">Launch Prediction App</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section container" id="model-interpretation">
+        <div class="section-title">Model interpretation</div>
+        <div class="band-spectrum-rule section-rule" aria-hidden="true"></div>
+
+        <div class="editorial-grid">
+            <div class="editorial-meta">
+                <span class="meta-kicker">Interpretation</span>
+                <h2>Understanding the model</h2>
+            </div>
+            <div class="editorial-content">
+                <p id="modelInterpretationText"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section container" id="interpretation-graphs">
+        <div class="section-title">Graphs of interpretation of the model</div>
+        <div class="band-spectrum-rule section-rule" aria-hidden="true"></div>
+        <div id="interpretationGraphs" class="graph-stack"></div>
+    </section>
+
+    <section class="project-section container" id="training-graphs">
+        <div class="section-title">Graphs of training</div>
+        <div class="band-spectrum-rule section-rule" aria-hidden="true"></div>
+        <div id="trainingGraphs" class="graph-grid graph-grid-two"></div>
+    </section>
+
+    <section class="project-section container" id="main-graphs">
+        <div class="section-title">Main graphs</div>
+        <div class="band-spectrum-rule section-rule" aria-hidden="true"></div>
+        <div id="mainGraphs" class="graph-grid graph-grid-two"></div>
+    </section>
+</main>
+
+<footer id="footerText">© 2026 Portfolio · TSLA Market Prediction</footer>
+<script src="./templateScript.js"></script>
+</body>
+</html>

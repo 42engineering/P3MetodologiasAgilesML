@@ -1,0 +1,178 @@
+
+const params = new URLSearchParams(window.location.search);
+const requestedProjectIndex = Number.parseInt(params.get("projectIndex"), 10);
+const projectIndex = Number.isInteger(requestedProjectIndex) && requestedProjectIndex >= 0
+    ? requestedProjectIndex
+    : 0;
+
+window.addEventListener("DOMContentLoaded", initializeTemplate);
+
+async function initializeTemplate() {
+    await loadTemplateContent();
+}
+
+async function loadTemplateContent() {
+    try {
+        const [generalResponse, projectsResponse] = await Promise.all([
+            fetch("./general.json"),
+            fetch("./projects.json")
+        ]);
+
+        if (!generalResponse.ok || !projectsResponse.ok) {
+            throw new Error("Could not load template data.");
+        }
+
+        const general = await generalResponse.json();
+        const projects = await projectsResponse.json();
+        const project = projects[projectIndex];
+
+        if (!project) {
+            throw new Error(`Project index ${projectIndex} does not exist.`);
+        }
+
+        document.getElementById("logoText").textContent = general.logoTex || "MyPortafolio";
+        document.getElementById("footerText").textContent = general.footerText || "© 2026 Portfolio";
+        document.getElementById("projectEyebrow").textContent =
+            `Portfolio / Project ${String(projectIndex + 1).padStart(2, "0")}: ${project.shortTitle || ""}`;
+        document.getElementById("projectMainTitle").textContent = project.mainTitle || "";
+        document.getElementById("projectCategory").textContent = project.category || "";
+        document.getElementById("overviewShortTitle").textContent = project.shortTitle || "Project";
+        document.getElementById("projectDescription").textContent = project.description || "";
+        document.getElementById("modelInterpretationText").textContent = project.modelInterpretation || "";
+        document.title = `${project.shortTitle || "Project"} | Portfolio`;
+
+        renderTechnologies(project.technologies || []);
+        renderPrediction(project.prediction || {});
+        renderInterpretationGraphs(project.interpretationGraphs || {});
+        renderTrainingGraphs(project.trainingGraphs || {});
+        renderMainGraphs(project.mainGraphs || {});
+    } catch (error) {
+        console.error(error);
+        document.getElementById("projectMainTitle").textContent = "Project could not be loaded";
+        document.getElementById("projectCategory").textContent = error.message;
+    }
+}
+
+function renderTechnologies(technologies) {
+    const container = document.getElementById("projectTechnologies");
+    container.innerHTML = "";
+
+    technologies.forEach((technology) => {
+        const chip = document.createElement("span");
+        chip.textContent = technology;
+        container.appendChild(chip);
+    });
+}
+
+
+function renderPrediction(prediction) {
+    const visual = document.getElementById("predictionVisual");
+    const text = document.getElementById("predictionText");
+    const button = document.getElementById("launchPredictionButton");
+
+    visual.innerHTML = "";
+
+    if (prediction.imagePath) {
+        const image = document.createElement("img");
+        image.src = prediction.imagePath;
+        image.alt = prediction.imageAlt || "Prediction preview";
+        image.loading = "lazy";
+        visual.appendChild(image);
+    } else {
+        const placeholder = document.createElement("div");
+        placeholder.className = "prediction-placeholder";
+        placeholder.textContent = "Prediction image — image path pending";
+        visual.appendChild(placeholder);
+    }
+
+    text.textContent = prediction.text || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
+    button.textContent = prediction.buttonText || "Launch Prediction App";
+
+    const launchUrl = prediction.launchUrl || "";
+    if (launchUrl) {
+        button.href = launchUrl;
+        button.classList.remove("is-disabled");
+        button.removeAttribute("aria-disabled");
+    } else {
+        button.href = "#";
+        button.classList.add("is-disabled");
+        button.removeAttribute("target");
+        button.removeAttribute("rel");
+        button.setAttribute("aria-disabled", "true");
+    }
+}
+
+function renderInterpretationGraphs(graphs) {
+    const container = document.getElementById("interpretationGraphs");
+    container.innerHTML = "";
+
+    for (let index = 1; index <= 3; index += 1) {
+        container.appendChild(createGraphCard(
+            graphs[`graph${index}Path`],
+            graphs[`textGraph${index}`] || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            `Interpretation graph ${index}`
+        ));
+    }
+}
+
+function renderTrainingGraphs(graphs) {
+    const container = document.getElementById("trainingGraphs");
+    container.innerHTML = "";
+
+    for (let index = 1; index <= 2; index += 1) {
+        container.appendChild(createGraphCard(
+            graphs[`graph${index}Path`],
+            "",
+            `Training graph ${index}`
+        ));
+    }
+}
+
+function renderMainGraphs(graphs) {
+    const container = document.getElementById("mainGraphs");
+    container.innerHTML = "";
+
+    for (let index = 1; index <= 4; index += 1) {
+        container.appendChild(createGraphCard(
+            graphs[`graph${index}Path`],
+            "",
+            `Main graph ${index}`
+        ));
+    }
+}
+
+function createGraphCard(path, text, label) {
+    const card = document.createElement("article");
+    card.className = "graph-card";
+
+    if (path) {
+        const image = document.createElement("img");
+        image.src = path;
+        image.alt = label;
+        image.loading = "lazy";
+        card.appendChild(image);
+    } else {
+        const placeholder = document.createElement("div");
+        placeholder.className = "graph-placeholder";
+        placeholder.textContent = `${label} — image path pending`;
+        card.appendChild(placeholder);
+    }
+
+    if (text) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = text;
+        card.appendChild(paragraph);
+    }
+
+    return card;
+}
+
+function escapeHTML(value = "") {
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}

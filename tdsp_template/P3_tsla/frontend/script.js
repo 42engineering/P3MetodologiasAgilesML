@@ -58,11 +58,9 @@ async function loadProjects() {
                     <div class="project-actions">
                         <a
                             class="github-repo"
-                            href="${escapeHTML(project.githubRepo || "#")}"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="./templateIndex.html?projectIndex=${projects.indexOf(project)}"
                         >
-                            GitHub Repo
+                            View Project
                         </a>
                     </div>
                 </div>

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TSLA Market Prediction | Portfolio</title>
+    <title>TSLA Prediction App | Portfolio</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,120 +16,45 @@
 
 <nav>
     <div class="container nav-inner">
-        <a href="#hero" class="logo">Portfolio</a>
+        <a href="./index.html" class="logo">MyPortafolio</a>
 
         <div class="links">
-            <a href="#overview">Overview</a>
-            <a href="#prediction">Prediction</a>
-            <a href="#visuals">Visuals</a>
+            <a href="./index.html#projects">Projects</a>
+            <a href="./templateIndex.html?projectIndex=2">Back to Project</a>
         </div>
     </div>
 </nav>
 
 <main>
-    <header class="hero container" id="hero">
-        <p class="eyebrow">Portfolio / Project 03</p>
-        <div class="band-spectrum-rule" aria-hidden="true"></div>
-
-        <h1>Hybrid LSTM-CNN Model for Tesla Stock Market Prediction</h1>
-
-        <p>
-            A deep learning project that combines LSTM and CNN architectures to analyze
-            historical Tesla (TSLA) market data, technical indicators, and temporal patterns
-            for stock-movement prediction.
-        </p>
-
-        <a href="#prediction" class="primary-btn">Run Prediction</a>
-    </header>
-
-    <section class="overview container" id="overview">
-        <div class="section-title">Project Overview</div>
-        <div class="band-spectrum-rule" aria-hidden="true"></div>
-
-        <div class="editorial-item">
-            <div class="editorial-meta">
-                <span class="meta-kicker">Project 03</span>
-                <h2>TSLA Market Prediction</h2>
-                <p class="meta-category">Deep Learning / Time Series / Financial Analytics</p>
-            </div>
-
-            <div class="editorial-content">
-                <p>
-                    The model combines recurrent and convolutional neural-network components
-                    to capture both longer-term temporal relationships and shorter local patterns
-                    in financial time-series data.
-                </p>
-
-                <p>
-                    The prediction interface below connects directly to the project API. Select
-                    a starting date and one of the available trained models to request a market
-                    movement prediction.
-                </p>
-
-                <div class="stack" aria-label="Technologies">
-                    <span>Python</span>
-                    <span>LSTM</span>
-                    <span>CNN</span>
-                    <span>Deep Learning</span>
-                    <span>Time-Series Analysis</span>
-                    <span>Technical Indicators</span>
-                    <span>yfinance</span>
-                    <span>Yahoo Finance</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="prediction container" id="prediction">
-        <div class="section-heading">
-            <div>
-                <div class="section-title">Prediction</div>
-                <div class="band-spectrum-rule" aria-hidden="true"></div>
-            </div>
-
-            <p>
-                Choose the beginning of the analysis window and a model returned by the API.
-            </p>
-        </div>
+    <section class="prediction container" id="prediction-app">
+        <div class="section-title">Prediction</div>
+        <div class="band-spectrum-rule section-rule" aria-hidden="true"></div>
 
         <div class="prediction-layout">
-            <div class="predict-box">
-                <div class="field-group">
-                    <label for="startDate">Window start date</label>
-                    <input type="date" id="startDate" name="startDate">
-                </div>
+            <div class="prediction-meta">
+                <span class="meta-kicker">Model inference</span>
+                <h1>TSLA Market Prediction</h1>
+            </div>
 
-                <div class="field-group">
+            <div class="prediction-content">
+                <div class="predict-box">
+                    <label for="startDate">Start date</label>
+                    <input id="startDate" type="date">
+
                     <label for="modelSelect">Model</label>
-                    <select id="modelSelect" name="modelSelect">
-                        <option value="">Loading models...</option>
+                    <select id="modelSelect">
+                        <option>Loading models...</option>
                     </select>
+
+                    <button type="button" onclick="predictMovement()">
+                        Predict Movement
+                    </button>
                 </div>
 
-                <button type="button" onclick="predictMovement()">Predict Movement</button>
-            </div>
-
-            <div id="resultBox" class="result" aria-live="polite">
-                <span class="result-kicker">Prediction Output</span>
-                <h2>Ready to predict</h2>
-                <p>Select a date and model, then run a prediction to view the result.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="visuals container" id="visuals">
-        <div class="section-title">Model Visuals</div>
-        <div class="band-spectrum-rule" aria-hidden="true"></div>
-
-        <div class="visual-grid">
-            <div class="visual-card">
-                <span class="visual-label">Time-Series View</span>
-                <div class="chart-placeholder">Chart / market window visualization</div>
-            </div>
-
-            <div class="visual-card">
-                <span class="visual-label">Model Output</span>
-                <div class="chart-placeholder">Prediction / probability visualization</div>
+                <div id="resultBox" class="result" aria-live="polite">
+                    <h2>Prediction result</h2>
+                    <p>Select a date and model, then run the prediction.</p>
+                </div>
             </div>
         </div>
     </section>
