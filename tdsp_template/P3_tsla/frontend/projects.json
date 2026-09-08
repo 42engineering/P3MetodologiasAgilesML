@@ -1,5 +1,6 @@
 [
   {
+    "projectId":"P2",
     "shortTitle": "Cell Morphology AI",
     "mainTitle": "Deep Learning for Biological Cell Morphology Analysis",
     "category": "Deep Learning / Biomedical AI / Computer Vision",
@@ -17,25 +18,25 @@
     "githubRepo": "#",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "interpretationGraphs": {
-      "graph1Path": "",
+      "graph1Path": "./img/P2-interpretacionMeiosis.png",
       "textGraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph2Path": "",
+      "graph2Path": "./img/P2-InterpretacionMeiosis2.png",
       "textGraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph3Path": "",
+      "graph3Path": "./img/P2-perturbationExperiments.png",
       "textGraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     "trainingGraphs": {
-      "graph1Path": "",
+      "graph1Path": "./img/P2-ML_img1.png",
       "graph2Path": ""
     },
     "mainGraphs": {
-      "graph1Path": "",
-      "graph2Path": "",
-      "graph3Path": "",
-      "graph4Path": ""
+      "graph1Path": "./img/P2-ML_noiseSensibility.png",
+      "graph2Path": "./img/P2-ML_zoomSensibility.png",
+      "graph3Path": "./img/P2-ML_contrastSensibility.png",
+      "graph4Path": "./img/P2-predicitonImageIndex5.png"
     },
     "prediction": {
-      "imagePath": "",
+      "imagePath": "./img/P2-prediciontImg2.png",
       "imageAlt": "Prediction preview for Cell Morphology AI",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "./P1-index.html",
@@ -43,6 +44,7 @@
     }
   },
   {
+    "projectId":"P1",
     "shortTitle": "Odyssey Sentiment Analysis",
     "mainTitle": "NLP Sentiment Analysis of Emotion and Divine Intervention in Homer's Odyssey",
     "category": "Natural Language Processing / Sentiment Analysis / Digital Humanities",
@@ -59,25 +61,25 @@
     "githubRepo": "#",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "interpretationGraphs": {
-      "graph1Path": "",
+      "graph1Path": "./img/P1-histogramaToken.png",
       "textGraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph2Path": "",
+      "graph2Path": "./img/",
       "textGraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "graph3Path": "",
       "textGraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     "trainingGraphs": {
-      "graph1Path": "",
-      "graph2Path": ""
+      "graph1Path": "./img/P1-Indicators1.png",
+      "graph2Path": "./img/P1-Indicators2.png"
     },
     "mainGraphs": {
-      "graph1Path": "",
-      "graph2Path": "",
-      "graph3Path": "",
-      "graph4Path": ""
+      "graph1Path": "./img/P1-histogramaPunishHelpNeutral.png",
+      "graph2Path": "./img/P1-SensibilityAnalisisVectorSize.png",
+      "graph3Path": "./img/P1-hopeEvolutionMainCharacter.png",
+      "graph4Path": "./img/P1-TypeOfRelationByChapeter.png"
     },
     "prediction": {
-      "imagePath": "",
+      "imagePath": "./img/P1-AppImage1.png",
       "imageAlt": "Prediction preview for Odyssey Sentiment Analysis",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "./P2-index.html",
@@ -85,6 +87,7 @@
     }
   },
   {
+    "projectId":"P3",
     "shortTitle": "TSLA Market Prediction",
     "mainTitle": "Hybrid LSTM-CNN Model for Tesla Stock Market Prediction",
     "category": "Deep Learning / Time Series / Financial Analytics",
@@ -102,25 +105,25 @@
     "githubRepo": "#",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "interpretationGraphs": {
-      "graph1Path": "",
+      "graph1Path": "./img/P3-TslaClosePrice.png",
       "textGraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph2Path": "",
+      "graph2Path": "./img/P3-TslaVolumens.png",
       "textGraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       "graph3Path": "",
       "textGraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     "trainingGraphs": {
-      "graph1Path": "",
-      "graph2Path": ""
+      "graph1Path": "./img/P3-trainAccuracyLSTM1Model.png",
+      "graph2Path": "./img/P3-trainLoss_DeepLSTM1Model.png"
     },
     "mainGraphs": {
-      "graph1Path": "",
-      "graph2Path": "",
+      "graph1Path": "./img/P3-AccuracyDifferentsModels.png",
+      "graph2Path": "./img/P3-lossDiffetentsModelsComparison.png",
       "graph3Path": "",
       "graph4Path": ""
     },
     "prediction": {
-      "imagePath": "",
+      "imagePath": "./img/P3-TslaClosePrice.png",
       "imageAlt": "Prediction preview for TSLA Market Prediction",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "./P3-index.html",
