@@ -132,3 +132,99 @@ footer{border-top:1px solid var(--line);padding:60px 0;text-align:center;color:v
     .predict-box{padding:24px;}
     .graph-grid-two{grid-template-columns:1fr;}
 }
+
+
+/* DYNAMIC IMAGE LAYOUT — controlled by projects.json */
+
+.overview-content{
+    max-width:900px;
+}
+
+.overview-content h2{
+    margin-bottom:18px;
+    font-size:1.55rem;
+    line-height:1.35;
+}
+
+.overview-content p{
+    max-width:900px;
+    color:var(--muted);
+    font-size:.96rem;
+    line-height:1.8;
+}
+
+.dynamic-graph-layout{
+    display:flex;
+    flex-direction:column;
+    gap:34px;
+}
+
+.media-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    gap:24px;
+    width:100%;
+}
+
+.media-row .graph-card{
+    flex-grow:0;
+    flex-shrink:1;
+    min-width:0;
+}
+
+.section-is-off{
+    display:none;
+}
+
+@media(max-width:768px){
+    .media-row{
+        flex-direction:column;
+    }
+
+    .media-row .graph-card,
+    .prediction-visual{
+        width:100% !important;
+        max-width:100% !important;
+        flex-basis:100% !important;
+    }
+}
+
+
+/* v7: numberImagesPerRow + size are controlled from projects.json */
+
+.media-row{
+    display:grid !important;
+    grid-template-columns:repeat(var(--images-per-row, 1), minmax(0, 1fr)) !important;
+    gap:24px;
+    width:100%;
+    align-items:start;
+}
+
+.media-row .graph-card{
+    min-width:0;
+    justify-self:start;
+}
+
+.graph-card img,
+.prediction-visual img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.section-is-off{
+    display:none !important;
+}
+
+@media(max-width:768px){
+    .media-row{
+        grid-template-columns:1fr !important;
+    }
+
+    .media-row .graph-card,
+    .prediction-visual{
+        width:100% !important;
+        max-width:100% !important;
+    }
+}

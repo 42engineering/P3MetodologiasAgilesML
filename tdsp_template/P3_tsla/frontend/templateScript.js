@@ -1,33 +1,22 @@
-function setTextIfExists(id, value) {
-    const element = document.getElementById(id);
+const params = new URLSearchParams(window.location.search);
+const requestedProjectId = (params.get("projectId") || "").trim();
+const requestedProjectIndex = Number.parseInt(params.get("projectIndex"), 10);
 
+window.addEventListener("DOMContentLoaded", initializeTemplate);
+
+
+function getElement(id) {
+    return document.getElementById(id);
+}
+
+function setTextIfExists(id, value) {
+    const element = getElement(id);
     if (element) {
         element.textContent = value ?? "";
     }
 }
 
-function setHTMLIfExists(id, value) {
-    const element = document.getElementById(id);
-
-    if (element) {
-        element.innerHTML = value ?? "";
-    }
-}
-
-
-const params = new URLSearchParams(window.location.search);
-const requestedProjectIndex = Number.parseInt(params.get("projectIndex"), 10);
-const projectIndex = Number.isInteger(requestedProjectIndex) && requestedProjectIndex >= 0
-    ? requestedProjectIndex
-    : 0;
-
-window.addEventListener("DOMContentLoaded", initializeTemplate);
-
 async function initializeTemplate() {
-    await loadTemplateContent();
-}
-
-async function loadTemplateContent() {
     try {
         const [generalResponse, projectsResponse] = await Promise.all([
             fetch("./general.json"),
@@ -40,120 +29,159 @@ async function loadTemplateContent() {
 
         const general = await generalResponse.json();
         const projects = await projectsResponse.json();
-        const project = projects[projectIndex];
 
-        if (!project) {
-            throw new Error(`Project index ${projectIndex} does not exist.`);
+        let project = null;
+        let resolvedProjectIndex = -1;
+
+        if (requestedProjectId) {
+            resolvedProjectIndex = projects.findIndex(
+                (item) => String(item.projectId || "").toUpperCase() === requestedProjectId.toUpperCase()
+            );
+        } else if (Number.isInteger(requestedProjectIndex) && requestedProjectIndex >= 0) {
+            resolvedProjectIndex = requestedProjectIndex;
+        } else {
+            resolvedProjectIndex = 0;
         }
 
-        setTextIfExists("logoText", general.logoTex || "MyPortafolio");
-        document.getElementById("footerText").textContent = general.footerText || "© 2026 Portfolio";
-        document.getElementById("projectEyebrow").textContent =
-            `Portfolio / Project ${String(projectIndex + 1).padStart(2, "0")}: ${project.shortTitle || ""}`;
-        document.getElementById("projectMainTitle").textContent = project.mainTitle || "";
-        document.getElementById("projectCategory").textContent = project.category || "";
-        document.getElementById("overviewShortTitle").textContent = project.shortTitle || "Project";
-        document.getElementById("projectDescription").textContent = project.description || "";
-        document.getElementById("modelInterpretationText").textContent = project.modelInterpretation || "";
-        document.title = `${project.shortTitle || "Project"} | Portfolio`;
+        project = projects[resolvedProjectIndex];
 
-        renderPrediction(project.prediction || {});
-        renderInterpretationGraphs(project.interpretationGraphs || {});
-        renderTrainingGraphs(project.trainingGraphs || {});
-        renderMainGraphs(project.mainGraphs || {});
+        if (!project) {
+            throw new Error(
+                requestedProjectId
+                    ? `Project ID ${requestedProjectId} does not exist.`
+                    : `Project index ${resolvedProjectIndex} does not exist.`
+            );
+        }
+
+        renderProject(general, project, resolvedProjectIndex);
     } catch (error) {
         console.error(error);
-        document.getElementById("projectMainTitle").textContent = "Project could not be loaded";
-        document.getElementById("projectCategory").textContent = error.message;
+        setTextIfExists("projectMainTitle", "Project could not be loaded");
+        setTextIfExists("projectCategory", error.message);
     }
 }
 
+function renderProject(general, project, resolvedProjectIndex) {
+    setTextIfExists("logoText", general.logoTex || "MyPortafolio");
+    setTextIfExists("footerText", general.footerText || "© 2026 Portfolio");
+    setTextIfExists(
+        "projectEyebrow",
+        `Portfolio / ${project.projectId || `Project ${String(resolvedProjectIndex + 1).padStart(2, "0")}`}: ${project.shortTitle || ""}`
+    );
+    setTextIfExists("projectMainTitle", project.mainTitle || "");
+    setTextIfExists("projectCategory", project.category || "");
+    setTextIfExists("overviewShortTitle", project.shortTitle || "Project");
+    setTextIfExists("projectDescription", project.description || "");
+    setTextIfExists("modelInterpretationText", project.modelInterpretation || "");
 
+    document.title = `${project.shortTitle || "Project"} | Portfolio`;
+
+    renderPrediction(project.prediction || {});
+    renderGraphSection("interpretationGraphs", project.interpretationGraphs || {});
+    renderGraphSection("trainingGraphs", project.trainingGraphs || {});
+    renderGraphSection("mainGraphs", project.mainGraphs || {});
+}
 
 function renderPrediction(prediction) {
-    const visual = document.getElementById("predictionVisual");
-    const text = document.getElementById("predictionText");
-    const button = document.getElementById("launchPredictionButton");
+    const visual = getElement("predictionVisual");
+    const text = getElement("predictionText");
+    const button = getElement("launchPredictionButton");
+
+    if (!visual || !text || !button) return;
+
+    const layout = prediction.layout || {};
+    const enabled = layout.enabled !== false;
+    const size = normalizeSize(layout.size || "100%");
 
     visual.innerHTML = "";
+    visual.style.display = enabled ? "flex" : "none";
+    visual.style.width = size;
+    visual.style.maxWidth = size;
 
-    if (prediction.imagePath) {
-        const image = document.createElement("img");
-        image.src = prediction.imagePath;
-        image.alt = prediction.imageAlt || "Prediction preview";
-        image.loading = "lazy";
-        visual.appendChild(image);
-    } else {
-        const placeholder = document.createElement("div");
-        placeholder.className = "prediction-placeholder";
-        placeholder.textContent = "Prediction image — image path pending";
-        visual.appendChild(placeholder);
+    if (enabled) {
+        if (prediction.imagePath) {
+            const image = document.createElement("img");
+            image.src = prediction.imagePath;
+            image.alt = prediction.imageAlt || "Prediction preview";
+            image.loading = "lazy";
+            visual.appendChild(image);
+        } else {
+            const placeholder = document.createElement("div");
+            placeholder.className = "prediction-placeholder";
+            placeholder.textContent = "Prediction image — image path pending";
+            visual.appendChild(placeholder);
+        }
     }
 
-    text.textContent = prediction.text || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-
+    text.textContent = prediction.text || "";
     button.textContent = prediction.buttonText || "Launch Prediction App";
 
-    const launchUrl = prediction.launchUrl || "";
-    if (launchUrl) {
-        button.href = launchUrl;
+    if (prediction.launchUrl) {
+        button.href = prediction.launchUrl;
         button.classList.remove("is-disabled");
         button.removeAttribute("aria-disabled");
     } else {
         button.href = "#";
         button.classList.add("is-disabled");
-        button.removeAttribute("target");
-        button.removeAttribute("rel");
         button.setAttribute("aria-disabled", "true");
     }
 }
 
-function renderInterpretationGraphs(graphs) {
-    const container = document.getElementById("interpretationGraphs");
+function renderGraphSection(containerId, sectionConfig) {
+    const container = getElement(containerId);
+    if (!container) return;
+
     container.innerHTML = "";
 
-    for (let index = 1; index <= 3; index += 1) {
-        container.appendChild(createGraphCard(
-            graphs[`graph${index}Path`],
-            graphs[`textGraph${index}`] || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            `Interpretation graph ${index}`
-        ));
+    const allGraphs = Array.isArray(sectionConfig.graphs) ? sectionConfig.graphs : [];
+    const visibleGraphs = allGraphs.filter(graph => graph.enabled !== false);
+    const section = container.closest(".project-section");
+
+    if (!visibleGraphs.length) {
+        section?.classList.add("section-is-off");
+        return;
+    }
+
+    section?.classList.remove("section-is-off");
+
+    let i = 0;
+
+    while (i < visibleGraphs.length) {
+        const firstGraph = visibleGraphs[i];
+        const perRow = normalizeImagesPerRow(firstGraph.numberImagesPerRow);
+
+        const row = document.createElement("div");
+        row.className = "media-row";
+        row.style.setProperty("--images-per-row", perRow);
+
+        for (let slot = 0; slot < perRow && i < visibleGraphs.length; slot += 1, i += 1) {
+            const graph = visibleGraphs[i];
+
+            // If the next graph declares a different row count, start a new row.
+            if (slot > 0 && normalizeImagesPerRow(graph.numberImagesPerRow) !== perRow) {
+                break;
+            }
+
+            row.appendChild(createGraphCard(graph));
+        }
+
+        container.appendChild(row);
     }
 }
 
-function renderTrainingGraphs(graphs) {
-    const container = document.getElementById("trainingGraphs");
-    container.innerHTML = "";
-
-    for (let index = 1; index <= 2; index += 1) {
-        container.appendChild(createGraphCard(
-            graphs[`graph${index}Path`],
-            "",
-            `Training graph ${index}`
-        ));
-    }
-}
-
-function renderMainGraphs(graphs) {
-    const container = document.getElementById("mainGraphs");
-    container.innerHTML = "";
-
-    for (let index = 1; index <= 4; index += 1) {
-        container.appendChild(createGraphCard(
-            graphs[`graph${index}Path`],
-            "",
-            `Main graph ${index}`
-        ));
-    }
-}
-
-function createGraphCard(path, text, label) {
+function createGraphCard(graph) {
     const card = document.createElement("article");
     card.className = "graph-card";
 
-    if (path) {
+    const size = normalizeSize(graph.size || "100%");
+    card.style.width = size;
+    card.style.maxWidth = size;
+
+    const label = graph.alt || "Graph";
+
+    if (graph.path) {
         const image = document.createElement("img");
-        image.src = path;
+        image.src = graph.path;
         image.alt = label;
         image.loading = "lazy";
         card.appendChild(image);
@@ -164,20 +192,22 @@ function createGraphCard(path, text, label) {
         card.appendChild(placeholder);
     }
 
-    if (text) {
+    if (graph.text) {
         const paragraph = document.createElement("p");
-        paragraph.textContent = text;
+        paragraph.textContent = graph.text;
         card.appendChild(paragraph);
     }
 
     return card;
 }
 
-function escapeHTML(value = "") {
-    return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+function normalizeImagesPerRow(value) {
+    const number = Number.parseInt(value, 10);
+    return [1, 2, 3, 4].includes(number) ? number : 1;
+}
+
+function normalizeSize(value) {
+    const allowed = new Set(["25%", "33.333%", "50%", "66.667%", "75%", "100%"]);
+    const size = String(value || "100%").trim();
+    return allowed.has(size) ? size : "100%";
 }

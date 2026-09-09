@@ -1,6 +1,6 @@
 [
   {
-    "projectId":"P2",
+    "projectId": "P2",
     "shortTitle": "Cell Morphology AI",
     "mainTitle": "Deep Learning for Biological Cell Morphology Analysis",
     "category": "Deep Learning / Biomedical AI / Computer Vision",
@@ -18,33 +18,98 @@
     "githubRepo": "#",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "interpretationGraphs": {
-      "graph1Path": "./img/P2-interpretacionMeiosis.png",
-      "textGraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph2Path": "./img/P2-InterpretacionMeiosis2.png",
-      "textGraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph3Path": "./img/P2-perturbationExperiments.png",
-      "textGraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "graphs": [
+        {
+          "path": "./img/P2-interpretacionMeiosis.png",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P2 interpretation graph 1"
+        },
+        {
+          "path": "./img/P2-InterpretacionMeiosis2.png",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "50%",
+          "alt": "P2 interpretation graph 2"
+        },
+        {
+          "path": "./img/P2-perturbationExperiments.png",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "50%",
+          "alt": "P2 interpretation graph 3"
+        }
+      ]
     },
     "trainingGraphs": {
-      "graph1Path": "./img/P2-ML_img1.png",
-      "graph2Path": ""
+      "graphs": [
+        {
+          "path": "./img/P2-ML_img1.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P2 training graph 1"
+        },
+        {
+          "path": "",
+          "enabled": false,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P2 training graph 2"
+        }
+      ]
     },
     "mainGraphs": {
-      "graph1Path": "./img/P2-ML_noiseSensibility.png",
-      "graph2Path": "./img/P2-ML_zoomSensibility.png",
-      "graph3Path": "./img/P2-ML_contrastSensibility.png",
-      "graph4Path": "./img/P2-predicitonImageIndex5.png"
+      "graphs": [
+        {
+          "path": "./img/P2-ML_noiseSensibility.png",
+          "enabled": true,
+          "numberImagesPerRow": 2,
+          "size": "100%",
+          "alt": "P2 main graph 1"
+        },
+        {
+          "path": "./img/P2-ML_zoomSensibility.png",
+          "enabled": true,
+          "numberImagesPerRow": 2,
+          "size": "100%",
+          "alt": "P2 main graph 2"
+        },
+        {
+          "path": "./img/P2-ML_contrastSensibility.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P2 main graph 3"
+        },
+        {
+          "path": "./img/P2-predicitonImageIndex5.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P2 main graph 4"
+        }
+      ]
     },
     "prediction": {
       "imagePath": "./img/P2-prediciontImg2.png",
       "imageAlt": "Prediction preview for Cell Morphology AI",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "./P1-index.html",
-      "buttonText": "Launch Prediction App"
+      "buttonText": "Launch Prediction App",
+      "layout": {
+        "enabled": true,
+        "numberImagesPerRow": 1,
+        "size": "50%"
+      }
     }
   },
   {
-    "projectId":"P1",
+    "projectId": "P1",
     "shortTitle": "Odyssey Sentiment Analysis",
     "mainTitle": "NLP Sentiment Analysis of Emotion and Divine Intervention in Homer's Odyssey",
     "category": "Natural Language Processing / Sentiment Analysis / Digital Humanities",
@@ -61,33 +126,98 @@
     "githubRepo": "#",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "interpretationGraphs": {
-      "graph1Path": "./img/P1-histogramaToken.png",
-      "textGraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph2Path": "./img/",
-      "textGraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph3Path": "",
-      "textGraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "graphs": [
+        {
+          "path": "./img/P1-histogramaToken.png",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P1 interpretation graph 1"
+        },
+        {
+          "path": "./img/",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": false,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P1 interpretation graph 2"
+        },
+        {
+          "path": "",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": false,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P1 interpretation graph 3"
+        }
+      ]
     },
     "trainingGraphs": {
-      "graph1Path": "./img/P1-Indicators1.png",
-      "graph2Path": "./img/P1-Indicators2.png"
+      "graphs": [
+        {
+          "path": "./img/P1-Indicators1.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P1 training graph 1"
+        },
+        {
+          "path": "./img/P1-Indicators2.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P1 training graph 2"
+        }
+      ]
     },
     "mainGraphs": {
-      "graph1Path": "./img/P1-histogramaPunishHelpNeutral.png",
-      "graph2Path": "./img/P1-SensibilityAnalisisVectorSize.png",
-      "graph3Path": "./img/P1-hopeEvolutionMainCharacter.png",
-      "graph4Path": "./img/P1-TypeOfRelationByChapeter.png"
+      "graphs": [
+        {
+          "path": "./img/P1-histogramaPunishHelpNeutral.png",
+          "enabled": true,
+          "numberImagesPerRow": 2,
+          "size": "100%",
+          "alt": "P1 main graph 1"
+        },
+        {
+          "path": "./img/P1-SensibilityAnalisisVectorSize.png",
+          "enabled": true,
+          "numberImagesPerRow": 2,
+          "size": "100%",
+          "alt": "P1 main graph 2"
+        },
+        {
+          "path": "./img/P1-hopeEvolutionMainCharacter.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P1 main graph 3"
+        },
+        {
+          "path": "./img/P1-TypeOfRelationByChapeter.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P1 main graph 4"
+        }
+      ]
     },
     "prediction": {
       "imagePath": "./img/P1-AppImage1.png",
       "imageAlt": "Prediction preview for Odyssey Sentiment Analysis",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "./P2-index.html",
-      "buttonText": "Launch Prediction App"
+      "buttonText": "Launch Prediction App",
+      "layout": {
+        "enabled": true,
+        "numberImagesPerRow": 1,
+        "size": "100%"
+      }
     }
   },
   {
-    "projectId":"P3",
+    "projectId": "P3",
     "shortTitle": "TSLA Market Prediction",
     "mainTitle": "Hybrid LSTM-CNN Model for Tesla Stock Market Prediction",
     "category": "Deep Learning / Time Series / Financial Analytics",
@@ -105,29 +235,94 @@
     "githubRepo": "#",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "interpretationGraphs": {
-      "graph1Path": "./img/P3-TslaClosePrice.png",
-      "textGraph1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph2Path": "./img/P3-TslaVolumens.png",
-      "textGraph2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "graph3Path": "",
-      "textGraph3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      "graphs": [
+        {
+          "path": "./img/P3-TslaClosePrice.png",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "80%",
+          "alt": "P3 interpretation graph 1"
+        },
+        {
+          "path": "./img/P3-TslaVolumens.png",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "60",
+          "alt": "P3 interpretation graph 2"
+        },
+        {
+          "path": "",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": false,
+          "numberImagesPerRow": 1,
+          "size": "60",
+          "alt": "P3 interpretation graph 3"
+        }
+      ]
     },
     "trainingGraphs": {
-      "graph1Path": "./img/P3-trainAccuracyLSTM1Model.png",
-      "graph2Path": "./img/P3-trainLoss_DeepLSTM1Model.png"
+      "graphs": [
+        {
+          "path": "./img/P3-trainAccuracyLSTM1Model.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "60",
+          "alt": "P3 training graph 1"
+        },
+        {
+          "path": "./img/P3-trainLoss_DeepLSTM1Model.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "60",
+          "alt": "P3 training graph 2"
+        }
+      ]
     },
     "mainGraphs": {
-      "graph1Path": "./img/P3-AccuracyDifferentsModels.png",
-      "graph2Path": "./img/P3-lossDiffetentsModelsComparison.png",
-      "graph3Path": "",
-      "graph4Path": ""
+      "graphs": [
+        {
+          "path": "./img/P3-AccuracyDifferentsModels.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "60",
+          "alt": "P3 main graph 1"
+        },
+        {
+          "path": "./img/P3-lossDiffetentsModelsComparison.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "60",
+          "alt": "P3 main graph 2"
+        },
+        {
+          "path": "",
+          "enabled": false,
+          "numberImagesPerRow": 1,
+          "size": "60",
+          "alt": "P3 main graph 3"
+        },
+        {
+          "path": "",
+          "enabled": false,
+          "numberImagesPerRow": 1,
+          "size": "60",
+          "alt": "P3 main graph 4"
+        }
+      ]
     },
     "prediction": {
       "imagePath": "./img/P3-TslaClosePrice.png",
       "imageAlt": "Prediction preview for TSLA Market Prediction",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "./P3-index.html",
-      "buttonText": "Launch Prediction App"
+      "buttonText": "Launch Prediction App",
+      "layout": {
+        "enabled": true,
+        "numberImagesPerRow": 1,
+        "size": "60"
+      }
     }
   }
 ]
