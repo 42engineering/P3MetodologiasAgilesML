@@ -31,13 +31,7 @@ MODEL_NAME = DEFAULT_MODEL_NAME
 
 SEQUENCE_LENGTH = 30
 
-FEATURES = [
-    "Open",
-    "High",
-    "Low",
-    "Close",
-    "Volume"
-]
+FEATURES = ["Open","High","Low","Close","Volume"]
 
 FEATURES_INDICADORES1 = [
     "Open",
