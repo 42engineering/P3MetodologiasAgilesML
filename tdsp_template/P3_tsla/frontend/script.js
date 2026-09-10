@@ -58,7 +58,7 @@ async function loadProjects() {
                     <div class="project-actions">
                         <a
                             class="github-repo"
-                            href="./templateIndex.html?projectIndex=${projects.indexOf(project)}"
+                            href="./template/index.html?projectId=${encodeURIComponent(project.projectId)}"
                         >
                             View Project
                         </a>
