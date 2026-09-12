@@ -109,7 +109,7 @@ nav{
     margin-top:36px;
     display:inline-block;
     padding:14px 24px;
-    background:#111;
+    background:var(--accent);
     color:white;
     text-decoration:none;
     font-family:'Inter',sans-serif;
@@ -117,7 +117,7 @@ nav{
 }
 
 .primary-btn:hover{
-    background:var(--accent);
+    background:var(--spectrum-2);
 }
 
 /* SHARED */
@@ -178,14 +178,15 @@ nav{
 
 .profile-item{
     display:grid;
-    grid-template-columns:220px minmax(0,1fr);
+    grid-template-columns:1fr;
     gap:0;
     padding:20px 0 10px;
 }
 
 .profile-meta{
-    padding-right:30px;
+    padding-right:0;
     padding-left:10px;
+    margin-bottom:22px;
     border-left:1px solid var(--project-divider);
 }
 
@@ -205,7 +206,7 @@ nav{
 }
 
 .profile-content{
-    padding-left:42px;
+    padding-left:0;
 }
 
 .profile-content p{
@@ -358,10 +359,10 @@ nav{
 }
 
 .github-repo{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    color:var(--spectrum-4);
+    display:inline-block;
+    padding:12px 20px;
+    background:var(--accent);
+    color:#fff;
     text-decoration:none;
     font-family:'Inter',sans-serif;
     font-size:.8rem;
@@ -369,13 +370,9 @@ nav{
     transition:.2s;
 }
 
-.github-repo::after{
-    content:"↗";
-    font-size:.9em;
-}
-
 .github-repo:hover{
-    color:var(--spectrum-2);
+    background:var(--spectrum-2);
+    color:#fff;
 }
 
 .projects-status{

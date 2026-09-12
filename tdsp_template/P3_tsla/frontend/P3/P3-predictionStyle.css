@@ -41,8 +41,8 @@ nav{padding:32px 0;border-bottom:1px solid var(--line);font-family:'Inter',sans-
 .predict-box{border:1px solid var(--line);padding:36px;}
 label{display:block;margin-bottom:8px;font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
 input,select{width:100%;border:1px solid var(--line);padding:16px;font-size:1rem;font-family:'Inter',sans-serif;margin-bottom:22px;background:#fff;color:var(--text);}
-button{background:#111;color:#fff;border:0;padding:14px 24px;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;}
-button:hover{background:var(--accent);}
+button{background:var(--accent);color:#fff;border:0;padding:14px 24px;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;}
+button:hover{background:var(--spectrum-2);}
 .result{margin-top:28px;padding:30px;background:#fafafa;border:1px solid var(--line);}
 .result h2{margin-bottom:14px;font-size:1.6rem;}
 .result p{margin-bottom:8px;color:var(--muted);}
