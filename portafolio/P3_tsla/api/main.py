@@ -1,8 +1,5 @@
-from pathlib import Path
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 
 from P3_tsla.api.predict import router
 from P3_tsla.api.constants import PIPELINE_NAME
@@ -27,27 +24,4 @@ app.add_middleware(
 )
 
 
-# -------------------------
-# API
-# -------------------------
-
 app.include_router(router)
-
-
-# -------------------------
-# FRONTEND
-# -------------------------
-
-FRONTEND_DIR = (
-    Path(__file__).resolve().parents[1]
-    / "frontend"
-)
-
-app.mount(
-    "/",
-    StaticFiles(
-        directory=FRONTEND_DIR,
-        html=True
-    ),
-    name="frontend"
-)
