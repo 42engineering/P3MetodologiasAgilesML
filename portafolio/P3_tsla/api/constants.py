@@ -3,7 +3,7 @@ from pathlib import Path
 P3_TSLA_ROOT = Path(__file__).resolve().parents[1]
 
 MODELS_DIR = (
-    P3_TSLA_ROOT.parent /
+    P3_TSLA_ROOT /
     "models"
 )
 
