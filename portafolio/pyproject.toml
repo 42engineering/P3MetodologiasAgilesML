@@ -36,6 +36,10 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 
+where = ["projects]
+
 include = [
-    "P3_tsla*"
+    "P3_tsla*",
+    "P2",
+    "P1",
 ]
