@@ -15,7 +15,7 @@
       "MoA Analysis",
       "Broad Bioimage Benchmark Collection (BBBC)"
     ],
-    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2/notebooks/P2-ProyectoLibroLaOdiseaV4_9_Master.ipynb",
+    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "interpretationGraphs": {
       "graphs": [
@@ -106,7 +106,10 @@
         "numberImagesPerRow": 1,
         "size": "50%"
       }
-    }
+    },
+    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2/notebooks/P2-ProyectoLibroLaOdiseaV4_9_Master.ipynb",
+    "notebookLinkEnabled": true,
+    "githubRepoEnabled": true
   },
   {
     "projectId": "P1",
@@ -123,7 +126,7 @@
       "Emotion Classification",
       "Machine Learning"
     ],
-    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P1/notebooks/DP1B_5_0_ProyectoMedicinaBiologia_V5.ipynb",
+    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P1",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "interpretationGraphs": {
       "graphs": [
@@ -214,7 +217,10 @@
         "numberImagesPerRow": 1,
         "size": "100%"
       }
-    }
+    },
+    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P1/notebooks/DP1B_5_0_ProyectoMedicinaBiologia_V5.ipynb",
+    "notebookLinkEnabled": true,
+    "githubRepoEnabled": true
   },
   {
     "projectId": "P3",
@@ -232,7 +238,7 @@
       "yfinance",
       "Yahoo Finance"
     ],
-    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2/notebooks/P2-ProyectoLibroLaOdiseaV4_9_Master.ipynb",
+    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P3_tsla",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "interpretationGraphs": {
       "graphs": [
@@ -323,6 +329,9 @@
         "numberImagesPerRow": 1,
         "size": "100%"
       }
-    }
+    },
+    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2/notebooks/P2-ProyectoLibroLaOdiseaV4_9_Master.ipynb",
+    "notebookLinkEnabled": true,
+    "githubRepoEnabled": true
   }
 ]

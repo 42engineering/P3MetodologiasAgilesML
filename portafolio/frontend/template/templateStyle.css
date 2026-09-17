@@ -248,10 +248,60 @@ footer{border-top:1px solid var(--line);padding:60px 0;text-align:center;color:v
 }
 
 
-.project-repo-link {
-    display: inline-flex;
-    margin-top: 18px;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 4px;
+.prediction-actions {
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:28px;
+}
+
+.prediction-actions .primary-btn {
+    margin-top:0;
+}
+
+.project-resource-link {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:48px;
+    padding:0 16px;
+    border:1px solid var(--project-divider);
+    background:var(--spectrum-8);
+    color:var(--spectrum-2);
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.project-resource-link:hover {
+    border-color:var(--accent);
+    background:var(--spectrum-7);
+    color:var(--spectrum-1);
+}
+
+.notebook-link {
+    background:#fff;
+    color:var(--accent);
+    /* background:var(--spectrum-8); */
+    /* color:var(--spectrum-3); */
+}
+
+.github-repo-link {
+    background:#fff;
+    color:var(--accent);
+}
+
+@media(max-width:768px){
+    .prediction-actions{
+        align-items:stretch;
+    }
+
+    .prediction-actions .primary-btn,
+    .project-resource-link{
+        width:100%;
+        justify-content:center;
+        text-align:center;
+    }
 }

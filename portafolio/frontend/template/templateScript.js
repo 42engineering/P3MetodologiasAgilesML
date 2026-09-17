@@ -74,16 +74,8 @@ function renderProject(general, project, resolvedProjectIndex) {
     setTextIfExists("projectDescription", project.description || "");
     setTextIfExists("modelInterpretationText", project.modelInterpretation || "");
 
-    const githubRepoLink = getElement("githubRepoLink");
-    if (githubRepoLink) {
-        if (project.githubRepo) {
-            githubRepoLink.href = project.githubRepo;
-            githubRepoLink.style.display = "inline-flex";
-        } else {
-            githubRepoLink.removeAttribute("href");
-            githubRepoLink.style.display = "none";
-        }
-    }
+    configureProjectLink("notebookLink", project.notebookLink, project.notebookLinkEnabled);
+    configureProjectLink("githubRepoLink", project.githubRepo, project.githubRepoEnabled);
 
     document.title = `${project.shortTitle || "Project"} | Portfolio`;
 
@@ -91,6 +83,23 @@ function renderProject(general, project, resolvedProjectIndex) {
     renderGraphSection("interpretationGraphs", project.interpretationGraphs || {});
     renderGraphSection("trainingGraphs", project.trainingGraphs || {});
     renderGraphSection("mainGraphs", project.mainGraphs || {});
+}
+
+function configureProjectLink(elementId, url, enabled) {
+    const link = getElement(elementId);
+    if (!link) return;
+
+    const isEnabled = enabled !== false && Boolean(url);
+
+    if (isEnabled) {
+        link.href = url;
+        link.style.display = "inline-flex";
+        link.removeAttribute("aria-hidden");
+    } else {
+        link.removeAttribute("href");
+        link.style.display = "none";
+        link.setAttribute("aria-hidden", "true");
+    }
 }
 
 function renderPrediction(prediction) {
