@@ -19,8 +19,8 @@ function setTextIfExists(id, value) {
 async function initializeTemplate() {
     try {
         const [generalResponse, projectsResponse] = await Promise.all([
-            fetch("../general.json"),
-            fetch("../projects.json")
+            fetch("/general.json"),
+            fetch("/projects.json")
         ]);
 
         if (!generalResponse.ok || !projectsResponse.ok) {
