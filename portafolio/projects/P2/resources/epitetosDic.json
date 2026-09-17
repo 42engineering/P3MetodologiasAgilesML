@@ -1,0 +1,91 @@
+{
+    "ulysses": [
+        "odysseus",
+        "son of laertes",
+        "laertes' son",
+        "king of ithaca",
+        "the hero",
+        "the wanderer",
+        "my poor good man",
+		"man of many devices"
+    ],
+    "telemachus": [
+        "son of ulysses",
+        "son of odysseus",
+        "young prince",
+        "prince of ithaca"
+    ],
+    "laertes": [
+        "father of ulysses",
+        "father of odysseus"
+    ],
+    "athena": [
+        "pallas",
+        "pallas athene",
+        "minerva",
+        "grey-eyed goddess",
+        "daughter of jove",
+        "daughter of jupiter"
+    ],
+    "neptune": [
+        "poseidon",
+        "earth-shaker",
+        "earth shaker",
+        "god of the sea",
+        "the sea god"
+    ],
+    "jupiter": [
+        "zeus",
+        "father jove",
+        "jove",
+        "son of saturn",
+        "cloud-compeller",
+        "lord of thunder"
+    ],
+    "juno": [
+        "hera",
+        "queen juno"
+    ],
+    "mercury": [
+        "hermes",
+        "the messenger",
+        "guide and guardian",
+        "slayer of argus"
+    ],
+    "penelope": [
+        "daughter of icarius",
+        "faithful wife",
+        "queen of ithaca"
+    ],
+    "calypso": [
+        "nymph",
+        "the nymph",
+        "daughter of atlas"
+    ],
+    "circe": [
+        "the enchantress",
+        "daughter of helios"
+    ],
+    "helios": [
+        "hyperion",
+        "sun god",
+        "god of the sun"
+    ],
+    "aeolus": [
+        "keeper of the winds",
+        "king of the winds"
+    ],
+    "polyphemus": [
+        "the cyclops",
+        "cyclops",
+        "son of neptune"
+    ],
+    "eumaeus": [
+        "the swineherd",
+        "faithful swineherd"
+    ],
+    "anticlea": [
+        "mother of ulysses",
+        "mother of odysseus"
+    ]
+}
