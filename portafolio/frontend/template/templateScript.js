@@ -74,6 +74,17 @@ function renderProject(general, project, resolvedProjectIndex) {
     setTextIfExists("projectDescription", project.description || "");
     setTextIfExists("modelInterpretationText", project.modelInterpretation || "");
 
+    const githubRepoLink = getElement("githubRepoLink");
+    if (githubRepoLink) {
+        if (project.githubRepo) {
+            githubRepoLink.href = project.githubRepo;
+            githubRepoLink.style.display = "inline-flex";
+        } else {
+            githubRepoLink.removeAttribute("href");
+            githubRepoLink.style.display = "none";
+        }
+    }
+
     document.title = `${project.shortTitle || "Project"} | Portfolio`;
 
     renderPrediction(project.prediction || {});

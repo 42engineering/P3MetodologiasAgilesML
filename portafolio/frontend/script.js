@@ -21,8 +21,8 @@ function renderGeneralText(general) {
 async function loadPortfolio() {
     try {
         const [generalResponse, projectsResponse] = await Promise.all([
-            fetch("./general.json"),
-            fetch("./projects.json")
+            fetch("/general.json"),
+            fetch("/projects.json")
         ]);
 
         if (!generalResponse.ok || !projectsResponse.ok) {
@@ -84,7 +84,7 @@ async function loadPortfolio() {
                     <div class="project-actions">
                         <a
                             class="github-repo"
-                            href="./template/index.html?projectId=${encodeURIComponent(project.projectId)}"
+                            href="/template/index.html?projectId=${encodeURIComponent(project.projectId)}"
                         >
                             View Project
                         </a>

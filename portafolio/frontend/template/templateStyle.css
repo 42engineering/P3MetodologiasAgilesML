@@ -246,3 +246,12 @@ footer{border-top:1px solid var(--line);padding:60px 0;text-align:center;color:v
         max-width:100% !important;
     }
 }
+
+
+.project-repo-link {
+    display: inline-flex;
+    margin-top: 18px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
