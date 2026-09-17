@@ -1,4 +1,12 @@
 {
   "logoTex": "MyPortafolio",
-  "footerText": "\u00a9 2026 Portfolio"
+  "footerText": "© 2026 Portfolio",
+  "textoBoldHero": "textoBoldHero Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "textoEpitetoHero": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+  "titleProfile": "Lorem ipsum dolor sit amet.",
+  "parrafo1Profile": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
+  "parrafo2Profile": "parrafo2Profile - Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.",
+  "parrafo3Profile": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh.",
+  "ContactHeroText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "ContactEpitetoText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 }

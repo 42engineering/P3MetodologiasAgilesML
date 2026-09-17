@@ -220,6 +220,10 @@ footer{border-top:1px solid var(--line);padding:60px 0;text-align:center;color:v
     justify-self:start;
 }
 
+.media-row.media-row-single .graph-card{
+    justify-self:center;
+}
+
 .graph-card img,
 .prediction-visual img{
     display:block;

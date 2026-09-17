@@ -1,5 +1,5 @@
-// const API_URL = window.location.origin;
-const API_URL = "https://p3metodologiasagilesml-1.onrender.com";
+const API_URL = window.location.origin;
+// const API_URL = "https://p3metodologiasagilesml-1.onrender.com";
 // const API_URL = "https://p3metodologiasagilesml.onrender.com";
 
 window.addEventListener("DOMContentLoaded", loadModels);

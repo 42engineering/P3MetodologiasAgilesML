@@ -1,14 +1,40 @@
 const projectsList = document.getElementById("projectsList");
 
-async function loadProjects() {
-    try {
-        const response = await fetch("./projects.json");
+function setTextIfExists(id, value) {
+    const element = document.getElementById(id);
+    if (element && value != null) {
+        element.textContent = value;
+    }
+}
 
-        if (!response.ok) {
-            throw new Error(`HTTP error: ${response.status}`);
+function renderGeneralText(general) {
+    setTextIfExists("textoBoldHero", general.textoBoldHero);
+    setTextIfExists("textoEpitetoHero", general.textoEpitetoHero);
+    setTextIfExists("titleProfile", general.titleProfile);
+    setTextIfExists("parrafo1Profile", general.parrafo1Profile);
+    setTextIfExists("parrafo2Profile", general.parrafo2Profile);
+    setTextIfExists("parrafo3Profile", general.parrafo3Profile);
+    setTextIfExists("ContactHeroText", general.ContactHeroText);
+    setTextIfExists("ContactEpitetoText", general.ContactEpitetoText);
+}
+
+async function loadPortfolio() {
+    try {
+        const [generalResponse, projectsResponse] = await Promise.all([
+            fetch("./general.json"),
+            fetch("./projects.json")
+        ]);
+
+        if (!generalResponse.ok || !projectsResponse.ok) {
+            throw new Error(
+                `HTTP error: general=${generalResponse.status}, projects=${projectsResponse.status}`
+            );
         }
 
-        const projects = await response.json();
+        const general = await generalResponse.json();
+        const projects = await projectsResponse.json();
+
+        renderGeneralText(general);
 
         projectsList.innerHTML = "";
 
@@ -69,12 +95,12 @@ async function loadProjects() {
             projectsList.appendChild(item);
         });
     } catch (error) {
-        console.error("Could not load projects.json:", error);
+        console.error("Could not load portfolio data:", error);
 
         projectsList.innerHTML = `
             <div class="projects-status">
                 Projects could not be loaded. Run the site from a local web server
-                (for example VS Code Live Server) so that fetch() can read projects.json.
+                (for example VS Code Live Server) so that fetch() can read general.json and projects.json.
             </div>
         `;
     }
@@ -89,4 +115,4 @@ function escapeHTML(value = "") {
         .replaceAll("'", "&#039;");
 }
 
-loadProjects();
+loadPortfolio();

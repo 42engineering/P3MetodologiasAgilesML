@@ -20,7 +20,7 @@
     "interpretationGraphs": {
       "graphs": [
         {
-          "path": "/img/P2/P2-interpretacionMeiosis.png",
+          "path": "../img/P2/P2-interpretacionMeiosis.png",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           "enabled": true,
           "numberImagesPerRow": 1,
@@ -28,7 +28,7 @@
           "alt": "P2 interpretation graph 1"
         },
         {
-          "path": "/img/P2/P2-InterpretacionMeiosis2.png",
+          "path": "../img/P2/P2-InterpretacionMeiosis2.png",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           "enabled": true,
           "numberImagesPerRow": 1,
@@ -36,7 +36,7 @@
           "alt": "P2 interpretation graph 2"
         },
         {
-          "path": "/img/P2/P2-perturbationExperiments.png",
+          "path": "../img/P2/P2-perturbationExperiments.png",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           "enabled": true,
           "numberImagesPerRow": 1,
@@ -48,7 +48,7 @@
     "trainingGraphs": {
       "graphs": [
         {
-          "path": "/img/P2/P2-ML_img1.png",
+          "path": "../img/P2/P2-ML_img1.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
@@ -66,28 +66,28 @@
     "mainGraphs": {
       "graphs": [
         {
-          "path": "/img/P2/P2-ML_noiseSensibility.png",
+          "path": "../img/P2/P2-ML_noiseSensibility.png",
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
           "alt": "P2 main graph 1"
         },
         {
-          "path": "/img/P2/P2-ML_zoomSensibility.png",
+          "path": "../img/P2/P2-ML_zoomSensibility.png",
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
           "alt": "P2 main graph 2"
         },
         {
-          "path": "/img/P2/P2-ML_contrastSensibility.png",
+          "path": "../img/P2/P2-ML_contrastSensibility.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
           "alt": "P2 main graph 3"
         },
         {
-          "path": "/img/P2/P2-predicitonImageIndex5.png",
+          "path": "../img/P2/P2-predicitonImageIndex5.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
@@ -96,7 +96,7 @@
       ]
     },
     "prediction": {
-      "imagePath": "/img/P2/P2-prediciontImg2.png",
+      "imagePath": "../img/P2/P2-prediciontImg2.png",
       "imageAlt": "Prediction preview for Cell Morphology AI",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "../P2/index.html",
@@ -128,7 +128,7 @@
     "interpretationGraphs": {
       "graphs": [
         {
-          "path": "/img/P1/P1-histogramaToken.png",
+          "path": "../img/P1/P1-histogramaToken.png",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           "enabled": true,
           "numberImagesPerRow": 1,
@@ -136,7 +136,7 @@
           "alt": "P1 interpretation graph 1"
         },
         {
-          "path": "/img/P1/",
+          "path": "../img/P1/",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           "enabled": false,
           "numberImagesPerRow": 1,
@@ -156,14 +156,14 @@
     "trainingGraphs": {
       "graphs": [
         {
-          "path": "/img/P1/P1-Indicators1.png",
+          "path": "../img/P1/P1-Indicators1.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
           "alt": "P1 training graph 1"
         },
         {
-          "path": "/img/P1/P1-Indicators2.png",
+          "path": "../img/P1/P1-Indicators2.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
@@ -174,28 +174,28 @@
     "mainGraphs": {
       "graphs": [
         {
-          "path": "/img/P1/P1-histogramaPunishHelpNeutral.png",
+          "path": "../img/P1/P1-histogramaPunishHelpNeutral.png",
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
           "alt": "P1 main graph 1"
         },
         {
-          "path": "/img/P1/P1-SensibilityAnalisisVectorSize.png",
+          "path": "../img/P1/P1-SensibilityAnalisisVectorSize.png",
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
           "alt": "P1 main graph 2"
         },
         {
-          "path": "/img/P1/P1-hopeEvolutionMainCharacter.png",
+          "path": "../img/P1/P1-hopeEvolutionMainCharacter.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
           "alt": "P1 main graph 3"
         },
         {
-          "path": "/img/P1/P1-TypeOfRelationByChapeter.png",
+          "path": "../img/P1/P1-TypeOfRelationByChapeter.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
@@ -204,7 +204,7 @@
       ]
     },
     "prediction": {
-      "imagePath": "/img/P1/P1-AppImage1.png",
+      "imagePath": "../img/P1/P1-AppImage1.png",
       "imageAlt": "Prediction preview for Odyssey Sentiment Analysis",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "../P1/index.html",
@@ -237,7 +237,7 @@
     "interpretationGraphs": {
       "graphs": [
         {
-          "path": "/img/P3/P3-TslaClosePrice.png",
+          "path": "../img/P3/P3-TslaClosePrice.png",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           "enabled": true,
           "numberImagesPerRow": 1,
@@ -245,7 +245,7 @@
           "alt": "P3 interpretation graph 1"
         },
         {
-          "path": "/img/P3/P3-TslaVolumens.png",
+          "path": "../img/P3/P3-TslaVolumens.png",
           "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           "enabled": true,
           "numberImagesPerRow": 1,
@@ -265,14 +265,14 @@
     "trainingGraphs": {
       "graphs": [
         {
-          "path": "/img/P3/P3-trainAccuracyLSTM1Model.png",
+          "path": "../img/P3/P3-trainAccuracyLSTM1Model.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
           "alt": "P3 training graph 1"
         },
         {
-          "path": "/img/P3/P3-trainLoss_DeepLSTM1Model.png",
+          "path": "../img/P3/P3-trainLoss_DeepLSTM1Model.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
@@ -283,14 +283,14 @@
     "mainGraphs": {
       "graphs": [
         {
-          "path": "/img/P3/P3-AccuracyDifferentsModels.png",
+          "path": "../img/P3/P3-AccuracyDifferentsModels.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
           "alt": "P3 main graph 1"
         },
         {
-          "path": "/img/P3/P3-lossDiffetentsModelsComparison.png",
+          "path": "../img/P3/P3-lossDiffetentsModelsComparison.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
@@ -313,7 +313,7 @@
       ]
     },
     "prediction": {
-      "imagePath": "/img/P3/P3-TslaClosePrice.png",
+      "imagePath": "../img/P3/P3-TslaClosePrice.png",
       "imageAlt": "Prediction preview for TSLA Market Prediction",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "../P3/index.html",
