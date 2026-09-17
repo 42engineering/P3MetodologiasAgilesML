@@ -4,4 +4,6 @@ __pycache__/
 *.pyc
 PT3_tesla.egg-info/
 *.egg-info/
-root/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
