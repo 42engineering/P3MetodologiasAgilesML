@@ -1,0 +1,18 @@
+# Project Name
+
+#Abstract
+The project used a supervised ML combining FastText word embeddings. Sentence embeddings and sentiment features were used to train the model, with an 80/20 train-test.
+Additionally, three JSON dictionaries were used: `epitetosDic.json` to normalize character names and epithets, `verbWeights.json` to assign weights to actions and determine whether relationships represent help, obstruction, or neutrality, and `genderDic.json` to resolve personal pronouns to the corresponding character entities.
+It include plots of sentiment interactions per chapter.
+
+* ✅ [Project Charter]()
+
+# NoteBooks
+
+* ✅ [Notebook1]()
+
+# Scripts
+
+## Documentation
+* ✅ []() - Dicionary
+
