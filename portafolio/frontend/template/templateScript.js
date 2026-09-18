@@ -136,14 +136,24 @@ function renderPrediction(prediction) {
     text.textContent = prediction.text || "";
     button.textContent = prediction.buttonText || "Launch Prediction App";
 
-    if (prediction.launchUrl) {
+    const buttonEnabled = prediction.buttonEnabled !== false;
+    button.style.display = buttonEnabled ? "inline-flex" : "none";
+
+    if (!buttonEnabled) {
+        button.removeAttribute("href");
+        button.setAttribute("aria-hidden", "true");
+        button.classList.remove("is-disabled");
+        button.removeAttribute("aria-disabled");
+    } else if (prediction.launchUrl) {
         button.href = prediction.launchUrl;
         button.classList.remove("is-disabled");
         button.removeAttribute("aria-disabled");
+        button.removeAttribute("aria-hidden");
     } else {
         button.href = "#";
         button.classList.add("is-disabled");
         button.setAttribute("aria-disabled", "true");
+        button.removeAttribute("aria-hidden");
     }
 }
 

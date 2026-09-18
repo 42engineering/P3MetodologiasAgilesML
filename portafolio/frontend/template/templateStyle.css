@@ -282,10 +282,10 @@ footer{border-top:1px solid var(--line);padding:60px 0;text-align:center;color:v
 }
 
 .notebook-link {
+    /* background:var(--spectrum-8);
+    color:var(--spectrum-3); */
     background:#fff;
     color:var(--accent);
-    /* background:var(--spectrum-8); */
-    /* color:var(--spectrum-3); */
 }
 
 .github-repo-link {

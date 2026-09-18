@@ -101,6 +101,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "/P2/index.html",
       "buttonText": "Launch Prediction App",
+      "buttonEnabled": false,
       "layout": {
         "enabled": true,
         "numberImagesPerRow": 1,
@@ -212,6 +213,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "/P1/index.html",
       "buttonText": "Launch Prediction App",
+      "buttonEnabled": false,
       "layout": {
         "enabled": true,
         "numberImagesPerRow": 1,
@@ -324,6 +326,7 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
       "launchUrl": "/P3/index.html",
       "buttonText": "Launch Prediction App",
+      "buttonEnabled": true,
       "layout": {
         "enabled": true,
         "numberImagesPerRow": 1,
