@@ -52,7 +52,7 @@ Por su parte, el modelo DeepLSTM1_Indicadores1 incorporó indicadores técnicos 
 
 Se pueden ver mas detalles sobre la modelacione en el archivo:
 
-- [Notebook1](/tdsp_template/P3_tsla/scripts/data_acquisition/PT1.1ColabV2.ipynb) - Notebook implementation model
+- [Notebook1](/portafolio/projects/P3_tsla/scripts/data_acquisition/PT1.1ColabV2.ipynb) - Notebook implementation model
 
 ## Conclusiones y Recomendaciones
 

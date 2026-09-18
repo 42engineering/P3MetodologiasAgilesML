@@ -6,7 +6,7 @@
 ###  Objetivo 
 Diseñar, entrenar y desplegar un modelo de aprendizaje profundo que permita predecir la dirección del precio de cierre de la acción de Tesla utilizando datos históricos de mercado.
 
-- [Notebook](https://colab.research.google.com/github/42engineering/P3MetodologiasAgilesML/blob/main/tdsp_template/P3_tsla/scripts/data_acquisition/PT1.1ColabV2.ipynb#scrollTo=A6qEKHZACutI) - Notebook.
+- [Notebook](https://colab.research.google.com/github/42engineering/P3MetodologiasAgilesML/blob/main/portafolio/projects/P3_tsla/scripts/data_acquisition/PT1.1ColabV2.ipynb#scrollTo=A6qEKHZACutI) - Notebook.
 
 ### Plataforma de despliegue
 
