@@ -1,131 +1,13 @@
 [
   {
-    "projectId": "P2",
-    "shortTitle": "Cell Morphology AI",
-    "mainTitle": "Deep Learning for Biological Cell Morphology Analysis",
-    "category": "Deep Learning / Biomedical AI / Computer Vision",
-    "description": "Deep learning project for analyzing fluorescence microscopy images and detecting morphological changes in biological cells after exposure to different compounds. Using computer vision, image processing, CNN-based models, and MoA-related analysis, the project explores how cellular features can help predict drug effects. The dataset is provided by the Broad Institute, a biomedical research organization that collaborates with MIT and Harvard.",
-    "technologies": [
-      "Python",
-      "Deep Learning",
-      "CNNs",
-      "Computer Vision",
-      "Image Processing",
-      "Fluorescence Microscopy",
-      "MoA Analysis",
-      "Broad Bioimage Benchmark Collection (BBBC)"
-    ],
-    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2",
-    "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "interpretationGraphs": {
-      "graphs": [
-        {
-          "path": "/img/P2/P2-interpretacionMeiosis.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "enabled": true,
-          "numberImagesPerRow": 1,
-          "size": "100%",
-          "alt": "P2 interpretation graph 1"
-        },
-        {
-          "path": "/img/P2/P2-InterpretacionMeiosis2.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "enabled": true,
-          "numberImagesPerRow": 1,
-          "size": "50%",
-          "alt": "P2 interpretation graph 2"
-        },
-        {
-          "path": "/img/P2/P2-perturbationExperiments.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "enabled": true,
-          "numberImagesPerRow": 1,
-          "size": "50%",
-          "alt": "P2 interpretation graph 3"
-        }
-      ]
-    },
-    "trainingGraphs": {
-      "graphs": [
-        {
-          "path": "/img/P2/P2-ML_img1.png",
-          "enabled": true,
-          "numberImagesPerRow": 1,
-          "size": "100%",
-          "alt": "P2 training graph 1"
-        },
-        {
-          "path": "",
-          "enabled": false,
-          "numberImagesPerRow": 1,
-          "size": "100%",
-          "alt": "P2 training graph 2"
-        }
-      ]
-    },
-    "mainGraphs": {
-      "graphs": [
-        {
-          "path": "/img/P2/P2-ML_noiseSensibility.png",
-          "enabled": true,
-          "numberImagesPerRow": 2,
-          "size": "100%",
-          "alt": "P2 main graph 1"
-        },
-        {
-          "path": "/img/P2/P2-ML_zoomSensibility.png",
-          "enabled": true,
-          "numberImagesPerRow": 2,
-          "size": "100%",
-          "alt": "P2 main graph 2"
-        },
-        {
-          "path": "/img/P2/P2-ML_contrastSensibility.png",
-          "enabled": true,
-          "numberImagesPerRow": 1,
-          "size": "100%",
-          "alt": "P2 main graph 3"
-        },
-        {
-          "path": "/img/P2/P2-predicitonImageIndex5.png",
-          "enabled": true,
-          "numberImagesPerRow": 1,
-          "size": "100%",
-          "alt": "P2 main graph 4"
-        }
-      ]
-    },
-    "prediction": {
-      "imagePath": "/img/P2/P2-prediciontImg2.png",
-      "imageAlt": "Prediction preview for Cell Morphology AI",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
-      "launchUrl": "/P2/index.html",
-      "buttonText": "Launch Prediction App",
-      "buttonEnabled": false,
-      "layout": {
-        "enabled": true,
-        "numberImagesPerRow": 1,
-        "size": "50%"
-      }
-    },
-    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2/notebooks/P2-ProyectoLibroLaOdiseaV4_9_Master.ipynb",
-    "notebookLinkEnabled": true,
-    "githubRepoEnabled": true
-  },
-  {
     "projectId": "P1",
-    "shortTitle": "Odyssey Sentiment Analysis",
-    "mainTitle": "NLP Sentiment Analysis of Emotion and Divine Intervention in Homer's Odyssey",
+    "shortTitle": "Book Odyssey Sentiment Analysis",
+    "mainTitle": "Natural Language Processing (NLP) Sentiment Analysis of the book Odyssey by written by Homer",
     "category": "Natural Language Processing / Sentiment Analysis / Digital Humanities",
-    "description": "NLP-based analysis of The Odyssey focused on identifying emotional patterns throughout Odysseus' journey and examining their relationship with moments of divine intervention. The project applies sentiment analysis, text preprocessing, tokenization, emotion classification, and other NLP techniques to study emotional and thematic patterns in the text.",
+    "description": "NLP to the book The Odyssey identifies emotional patterns throughout Odysseus' journey  categorizing the emotions in help, neutral,  and obstruct.The project applies sentiment analysis, text preprocessing, tokenization, emotion classification, and other NLP techniques to study emotional and thematic patterns in the text.",
     "technologies": [
-      "Python",
-      "NLP",
-      "Sentiment Analysis",
-      "Text Preprocessing",
-      "Tokenization",
-      "Emotion Classification",
-      "Machine Learning"
+      "NLP","Python","Pandas", "Numpy", "Scikit-learn", "spaCy","FasText",  "matplotlib", "WordCloud", "tokenisation"
+      ,"Sentiment Analysis","Text Preprocessing","Tokenization","Emotion Classification","Machine Learning"
     ],
     "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P1",
     "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -133,10 +15,10 @@
       "graphs": [
         {
           "path": "/img/P1/P1-histogramaToken.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "text": "Sentences were identified using the model en_core_web_sm for sentence segmentation, which detects boundaries based on punctuation, syntax, and context. TTR was then calculated for each sentence as the number of unique words divided by the total number of words.\n\nThere is a large peak around TTR ≈ 1.0. In many sentences, no word is repeated within the same sentence. At the sentence level, there is almost no lexical repetition, as expected given the high diversity typical of a book.",
           "enabled": true,
           "numberImagesPerRow": 1,
-          "size": "100%",
+          "size": "70%",
           "alt": "P1 interpretation graph 1"
         },
         {
@@ -221,6 +103,116 @@
       }
     },
     "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P1/notebooks/DP1B_5_0_ProyectoMedicinaBiologia_V5.ipynb",
+    "notebookLinkEnabled": true,
+    "githubRepoEnabled": true
+  },
+  {
+    "projectId": "P2",
+    "shortTitle": "Cell Morphology AI",
+    "mainTitle": "Deep Learning for Biological Cell Morphology Analysis",
+    "category": "Deep Learning / Biomedical AI / Computer Vision",
+    "description": "Deep learning project for analyzing fluorescence microscopy images and detecting morphological changes in biological cells after exposure to different compounds. Using computer vision, image processing, CNN-based models, and MoA-related analysis, the project explores how cellular features can help predict drug effects. The dataset is provided by the Broad Institute, a biomedical research organization that collaborates with MIT and Harvard.",
+    "technologies": [
+      "Python",
+      "Deep Learning",
+      "CNNs",
+      "Computer Vision",
+      "Image Processing"
+    ],
+    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2",
+    "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "interpretationGraphs": {
+      "graphs": [
+        {
+          "path": "/img/P2/P2-interpretacionMeiosis.png",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P2 interpretation graph 1"
+        },
+        {
+          "path": "/img/P2/P2-InterpretacionMeiosis2.png",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "50%",
+          "alt": "P2 interpretation graph 2"
+        },
+        {
+          "path": "/img/P2/P2-perturbationExperiments.png",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "50%",
+          "alt": "P2 interpretation graph 3"
+        }
+      ]
+    },
+    "trainingGraphs": {
+      "graphs": [
+        {
+          "path": "/img/P2/P2-ML_img1.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P2 training graph 1"
+        },
+        {
+          "path": "",
+          "enabled": false,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P2 training graph 2"
+        }
+      ]
+    },
+    "mainGraphs": {
+      "graphs": [
+        {
+          "path": "/img/P2/P2-ML_noiseSensibility.png",
+          "enabled": true,
+          "numberImagesPerRow": 2,
+          "size": "100%",
+          "alt": "P2 main graph 1"
+        },
+        {
+          "path": "/img/P2/P2-ML_zoomSensibility.png",
+          "enabled": true,
+          "numberImagesPerRow": 2,
+          "size": "100%",
+          "alt": "P2 main graph 2"
+        },
+        {
+          "path": "/img/P2/P2-ML_contrastSensibility.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "50%",
+          "alt": "P2 main graph 3"
+        },
+        {
+          "path": "/img/P2/P2-predicitonImageIndex5.png",
+          "enabled": true,
+          "numberImagesPerRow": 1,
+          "size": "100%",
+          "alt": "P2 main graph 4"
+        }
+      ]
+    },
+    "prediction": {
+      "imagePath": "/img/P2/P2-prediciontImg2.png",
+      "imageAlt": "Prediction preview for Cell Morphology AI",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
+      "launchUrl": "/P2/index.html",
+      "buttonText": "Launch Prediction App",
+      "buttonEnabled": false,
+      "layout": {
+        "enabled": true,
+        "numberImagesPerRow": 1,
+        "size": "50%"
+      }
+    },
+    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2/notebooks/P2-ProyectoLibroLaOdiseaV4_9_Master.ipynb",
     "notebookLinkEnabled": true,
     "githubRepoEnabled": true
   },
