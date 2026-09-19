@@ -137,44 +137,46 @@
   },
   {
     "projectId": "P2",
-    "shortTitle": "Cell Morphology AI",
+    "shortTitle": "Deep Learning CNN for Cell Morphology",
     "mainTitle": "Deep Learning for Biological Cell Morphology Analysis",
-    "category": "Deep Learning / Biomedical AI / Computer Vision",
-    "description": "Deep learning project for analyzing fluorescence microscopy images and detecting morphological changes in biological cells after exposure to different compounds. Using computer vision, image processing, CNN-based models, and MoA-related analysis, the project explores how cellular features can help predict drug effects. The dataset is provided by the Broad Institute, a biomedical research organization that collaborates with MIT and Harvard.",
+    "category": "Deep Learning / Biomedical AI / Computer Vision / Image Processing",
+    "description": "This project of deep learning project for images in biological cells after exposure to different compounds. Using different CNN  models, the project explores how cellular features can help predict compoung effects throught morfology. The images are provided by the Broad Institute, a biomedical research organization that collaborates with MIT and Harvard.",
     "technologies": [
       "Python",
-      "Deep Learning",
-      "CNNs",
-      "Computer Vision",
-      "Image Processing"
+      "Tensorflow",
+      "Keras",
+      "Pandas",
+      "Numpy",
+      "Scikit-learn",
+      "Matplotlib"
     ],
     "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2",
-    "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "modelInterpretation": "^This model of deep learning approach to classify the Mechanism of Action (MOA) of  compounds from biological cell images.The images contains fluorescence microscopy images of cells treated with different compounds and concentrations.\n\nThe project  includes data exploration, preprocessing, image normalization, train-validation-test partitioning, class encoding, data augmentation, class balancing, use in differtents convolutional neural networks (CNN) models with different droputs, batch sizes and others hyperparameters.\n\nSensitivity analyses were also performed to assess the impact of visual effects that can be also in the microsopy such as rotation, zoom, contrast, and Gaussian noise.",
     "interpretationGraphs": {
       "graphs": [
         {
           "path": "/img/P2/P2-interpretacionMeiosis.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "text": "Meiosis phases of cellular reproducction",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P2 interpretation graph 1"
+          "alt": ""
         },
         {
           "path": "/img/P2/P2-InterpretacionMeiosis2.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "text": "Each experimental sample includes three biological channels images: DAPI for nuclei, Actin for cytoskeletal structure, and Tubulin for microtubules  and cellular wall.",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "50%",
-          "alt": "P2 interpretation graph 2"
+          "alt": ""
         },
         {
           "path": "/img/P2/P2-perturbationExperiments.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "text": "",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "50%",
-          "alt": "P2 interpretation graph 3"
+          "alt": ""
         }
       ]
     },
@@ -185,8 +187,8 @@
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P2 training graph 1",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "alt": "",
+          "text": "",
           "textEnabled": false
         },
         {
@@ -194,8 +196,8 @@
           "enabled": false,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P2 training graph 2",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "alt": "",
+          "text": "",
           "textEnabled": false
         }
       ]
@@ -207,8 +209,8 @@
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
-          "alt": "P2 main graph 1",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "alt": "",
+          "text": "Changing different values of Gaussian noise in the images,  checking effect in Accuracy and F1-Score",
           "textEnabled": true
         },
         {
@@ -216,8 +218,8 @@
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
-          "alt": "P2 main graph 2",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "alt": "",
+          "text": "Changing different values of zoom in the images,  checking effect in Accuracy and F1-Score",
           "textEnabled": true
         },
         {
@@ -225,8 +227,8 @@
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "50%",
-          "alt": "P2 main graph 3",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "alt": "",
+          "text": "Changing different values of contrast in the images,  checking effect in Accuracy and F1-Score",
           "textEnabled": true
         },
         {
@@ -234,16 +236,16 @@
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P2 main graph 4",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "alt": "",
+          "text": "Preprocessed image with the different colors chanels.",
           "textEnabled": true
         }
       ]
     },
     "prediction": {
-      "imagePath": "/img/P2/P2-prediciontImg2.png",
-      "imageAlt": "Prediction preview for Cell Morphology AI",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
+      "imagePath": "/img/P2/P2-predicmiontImg2.png",
+      "imageAlt": "",
+      "text": "Deep learning CNN for cell morphology",
       "launchUrl": "/P2/index.html",
       "buttonText": "Launch Prediction App",
       "buttonEnabled": false,
