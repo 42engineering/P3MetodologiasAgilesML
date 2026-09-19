@@ -151,7 +151,7 @@
       "Matplotlib"
     ],
     "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2",
-    "modelInterpretation": "^This model of deep learning approach to classify the Mechanism of Action (MOA) of  compounds from biological cell images.The images contains fluorescence microscopy images of cells treated with different compounds and concentrations.\n\nThe project  includes data exploration, preprocessing, image normalization, train-validation-test partitioning, class encoding, data augmentation, class balancing, use in differtents convolutional neural networks (CNN) models with different droputs, batch sizes and others hyperparameters.\n\nSensitivity analyses were also performed to assess the impact of visual effects that can be also in the microsopy such as rotation, zoom, contrast, and Gaussian noise.",
+    "modelInterpretation": "This model of deep learning approach to classify the Mechanism of Action (MOA) of  compounds from biological cell images.The images contains fluorescence microscopy images of cells treated with different compounds and concentrations.\n\nThe project  includes data exploration, preprocessing, image normalization, train-validation-test partitioning, class encoding, data augmentation, class balancing, use in differtents convolutional neural networks (CNN) models with different droputs, batch sizes and others hyperparameters.\n\nSensitivity analyses were also performed to assess the impact of visual effects that can be also in the microsopy such as rotation, zoom, contrast, and Gaussian noise.",
     "interpretationGraphs": {
       "graphs": [
         {
@@ -243,7 +243,7 @@
       ]
     },
     "prediction": {
-      "imagePath": "/img/P2/P2-predicmiontImg2.png",
+      "imagePath": "/img/P2/P2-prediciontImg2.png",
       "imageAlt": "",
       "text": "Deep learning CNN for cell morphology",
       "launchUrl": "/P2/index.html",
