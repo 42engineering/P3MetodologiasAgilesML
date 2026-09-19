@@ -15,12 +15,8 @@
       "FasText",
       "matplotlib",
       "WordCloud",
-      "tokenisation",
-      "Sentiment Analysis",
-      "Text Preprocessing",
       "Tokenization",
-      "Emotion Classification",
-      "Machine Learning"
+      "Emotion Classification"
     ],
     "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P1",
     "modelInterpretation": "The project used a supervised ML combining FastText word embeddings. Sentence embeddings and sentiment features were used to train the model, with an 80/20 train-test. \n\n Additionally, three dictionaries were used to normalize character names and epithets, assign weights to actions and determine whether relationships represent help, obstruction, or neutrality, and to resolve personal pronouns to the corresponding character entities. /n/nAs a result was possible to get  plots of sentiment interactions per chapter.",
@@ -32,7 +28,7 @@
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "60%",
-          "alt": "P1 interpretation graph 1"
+          "alt": ""
         },
         {
           "path": "/img/P1/",
@@ -40,7 +36,7 @@
           "enabled": false,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P1 interpretation graph 2"
+          "alt": ""
         },
         {
           "path": "",
@@ -48,7 +44,7 @@
           "enabled": false,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P1 interpretation graph 3"
+          "alt": ""
         }
       ]
     },
@@ -117,7 +113,7 @@
     "prediction": {
       "imagePath": "/img/P1/P1-AppImage1.png",
       "imageAlt": "Prediction preview for Odyssey Sentiment Analysis",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. This section will present a preview of the model prediction experience.",
+      "text": "NLP model analyzes passages from The Odyssey book to identify sentiment, emotional patterns, and character interactions",
       "launchUrl": "/P1/index.html",
       "buttonText": "Launch Prediction App",
       "buttonEnabled": false,

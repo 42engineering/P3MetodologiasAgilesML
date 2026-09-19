@@ -70,6 +70,7 @@ function renderProject(general, project, resolvedProjectIndex) {
     );
     setTextIfExists("projectMainTitle", project.mainTitle || "");
     setTextIfExists("projectCategory", project.category || "");
+    renderTechnologies(project.technologies);
     setTextIfExists("overviewShortTitle", project.shortTitle || "Project");
     setTextIfExists("projectDescription", project.description || "");
     setTextIfExists("modelInterpretationText", project.modelInterpretation || "");
@@ -84,6 +85,31 @@ function renderProject(general, project, resolvedProjectIndex) {
     renderGraphSection("trainingGraphs", project.trainingGraphs || {});
     renderGraphSection("mainGraphs", project.mainGraphs || {});
     renderContinueExploring(project);
+}
+
+
+function renderTechnologies(technologies) {
+    const container = getElement("projectTechnologies");
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    const items = Array.isArray(technologies)
+        ? technologies.filter(item => typeof item === "string" && item.trim())
+        : [];
+
+    if (!items.length) {
+        container.style.display = "none";
+        return;
+    }
+
+    container.style.display = "flex";
+
+    items.forEach(technology => {
+        const pill = document.createElement("span");
+        pill.textContent = technology.trim();
+        container.appendChild(pill);
+    });
 }
 
 function configureProjectLink(elementId, url, enabled) {
