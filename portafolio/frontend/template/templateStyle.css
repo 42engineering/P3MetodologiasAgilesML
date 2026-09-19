@@ -45,6 +45,14 @@ nav{padding:32px 0;border-bottom:1px solid var(--line);font-family:'Inter',sans-
 .editorial-content{padding-left:42px;}
 .editorial-content p{max-width:780px;color:var(--muted);font-size:.96rem;line-height:1.8;}
 
+/* Preserve line breaks (\n and \n\n) coming from projects.json. */
+#projectDescription,
+#predictionText,
+#modelInterpretationText,
+.graph-card p{
+    white-space:pre-line;
+}
+
 /* Model interpretation uses a single-column editorial layout. */
 #model-interpretation .editorial-grid{
     grid-template-columns:1fr;

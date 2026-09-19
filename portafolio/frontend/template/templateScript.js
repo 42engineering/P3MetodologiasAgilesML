@@ -225,7 +225,9 @@ function createGraphCard(graph) {
         card.appendChild(placeholder);
     }
 
-    if (graph.text) {
+    const textEnabled = graph.textEnabled !== false;
+
+    if (textEnabled && graph.text) {
         const paragraph = document.createElement("p");
         paragraph.textContent = graph.text;
         card.appendChild(paragraph);

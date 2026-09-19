@@ -6,11 +6,24 @@
     "category": "Natural Language Processing / Sentiment Analysis / Digital Humanities",
     "description": "NLP to the book The Odyssey identifies emotional patterns throughout Odysseus' journey  categorizing the emotions in help, neutral,  and obstruct.The project applies sentiment analysis, text preprocessing, tokenization, emotion classification, and other NLP techniques to study emotional and thematic patterns in the text.",
     "technologies": [
-      "NLP","Python","Pandas", "Numpy", "sklearn", "spaCy","FasText",  "matplotlib", "WordCloud", "tokenisation"
-      ,"Sentiment Analysis","Text Preprocessing","Tokenization","Emotion Classification","Machine Learning"
+      "NLP",
+      "Python",
+      "Pandas",
+      "Numpy",
+      "sklearn",
+      "spaCy",
+      "FasText",
+      "matplotlib",
+      "WordCloud",
+      "tokenisation",
+      "Sentiment Analysis",
+      "Text Preprocessing",
+      "Tokenization",
+      "Emotion Classification",
+      "Machine Learning"
     ],
     "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P1",
-    "modelInterpretation":"The project used a supervised ML combining FastText word embeddings. Sentence embeddings and sentiment features were used to train the model, with an 80/20 train-test. Additionally, three JSON dictionaries were used: `epitetosDic.json` to normalize character names and epithets, `verbWeights.json` to assign weights to actions and determine whether relationships represent help, obstruction, or neutrality, and `genderDic.json` to resolve personal pronouns to the corresponding character entities. It include plots of sentiment interactions per chapter.",
+    "modelInterpretation": "The project used a supervised ML combining FastText word embeddings. Sentence embeddings and sentiment features were used to train the model, with an 80/20 train-test. Additionally, three JSON dictionaries were used: `epitetosDic.json` to normalize character names and epithets, `verbWeights.json` to assign weights to actions and determine whether relationships represent help, obstruction, or neutrality, and `genderDic.json` to resolve personal pronouns to the corresponding character entities. It include plots of sentiment interactions per chapter.",
     "interpretationGraphs": {
       "graphs": [
         {
@@ -46,14 +59,18 @@
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P1 training graph 1"
+          "alt": "P1 training graph 1",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "textEnabled": false
         },
         {
           "path": "/img/P1/P1-Indicators2.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P1 training graph 2"
+          "alt": "P1 training graph 2",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "textEnabled": false
         }
       ]
     },
@@ -64,28 +81,36 @@
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
-          "alt": "P1 main graph 1"
+          "alt": "P1 main graph 1",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         },
         {
           "path": "/img/P1/P1-SensibilityAnalisisVectorSize.png",
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
-          "alt": "P1 main graph 2"
+          "alt": "P1 main graph 2",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         },
         {
           "path": "/img/P1/P1-hopeEvolutionMainCharacter.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P1 main graph 3"
+          "alt": "P1 main graph 3",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         },
         {
           "path": "/img/P1/P1-TypeOfRelationByChapeter.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P1 main graph 4"
+          "alt": "P1 main graph 4",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         }
       ]
     },
@@ -156,14 +181,18 @@
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P2 training graph 1"
+          "alt": "P2 training graph 1",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "textEnabled": false
         },
         {
           "path": "",
           "enabled": false,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P2 training graph 2"
+          "alt": "P2 training graph 2",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "textEnabled": false
         }
       ]
     },
@@ -174,28 +203,36 @@
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
-          "alt": "P2 main graph 1"
+          "alt": "P2 main graph 1",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         },
         {
           "path": "/img/P2/P2-ML_zoomSensibility.png",
           "enabled": true,
           "numberImagesPerRow": 2,
           "size": "100%",
-          "alt": "P2 main graph 2"
+          "alt": "P2 main graph 2",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         },
         {
           "path": "/img/P2/P2-ML_contrastSensibility.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "50%",
-          "alt": "P2 main graph 3"
+          "alt": "P2 main graph 3",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         },
         {
           "path": "/img/P2/P2-predicitonImageIndex5.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P2 main graph 4"
+          "alt": "P2 main graph 4",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         }
       ]
     },
@@ -269,14 +306,18 @@
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P3 training graph 1"
+          "alt": "P3 training graph 1",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "textEnabled": false
         },
         {
           "path": "/img/P3/P3-trainLoss_DeepLSTM1Model.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P3 training graph 2"
+          "alt": "P3 training graph 2",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "textEnabled": false
         }
       ]
     },
@@ -287,28 +328,36 @@
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P3 main graph 1"
+          "alt": "P3 main graph 1",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         },
         {
           "path": "/img/P3/P3-lossDiffetentsModelsComparison.png",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P3 main graph 2"
+          "alt": "P3 main graph 2",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         },
         {
           "path": "",
           "enabled": false,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P3 main graph 3"
+          "alt": "P3 main graph 3",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         },
         {
           "path": "",
           "enabled": false,
           "numberImagesPerRow": 1,
           "size": "100%",
-          "alt": "P3 main graph 4"
+          "alt": "P3 main graph 4",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "textEnabled": true
         }
       ]
     },

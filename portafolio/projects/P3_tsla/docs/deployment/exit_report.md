@@ -177,7 +177,7 @@ Se identifican las siguientes oportunidades para futuras versiones:
 | Despliegue Frontend      | Completado |
 | Documentación            | Completado |
 
-Para mayor infomacion detallada ver [archivo README](../../../../README.md)
+Para mayor infomacion detallada ver [archivo README](../../README.md)
 
 ---
 
