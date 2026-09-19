@@ -49,6 +49,7 @@ nav{padding:32px 0;border-bottom:1px solid var(--line);font-family:'Inter',sans-
 #projectDescription,
 #predictionText,
 #modelInterpretationText,
+#continueExploringText,
 .graph-card p{
     white-space:pre-line;
 }
@@ -311,5 +312,54 @@ footer{border-top:1px solid var(--line);padding:60px 0;text-align:center;color:v
         width:100%;
         justify-content:center;
         text-align:center;
+    }
+}
+
+
+/* Continue Exploring */
+.continue-exploring-grid{
+    align-items:start;
+}
+
+
+.continue-exploring-meta p{
+    color:var(--muted);
+    font-size:.96rem;
+    line-height:1.8;
+}
+
+.continue-exploring-actions{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    align-items:center;
+    gap:18px;
+}
+
+.continue-exploring-actions .primary-btn{
+    margin-top:0;
+}
+
+.continue-exploring-secondary-actions{
+    display:flex;
+    flex-wrap:nowrap;
+    align-items:center;
+    gap:18px;
+}
+
+@media(max-width:768px){
+    .continue-exploring-content{
+        overflow-x:auto;
+    }
+
+    .continue-exploring-actions{
+        width:max-content;
+        max-width:none;
+    }
+
+    .continue-exploring-actions .primary-btn,
+    .continue-exploring-secondary-actions .project-resource-link{
+        flex:0 0 auto;
+        white-space:nowrap;
     }
 }

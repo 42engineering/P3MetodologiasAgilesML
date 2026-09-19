@@ -83,6 +83,7 @@ function renderProject(general, project, resolvedProjectIndex) {
     renderGraphSection("interpretationGraphs", project.interpretationGraphs || {});
     renderGraphSection("trainingGraphs", project.trainingGraphs || {});
     renderGraphSection("mainGraphs", project.mainGraphs || {});
+    renderContinueExploring(project);
 }
 
 function configureProjectLink(elementId, url, enabled) {
@@ -245,4 +246,55 @@ function normalizeSize(value) {
     const allowed = new Set(["25%", "33.333%", "50%", "66.667%", "75%", "100%"]);
     const size = String(value || "100%").trim();
     return allowed.has(size) ? size : "100%";
+}
+
+
+function renderContinueExploring(project) {
+    const config = project.continueExploring || {};
+    const section = getElement("continue-exploring");
+    if (!section) return;
+
+    if (config.enabled === false) {
+        section.classList.add("section-is-off");
+        return;
+    }
+
+    section.classList.remove("section-is-off");
+    setTextIfExists(
+        "continueExploringText",
+        config.text || "Explore the project further through the live application, implementation notebook, and source code."
+    );
+
+    const prediction = project.prediction || {};
+    const launchEnabled = config.launchPredictionEnabled !== false && prediction.buttonEnabled !== false;
+    configureContinueAction(
+        "continueLaunchPredictionButton",
+        prediction.launchUrl,
+        launchEnabled,
+        prediction.buttonText || "Launch Prediction App"
+    );
+
+    const notebookEnabled = config.notebookEnabled !== false && project.notebookLinkEnabled !== false;
+    configureContinueAction("continueNotebookLink", project.notebookLink, notebookEnabled, "Notebook");
+
+    const githubEnabled = config.githubRepoEnabled !== false && project.githubRepoEnabled !== false;
+    configureContinueAction("continueGithubRepoLink", project.githubRepo, githubEnabled, "GitHub Repo");
+}
+
+function configureContinueAction(elementId, url, enabled, label) {
+    const link = getElement(elementId);
+    if (!link) return;
+
+    link.textContent = label;
+    const isEnabled = enabled !== false && Boolean(url);
+
+    if (isEnabled) {
+        link.href = url;
+        link.style.display = "inline-flex";
+        link.removeAttribute("aria-hidden");
+    } else {
+        link.removeAttribute("href");
+        link.style.display = "none";
+        link.setAttribute("aria-hidden", "true");
+    }
 }
