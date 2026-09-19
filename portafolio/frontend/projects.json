@@ -4,7 +4,7 @@
     "shortTitle": "Book Odyssey Sentiment Analysis",
     "mainTitle": "Natural Language Processing (NLP) Sentiment Analysis of the book Odyssey by written by Homer",
     "category": "Natural Language Processing / Sentiment Analysis / Digital Humanities",
-    "description": "NLP to the book The Odyssey identifies emotional patterns throughout Odysseus' journey  categorizing the emotions in help, neutral,  and obstruct.The project applies sentiment analysis, text preprocessing, tokenization, emotion classification, and other NLP techniques to study emotional and thematic patterns in the text.",
+    "description": "The project used a supervised ML combining FastText word embeddings. Sentence embeddings and sentiment features were used to train the model, with an 80/20 train-test.\n\nAdditionally, three dictionaries were used to normalize character names, epithets, assign weights to actions and determine whether relationships represent help, obstruction, or neutrality, and a final dictionary to resolve personal pronouns to the corresponding character entities.\n\nAs a result it was possible to get  plots of sentiment interactions per chapter.",
     "technologies": [
       "NLP",
       "Python",
@@ -23,15 +23,15 @@
       "Machine Learning"
     ],
     "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P1",
-    "modelInterpretation": "The project used a supervised ML combining FastText word embeddings. Sentence embeddings and sentiment features were used to train the model, with an 80/20 train-test. Additionally, three JSON dictionaries were used: `epitetosDic.json` to normalize character names and epithets, `verbWeights.json` to assign weights to actions and determine whether relationships represent help, obstruction, or neutrality, and `genderDic.json` to resolve personal pronouns to the corresponding character entities. It include plots of sentiment interactions per chapter.",
+    "modelInterpretation": "The project used a supervised ML combining FastText word embeddings. Sentence embeddings and sentiment features were used to train the model, with an 80/20 train-test. \n\n Additionally, three dictionaries were used to normalize character names and epithets, assign weights to actions and determine whether relationships represent help, obstruction, or neutrality, and to resolve personal pronouns to the corresponding character entities. /n/nAs a result was possible to get  plots of sentiment interactions per chapter.",
     "interpretationGraphs": {
       "graphs": [
         {
           "path": "/img/P1/P1-histogramaToken.png",
-          "text": "Sentences were identified using the model en_core_web_sm for sentence segmentation, which detects boundaries based on punctuation, syntax, and context. TTR was then calculated for each sentence as the number of unique words divided by the total number of words.\n\nThere is a large peak around TTR ≈ 1.0. In many sentences, no word is repeated within the same sentence. At the sentence level, there is almost no lexical repetition, as expected given the high diversity typical of a book.",
+          "text": "Sentences were identified using the model en_core_web_sm forsegmentation, which detects boundaries based on punctuation, syntax, and context. TTR was then calculated for each sentence as the number of unique words divided by the total number of words.\n\nThere is a large peak around TTR ≈ 1.0. In many sentences, no word is repeated within the same sentence. At the sentence level, there is almost no lexical repetition, as expected given the high diversity typical of a book.",
           "enabled": true,
           "numberImagesPerRow": 1,
-          "size": "70%",
+          "size": "60%",
           "alt": "P1 interpretation graph 1"
         },
         {
@@ -82,7 +82,7 @@
           "numberImagesPerRow": 2,
           "size": "100%",
           "alt": "P1 main graph 1",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "text": "The sentiment interactions were classified as help, obstruction, or neutrality to the main character.",
           "textEnabled": true
         },
         {
@@ -91,25 +91,25 @@
           "numberImagesPerRow": 2,
           "size": "100%",
           "alt": "P1 main graph 2",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "text": "Sensibility of the size of the vector of the embedding after 200 does not  have much improving the predictive performance",
           "textEnabled": true
         },
         {
           "path": "/img/P1/P1-hopeEvolutionMainCharacter.png",
           "enabled": true,
           "numberImagesPerRow": 1,
-          "size": "100%",
+          "size": "80%",
           "alt": "P1 main graph 3",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "text": "Hope score evolution of the main character (Ulysses) per chapeter",
           "textEnabled": true
         },
         {
           "path": "/img/P1/P1-TypeOfRelationByChapeter.png",
           "enabled": true,
           "numberImagesPerRow": 1,
-          "size": "100%",
+          "size": "60%",
           "alt": "P1 main graph 4",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "text": "Frequency of interactions in which other characters help, obstruct, or remain neutral toward the main character, Ulysses.",
           "textEnabled": true
         }
       ]
