@@ -243,7 +243,7 @@
       ]
     },
     "prediction": {
-      "imagePath": "/img/P2/P2-predicmiontImg2.png",
+      "imagePath": "/img/P2/P2-prediciontImg2.png",
       "imageAlt": "",
       "text": "Deep learning CNN for cell morphology",
       "launchUrl": "/P2/index.html",
