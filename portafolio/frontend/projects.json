@@ -271,25 +271,26 @@
     "projectId": "P3",
     "shortTitle": "TSLA Market Prediction",
     "mainTitle": "Hybrid LSTM-CNN Model for Tesla Stock Market Prediction",
-    "category": "Deep Learning / Time Series / Financial Analytics",
-    "description": "Hybrid deep learning model combining LSTM and CNN architectures to analyze historical Tesla (TSLA) market data and technical indicators. The project explores temporal and local patterns in financial time series to predict stock market behavior.",
+    "category": "Deep Learning / Time Series / Financial Analytics / CNN / LSTM / Technical Indicators / Deep Learning",
+    "description": "This project predicts the next-day direction of Tesla (TSLA) stock using deep learning. Historical stock price data are transformed into time sequences, and the target is used predict if next day the price increse or decrease using a hybrid model combining combining LSTM and CNN.",
     "technologies": [
-      "Python",
-      "LSTM",
-      "CNN",
-      "Deep Learning",
-      "Time-Series Analysis",
-      "Technical Indicators",
+      "pandas",
+      "numpy",
+      "matplotlib",
       "yfinance",
-      "Yahoo Finance"
-    ],
+      "scikit-learn",
+      "tensorflow",
+      "keras",
+      "dvc",
+      "mlflow"
+      ],
     "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P3_tsla",
-    "modelInterpretation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "modelInterpretation": "The project compares Simple LSTM architecture and hybrid models combining  CNN and LSTM models.\n\nTechnical indicators were used such as RSI, MACD, ATR, and EMA. with  different time windows were implemented as 5,10 and 20 days to compare the performance. Overall accuracy remains close to 0.50–0.54, suggesting limited predictive power for next-day TSLA direction.  However the release a prediction app was done as a part of the project.",
     "interpretationGraphs": {
       "graphs": [
         {
           "path": "/img/P3/P3-TslaClosePrice.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "text": "TSLA close historical price",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
@@ -297,7 +298,7 @@
         },
         {
           "path": "/img/P3/P3-TslaVolumens.png",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "text": "Tsla Volumens historical",
           "enabled": true,
           "numberImagesPerRow": 1,
           "size": "100%",
@@ -317,7 +318,7 @@
       "graphs": [
         {
           "path": "/img/P3/P3-trainAccuracyLSTM1Model.png",
-          "enabled": true,
+          "enabled": false,
           "numberImagesPerRow": 1,
           "size": "100%",
           "alt": "P3 training graph 1",
@@ -326,7 +327,7 @@
         },
         {
           "path": "/img/P3/P3-trainLoss_DeepLSTM1Model.png",
-          "enabled": true,
+          "enabled": false,
           "numberImagesPerRow": 1,
           "size": "100%",
           "alt": "P3 training graph 2",
@@ -343,7 +344,7 @@
           "numberImagesPerRow": 1,
           "size": "100%",
           "alt": "P3 main graph 1",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "text": "Training sequence comparison (Accuracy) using an LSTM1 model with financial indicators and time windows of 5, 10, 15, and 20 days",
           "textEnabled": true
         },
         {
@@ -352,7 +353,7 @@
           "numberImagesPerRow": 1,
           "size": "100%",
           "alt": "P3 main graph 2",
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "text": "Training sequence comparison (Loss) using an LSTM1 model with financial indicators and time windows of 5, 10, 15, and 20 days",
           "textEnabled": true
         },
         {
