@@ -1,4 +1,5 @@
 const API_URL = window.location.origin;
+const MAX_PREDICTION_DATE = "2025-12-30";
 // const API_URL = "https://p3metodologiasagilesml-1.onrender.com";
 // const API_URL = "https://p3metodologiasagilesml.onrender.com";
 
@@ -35,6 +36,11 @@ async function predictMovement() {
 
     if (!startDate || !modelName) {
         resultBox.innerHTML = "<h2>Missing information</h2><p>Select a start date and model.</p>";
+        return;
+    }
+
+    if (startDate > MAX_PREDICTION_DATE) {
+        resultBox.innerHTML = "<h2>Invalid date</h2><p>Select a date on or before December 30, 2025.</p>";
         return;
     }
 
