@@ -16,6 +16,18 @@ function renderGeneralText(general) {
     setTextIfExists("parrafo3Profile", general.parrafo3Profile);
     setTextIfExists("ContactHeroText", general.ContactHeroText);
     setTextIfExists("ContactEpitetoText", general.ContactEpitetoText);
+
+    const contactEnabled = general.contact?.enabled !== false;
+    const contactSection = document.getElementById("contact");
+    const contactNavLink = document.querySelector('nav a[href="#contact"]');
+
+    if (contactSection) {
+        contactSection.style.display = contactEnabled ? "" : "none";
+    }
+
+    if (contactNavLink) {
+        contactNavLink.style.display = contactEnabled ? "" : "none";
+    }
 }
 
 async function loadPortfolio() {
@@ -55,10 +67,6 @@ async function loadPortfolio() {
 
             item.innerHTML = `
                 <div class="project-meta">
-                    <span class="project-number">
-                        Project ${String(projects.indexOf(project) + 1).padStart(2, "0")}
-                    </span>
-
                     <div class="project-short-title">
                         ${escapeHTML(project.shortTitle)}
                     </div>

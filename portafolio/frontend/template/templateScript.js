@@ -64,10 +64,7 @@ async function initializeTemplate() {
 function renderProject(general, project, resolvedProjectIndex) {
     setTextIfExists("logoText", general.logoTex || "MyPortafolio");
     setTextIfExists("footerText", general.footerText || "© 2026 Portfolio");
-    setTextIfExists(
-        "projectEyebrow",
-        `Portfolio / ${project.projectId || `Project ${String(resolvedProjectIndex + 1).padStart(2, "0")}`}: ${project.shortTitle || ""}`
-    );
+    setTextIfExists("projectEyebrow", project.shortTitle || "");
     setTextIfExists("projectMainTitle", project.mainTitle || "");
     setTextIfExists("projectCategory", project.category || "");
     renderTechnologies(project.technologies);

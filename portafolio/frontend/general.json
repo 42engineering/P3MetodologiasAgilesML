@@ -8,5 +8,8 @@
   "parrafo2Profile": "Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.",
   "parrafo3Profile": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh.",
   "ContactHeroText": "Contact Hero text - Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "ContactEpitetoText": "Contact Epiteto Text-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  "ContactEpitetoText": "Contact Epiteto Text-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "contact": {
+    "enabled": false
+  }
 }
