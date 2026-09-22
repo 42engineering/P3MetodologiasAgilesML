@@ -286,7 +286,7 @@
       "docker",
       "javaScript"
       ],
-    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P3_tsla",
+    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/8e6ced72fc64ca0d9469be590be98af5f3d9a1a3/portafolio/projects/P3_tsla/notebooks",
     "modelInterpretation": "The project compares Simple LSTM architecture and hybrid models combining  CNN and LSTM models.\n\nTechnical indicators were used such as RSI, MACD, ATR, and EMA. with  different time windows were implemented as 5,10 and 20 days to compare the performance. Overall accuracy remains close to 0.50–0.54, suggesting limited predictive power for next-day TSLA direction.  However the release a prediction app was done as a part of the project.",
     "interpretationGraphs": {
       "graphs": [
