@@ -1,22 +1,23 @@
-const API_URL = window.location.origin;
+const API_URL = "https://p3metodologiasagilesml-1.onrender.com";
 const MAX_PREDICTION_DATE = "2025-12-30";
-// const API_URL = "https://p3metodologiasagilesml-1.onrender.com";
-// const API_URL = "https://p3metodologiasagilesml.onrender.com";
 
 window.addEventListener("DOMContentLoaded", loadModels);
+
 
 async function loadModels() {
     const select = document.getElementById("modelSelect");
 
     try {
         const response = await fetch(`${API_URL}/models`);
-        const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.error || `HTTP ${response.status}`);
+            throw new Error(`HTTP ${response.status}`);
         }
 
+        const data = await response.json();
+
         select.innerHTML = "";
+
         data.models.forEach((model) => {
             const option = document.createElement("option");
             option.value = model;
@@ -28,6 +29,7 @@ async function loadModels() {
         select.innerHTML = '<option value="">Models unavailable</option>';
     }
 }
+
 
 async function predictMovement() {
     const startDate = document.getElementById("startDate").value;
@@ -53,10 +55,14 @@ async function predictMovement() {
             body: JSON.stringify({start_date: startDate, model_name: modelName})
         });
 
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+
         const data = await response.json();
 
-        if (!response.ok || data.error) {
-            resultBox.innerHTML = `<h2>Prediction Error</h2><p>${escapeHTML(data.error || `HTTP ${response.status}`)}</p>`;
+        if (data.error) {
+            resultBox.innerHTML = `<h2>Prediction Error</h2><p>${escapeHTML(data.error)}</p>`;
             return;
         }
 
@@ -72,6 +78,7 @@ async function predictMovement() {
         resultBox.innerHTML = `<h2>Connection Error</h2><p>${escapeHTML(error.message || error)}</p>`;
     }
 }
+
 
 function escapeHTML(value = "") {
     return String(value)
