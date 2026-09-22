@@ -257,7 +257,7 @@
     },
     "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2/notebooks/P2-ProyectoLibroLaOdiseaV4_9_Master.ipynb",
     "notebookLinkEnabled": true,
-    "githubRepoEnabled": true,
+    "githubRepoEnabled": false,
     "continueExploring": {
       "enabled": true,
       "title": "Continue Exploring",
