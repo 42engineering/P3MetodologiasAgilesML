@@ -1,92 +1,114 @@
-[Volver al README](../../../../README.md)
+[Back to README](/portafolio/projects/P3_tsla/README.md)
 
-# Exit Report – Sistema de Predicción de Movimiento Bursátil de Tesla (TSLA)
+**# Exit Report – Tesla (TSLA) Stock Movement Prediction System**
 
-## 1. Resumen Ejecutivo
+**## 1. Executive Summary**
 
-El presente proyecto tuvo como objetivo desarrollar una solución de aprendizaje automático capaz de predecir la dirección del movimiento del precio de la acción de Tesla (TSLA) utilizando información histórica del mercado bursátil. Para ello se implementó un pipeline completo de Machine Learning que incluyó adquisición de datos, preprocesamiento, entrenamiento, evaluación y despliegue de modelos de Deep Learning.
+The objective of this project was to develop a Machine Learning solution capable of predicting the direction of Tesla (TSLA) stock price movements using historical stock market data. To achieve this, a complete Machine Learning pipeline was implemented, including data acquisition, preprocessing, training, evaluation, and deployment of Deep Learning models.
 
-Durante la fase de modelación se evaluaron múltiples arquitecturas basadas en redes neuronales recurrentes y convolucionales, incluyendo LSTM, LSTM1, DeepLSTM1, CNNLSTM1 y DeepLSTM1 enriquecido con indicadores técnicos. Los resultados permitieron seleccionar CNNLSTM1 y DeepLSTM1_Indicadores1 como las arquitecturas con mejor desempeño general.
+During the modeling phase, multiple architectures based on recurrent and convolutional neural networks were evaluated, including LSTM, LSTM1, DeepLSTM1, CNNLSTM1, and DeepLSTM1 enhanced with technical indicators. The results led to the selection of CNNLSTM1 and DeepLSTM1_Indicadores1 as the architectures with the best overall performance.
 
-El proyecto concluyó exitosamente con la implementación de una solución desplegada que permite realizar predicciones en tiempo real mediante una interfaz web conectada a una API REST desarrollada con FastAPI.
+The project was successfully completed with the implementation of a deployed solution that enables real-time predictions through a web interface connected to a REST API developed with FastAPI.
 
----
+**---**
 
-## 2. Objetivos del Proyecto
+**## 2. Project Objectives**
 
-### Objetivo General
+**### General Objective**
 
-Desarrollar un sistema de predicción bursátil basado en Deep Learning capaz de estimar la dirección futura del movimiento de la acción de Tesla utilizando información histórica del mercado.
+Develop a Deep Learning-based stock market prediction system capable of estimating the future direction of Tesla stock movements using historical market data.
 
-### Objetivos Específicos
+**### Specific Objectives**
 
-* Obtener y preparar datos históricos de Tesla.
-* Construir modelos de Deep Learning para series temporales.
-* Comparar diferentes arquitecturas y ventanas temporales.
-* Seleccionar los modelos con mejor desempeño.
-* Implementar una API para realizar inferencias.
-* Desplegar una solución accesible mediante una interfaz web.
+* Obtain and prepare historical Tesla data.
 
----
+* Build Deep Learning models for time series.
 
-## 3. Entregables Generados
+* Compare different architectures and time windows.
 
-### Código Fuente
+* Select the best-performing models.
 
-* Pipeline de adquisición de datos.
-* Pipeline de preprocesamiento.
-* Pipeline de entrenamiento.
-* Pipeline de evaluación.
-* API REST con FastAPI.
-* Frontend desarrollado con HTML, CSS y JavaScript.
+* Implement an API for inference.
 
-### Modelos Entrenados
+* Deploy a solution accessible through a web interface.
+
+**---**
+
+**## 3. Deliverables Generated**
+
+**### Source Code**
+
+* Data acquisition pipeline.
+
+* Preprocessing pipeline.
+
+* Training pipeline.
+
+* Evaluation pipeline.
+
+* REST API with FastAPI.
+
+* Frontend developed with HTML, CSS, and JavaScript.
+
+**### Trained Models**
 
 * LSTM
+
 * LSTM1
+
 * DeepLSTM1
+
 * CNNLSTM1
+
 * DeepLSTM1_Indicadores1
 
-### Artefactos Generados
+**### Generated Artifacts**
 
-* Modelos en formato `.keras`.
-* Escaladores MinMaxScaler.
-* Archivos de comparación de métricas.
-* Gráficos de entrenamiento.
-* Documentación técnica y funcional.
+* Models in `.keras` format.
 
-### Documentación
-[Ver documentacion en archivo README ](../../../../README.md)
+* MinMaxScaler scalers.
 
----
+* Metric comparison files.
 
-## 4. Resultados de la Modelación
+* Training plots.
 
-Se evaluaron múltiples configuraciones utilizando secuencias temporales de 5, 10, 15, 20 y 30 días.
+* Technical and functional documentation.
 
-Los resultados mostraron que:
+**### Documentation**
 
-* CNNLSTM1 obtuvo uno de los mejores desempeños generales gracias a la combinación de capas convolucionales y LSTM.
-* DeepLSTM1_Indicadores1 logró resultados competitivos al incorporar indicadores técnicos financieros.
-* Las métricas Accuracy y F1-Score presentaron mejoras respecto al modelo baseline.
-* Las métricas AUC se mantuvieron cercanas a 0.50, reflejando la complejidad inherente de la predicción bursátil.
+[View documentation in the README file](../../../../README.md)
 
-Los modelos seleccionados como mejores alternativas fueron:
+**---**
 
-| Modelo                 | Característica principal               |
-| ---------------------- | -------------------------------------- |
-| CNNLSTM1               | Arquitectura híbrida CNN + LSTM        |
-| DeepLSTM1_Indicadores1 | LSTM profunda con indicadores técnicos |
+**## 4. Modeling Results**
 
----
+Multiple configurations were evaluated using time sequences of 5, 10, 15, 20, and 30 days.
 
-## 5. Despliegue de la Solución
+The results showed that:
 
-### Arquitectura Implementada
+* CNNLSTM1 achieved one of the best overall performances due to the combination of convolutional and LSTM layers.
+
+* DeepLSTM1_Indicadores1 achieved competitive results by incorporating financial technical indicators.
+
+* Accuracy and F1-Score metrics showed improvements compared to the baseline model.
+
+* AUC metrics remained close to 0.50, reflecting the inherent complexity of stock market prediction.
+
+The models selected as the best alternatives were:
+
+| Model                  | Main Feature                        |
+| ---------------------- | ----------------------------------- |
+| CNNLSTM1               | Hybrid CNN + LSTM architecture      |
+| DeepLSTM1_Indicadores1 | Deep LSTM with technical indicators |
+
+**---**
+
+**## 5. Solution Deployment**
+
+**### Implemented Architecture**
 
 ```text
-Usuario
+User
    ↓
 Frontend FE_TSLA_V1_0 (Vercel)
    ↓
@@ -94,94 +116,56 @@ FastAPI REST API (Render)
    ↓
 TensorFlow Runtime
    ↓
-Modelo seleccionado
+Selected Model
    ↓
-Predicción TSLA
+TSLA Prediction
 ```
 
-### Frontend
+**### Frontend**
 
-El frontend fue desplegado utilizando Vercel y permite:
+The frontend was deployed using Vercel and allows users to:
 
-* Seleccionar una fecha de predicción.
-* Seleccionar el modelo a utilizar.
-* Consultar la API de predicción.
-* Visualizar los resultados obtenidos.
+* Select a prediction date.
 
-### Backend
+* Select the model to use.
 
-El backend fue desarrollado utilizando FastAPI y desplegado en Render.
+* Query the prediction API.
 
-Endpoints implementados:
+* View the generated results.
 
-| Endpoint       | Función                      |
-| -------------- | ---------------------------- |
-| /health        | Estado de la API             |
-| /models        | Lista de modelos disponibles |
-| /predict       | Generación de predicciones   |
-| /latest-window | Consulta de datos recientes  |
+**### Backend**
 
-### Modelos Disponibles en Producción
+The backend was developed using FastAPI and deployed on Render.
+
+Implemented endpoints:
+
+| Endpoint       | Function                 |
+| -------------- | ------------------------ |
+| /health        | API status               |
+| /models        | List of available models |
+| /predict       | Prediction generation    |
+| /latest-window | Retrieval of recent data |
+
+**### Models Available in Production**
 
 * LSTM
+
 * LSTM1
+
 * DeepLSTM1
+
 * CNNLSTM1
 
-Los modelos DeepLSTM1_Indicadores1 fueron entrenados exitosamente, pero no fueron incluidos en el despliegue final debido a dependencias adicionales asociadas al cálculo de indicadores técnicos.
+The DeepLSTM1_Indicadores1 models were successfully trained but were not included in the final deployment due to additional dependencies associated with the calculation of technical indicators.
 
----
+**---**
 
-## 6. Problemas Encontrados
+**## 6. Issues Encountered**
 
-Durante el despliegue se identificaron varios desafíos técnicos:
+Several technical challenges were identified during deployment:
 
-### Compatibilidad de Dependencias
+**### Dependency Compatibility**
 
-La librería pandas_ta utilizada para generar indicadores técnicos presentó problemas de compatibilidad entre el entorno de entrenamiento y el entorno de producción.
+The pandas_ta library used to generate technical indicators presented compatibility issues between the training environment and the production environment.
 
-La versión utilizada durante el entrenamiento no pudo instalarse correctamente en Render, impidiendo la reconstrucción automática de indicadores técnicos durante la inferencia.
-
----
-
-## 7. Lecciones Aprendidas
-
-* La reproducibilidad del entorno es un factor crítico en proyectos de Machine Learning.
-
----
-
-## 8. Oportunidades de Mejora
-
-Se identifican las siguientes oportunidades para futuras versiones:
-
-* Incorporar datos macroeconómicos y noticias financieras.
-* Implementar análisis de sentimiento.
-* Automatizar el reentrenamiento periódico de modelos.
-* Incorporar monitoreo de desempeño en producción.
-* Desarrollar una implementación propia de indicadores técnicos utilizando Pandas y NumPy para eliminar dependencias externas.
-* Explorar arquitecturas basadas en Transformers para series temporales.
-
----
-
-## 9. Estado Final del Proyecto
-
-| Componente               | Estado     |
-| ------------------------ | ---------- |
-| Adquisición de datos     | Completado |
-| Preprocesamiento         | Completado |
-| Entrenamiento de modelos | Completado |
-| Evaluación de modelos    | Completado |
-| API REST                 | Completado |
-| Frontend Web             | Completado |
-| Despliegue Backend       | Completado |
-| Despliegue Frontend      | Completado |
-| Documentación            | Completado |
-
-Para mayor infomacion detallada ver [archivo README](../../README.md)
-
----
-
-## 10. Conclusión de Cierre
-
-El proyecto logró cumplir satisfactoriamente los objetivos planteados al inicio del desarrollo. Se construyó una solución funcional para la predicción de movimientos bursátiles utilizando técnicas de Deep Learning, integrando procesos de adquisición de datos, modelación, evaluación y despliegue en un entorno accesible para usuarios finales.
-
+The version used during training could not be installed correctly on Render, preventing the a

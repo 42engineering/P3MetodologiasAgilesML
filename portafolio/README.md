@@ -25,4 +25,5 @@ NLP-based analysis of The Odyssey focused on identifying emotional patterns thro
 
 Hybrid deep learning model combining LSTM and CNN architectures to analyze historical Tesla (TSLA) market data and technical indicators. The project explores temporal and local patterns in financial time series to predict stock market behavior.
 
+[View README fiel Project](/portafolio/projects/P3_tsla/README.md)
 [View Notebook](/portafolio/projects/P3_tsla/notebooks/PT3.1ColabV2E.ipynb)

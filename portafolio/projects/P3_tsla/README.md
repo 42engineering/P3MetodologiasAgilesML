@@ -1,6 +1,10 @@
 # Project Name
 TSLA Financial Direction Prediction Using Neural Networks.
 
+# README file spanish version
+* ✅ [README file spanish version](../P3_tsla/README_SP.md) - README FILE PROJECT SPANISH VERSION
+
+# Project Charter
 * ✅ [Project Charter](../P3_tsla/docs/business_understanding/project_charter_tsla.md) - Objectives, scope, and methodology
 
 # NoteBooks
@@ -12,7 +16,7 @@ TSLA Financial Direction Prediction Using Neural Networks.
 
 ## Documentation
 * ✅ [Data Dictionary](../P3_tsla/docs/data/data_dictionary.md) - Data Dictionary
-* ✅ [Data Summary](../P3_tsla/docs/data/data_summary_es.md) - Data Summary
+* ✅ [Data Summary](../P3_tsla/docs/data/data_summary.md) - Data Summary
 * ✅ [Baseline_models](../P3_tsla/docs/modeling/baseline_models_tsla.md) - Baseline models
 * ✅ [Raw Data stock price](../P3_tsla/data/raw/TeslaData.csv) - Raw data stock price
 * ✅ [Deployment Guide](../P3_tsla/docs/deployment/deploymentdoc.md) - Deployement guide information

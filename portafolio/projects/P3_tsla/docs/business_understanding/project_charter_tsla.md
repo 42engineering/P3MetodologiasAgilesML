@@ -1,71 +1,60 @@
-[Back to README](../../README.md)
+[Back to README](/portafolio/projects/P3_tsla/README.md)
 
-#  (Project Charter) – Comprensión del Negocio
+# (Project Charter) – Business Understanding
 
-## Nombre del Proyecto
+## Project Name
 
-Predicción de la Dirección Financiera de TSLA mediante Redes Neuronales
+Financial Direction Prediction for TSLA Using Neural Networks
 
-## Objetivo del Proyecto
+## Project Objective
 
-El proyecto propone el desarrollo de un modelo híbrido de Deep Learning basado en arquitecturas LSTM para predecir el comportamiento de la acción de Tesla (TSLA), utilizando exclusivamente datos históricos del mercado e indicadores técnicos financieros.
+The project proposes the development of a hybrid Deep Learning model based on LSTM architectures to predict the behavior of Tesla (TSLA) stock, using exclusively historical market data and financial technical indicators.
 
-## Beneficiarios del Proyecto
+## Project Beneficiaries
 
-Los beneficiarios del proyecto incluyen inversionistas, analistas financieros, investigadores académicos y organizaciones relacionadas con los sectores financiero y tecnológico interesadas en el análisis predictivo del mercado bursátil.
+The beneficiaries of the project include investors, financial analysts, academic researchers, and organizations related to the financial and technology sectors interested in predictive stock market analysis.
 
-El proyecto se desarrolla dentro del dominio de las finanzas computacionales aplicadas al mercado de valores.
+The project is developed within the domain of computational finance applied to the stock market.
 
-## Alcance del Proyecto
+## Project Scope
 
-### Incluye
+### Includes
 
-Los datos disponibles para el desarrollo del proyecto consisten en información histórica de la acción de Tesla obtenida a través de plataformas financieras como Yahoo Finance mediante herramientas de extracción de datos basadas en Python.
+The data available for the development of the project consists of historical Tesla stock information obtained through financial platforms such as Yahoo Finance using Python-based data extraction tools.
 
-El conjunto de datos incluye variables financieras diarias como:
+The dataset includes daily financial variables such as:
 
-* Open (Precio de apertura)
-* High (Precio máximo)
-* Low (Precio mínimo)
-* Close (Precio de cierre)
-* Volume (Volumen de negociación)
+* Open (Opening Price)
+* High (Highest Price)\
+* Low (Lowest Price)
+* Close (Closing Price)
+* Volume (Trading Volume)
 
-Estas variables corresponden al período comprendido entre los años 2015 y 2025.
-
-Adicionalmente, se incorporarán indicadores técnicos derivados como:
+These variables correspond to the period between 2015 and 2025.
+Additionally, derived technical indicators will be incorporated, such as:
 
 * RSI (Relative Strength Index)
 * MACD (Moving Average Convergence Divergence)
-* Medias móviles (Moving Averages)
-* Bandas de Bollinger (Bollinger Bands)
+* Moving Averages
+* Bollinger Bands
 
-con el propósito de enriquecer el análisis de series temporales y proporcionar información relevante al modelo de Deep Learning.
+with the purpose of enriching the time-series analysis and providing relevant information to the Deep Learning model.
 
-Los criterios de éxito del proyecto se centrarán en evaluar tanto el desempeño predictivo como la capacidad de generalización del modelo sobre datos no vistos previamente.
+The project success criteria will focus on evaluating both the predictive performance and the model's ability to generalize to previously unseen data.
 
-Para ello se utilizarán métricas de evaluación como:
+The following evaluation metrics will be used:
 
 * Accuracy
 * Precision
 * Recall
 * F1-Score
 
-### Alcance Específico
+### Specific Scope
 
-**PT1.1 — Predicción de la Dirección Subida/Bajada mediante LSTM**
+**PT1.1 — Up/Down Direction Prediction Using LSTM**
 
-## Metodología
+## Methodology
 
-Los resultados esperados del proyecto consisten en desarrollar un modelo LSTM capaz de identificar patrones en el comportamiento histórico de las acciones de Tesla y predecir la dirección futura del precio de la acción, específicamente si el valor tenderá a subir o bajar durante el siguiente período de negociación.
+The expected outcome of the project is to develop an LSTM model capable of identifying patterns in Tesla stock's historical behavior and predicting the future direction of the stock price, specifically whether the value is expected to rise or fall during the next trading period.
 
-Se espera que el modelo aproveche las capacidades de las redes neuronales convolucionales para detectar patrones locales y de las redes LSTM para modelar dependencias temporales de largo plazo, permitiendo generar predicciones más robustas y útiles para el análisis financiero.
-
-## Cronograma
-
-| Etapa                                                                                        | Duración Estimada | Fechas                   |
-| -------------------------------------------------------------------------------------------- | ----------------- | ------------------------ |
-| Comprensión del negocio y carga de datos históricos de TSLA                                  | 1 semana          | 1 de mayo al 7 de mayo   |
-| Preprocesamiento y análisis exploratorio de datos financieros                                | 1 semana          | 8 de mayo al 14 de mayo  |
-| Modelado y extracción de características mediante indicadores técnicos y ventanas temporales | 1 semana          | 15 de mayo al 21 de mayo |
-| Despliegue del modelo CNN-LSTM y pruebas de predicción                                       | 1 semana          | 22 de mayo al 28 de mayo |
-| Evaluación del modelo, backtesting financiero y entrega final                                | 1 semana          | 29 de mayo al 4 de junio |
+The model is expected to leverage the capabilities of convolutional neural networks to detect local patterns and LSTM networks to model long-term temporal dependencies, enabling more robust and useful predictions for financial analysis.
