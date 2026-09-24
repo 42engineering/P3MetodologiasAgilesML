@@ -8,6 +8,9 @@ function setTextIfExists(id, value) {
 }
 
 function renderGeneralText(general) {
+    
+    setTextIfExists("logoText", general.logoTex || "MyPortafolio");
+    setTextIfExists("footerText", general.footerText || "© 2026 Portfolio");
     setTextIfExists("textoBoldHero", general.textoBoldHero);
     setTextIfExists("textoEpitetoHero", general.textoEpitetoHero);
     setTextIfExists("titleProfile", general.titleProfile);

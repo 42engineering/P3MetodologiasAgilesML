@@ -22,7 +22,13 @@ body{background:var(--bg);color:var(--text);font-family:'Libre Baskerville',seri
 
 nav{padding:32px 0;border-bottom:1px solid var(--line);font-family:'Inter',sans-serif;}
 .nav-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;}
-.logo{text-decoration:none;color:var(--text);font-weight:600;font-size:1rem;}
+.logo{ 
+    text-decoration:none;
+    color:var(--text);
+    font-weight:600;
+    font-size:1.5rem;
+    font-style: italic;}
+
 .links{display:flex;gap:24px;}
 .links a{text-decoration:none;color:var(--muted);transition:.2s;}
 .links a:hover{color:var(--text);}
