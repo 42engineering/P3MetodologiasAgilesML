@@ -1,13 +1,22 @@
 [Back to README](/portafolio/projects/P3_tsla/README.md)
 
+## 1. Executive Summary
 
-# 2. Project Objectives**
+The objective of this project was to develop a Machine Learning solution capable of predicting the direction of Tesla’s (TSLA) stock price movement using historical stock market data. To achieve this, a complete Machine Learning pipeline was implemented, including data acquisition, preprocessing, model training, evaluation, and deployment of Deep Learning models.
 
-## General Objective**
+During the modeling phase, multiple architectures based on recurrent and convolutional neural networks were evaluated, including LSTM, LSTM1, DeepLSTM1, CNNLSTM1, and DeepLSTM1 enhanced with technical indicators. The results led to the selection of CNNLSTM1 and DeepLSTM1_Indicadores1 as the architectures with the strongest overall performance.
+
+The project was successfully completed with the deployment of a functional solution that enables real-time predictions through a web interface connected to a REST API developed with FastAPI.
+
+---
+
+# 2. Project Objectives
+
+## General Objective
 
 Develop a Deep Learning-based stock market prediction system capable of estimating the future direction of Tesla stock movements using historical market data.
 
-## Specific Objectives**
+## Specific Objectives
 * Obtain and prepare historical Tesla data.
 * Build Deep Learning models for time series.
 * Compare different architectures and time windows.
@@ -15,9 +24,9 @@ Develop a Deep Learning-based stock market prediction system capable of estimati
 * Implement an API for inference.
 * Deploy a solution accessible through a web interface.
 
-# 3. Deliverables Generated**
+# 3. Deliverables Generated
 
-## Source Code**
+## Source Code
 
 * Data acquisition pipeline.
 * Preprocessing pipeline.
@@ -26,7 +35,7 @@ Develop a Deep Learning-based stock market prediction system capable of estimati
 * REST API with FastAPI.
 * Frontend developed with HTML, CSS, and JavaScript.
 
-## Trained Models**
+## Trained Models
 
 * LSTM
 * LSTM1
@@ -34,20 +43,20 @@ Develop a Deep Learning-based stock market prediction system capable of estimati
 * CNNLSTM1
 * DeepLSTM1_Indicadores1
 
-## Generated Artifacts**
+## Generated Artifacts
 
 * Models in `.keras` format.
 * MinMaxScaler scalers.
 * Metric comparison files.
 * Training plots.
 * Technical and functional documentation.
-## Documentation**
+## Documentation
 
 [View documentation in the README file](../../../../README.md)
 
-**---**
+---
 
-# 4. Modeling Results**
+# 4. Modeling Results
 
 Multiple configurations were evaluated using time sequences of 5, 10, 15, 20, and 30 days.
 
@@ -64,9 +73,9 @@ The models selected as the best alternatives were:
 | CNNLSTM1               | Hybrid CNN + LSTM architecture      |
 | DeepLSTM1_Indicadores1 | Deep LSTM with technical indicators |
 
-# 5. Solution Deployment**
+# 5. Solution Deployment
 
-## Implemented Architecture**
+## Implemented Architecture
 
 ```text
 User
@@ -82,7 +91,7 @@ Selected Model
 TSLA Prediction
 ```
 
-## Frontend**
+## Frontend
 
 The frontend was deployed using Vercel and allows users to:
 * Select a prediction date.
@@ -90,7 +99,7 @@ The frontend was deployed using Vercel and allows users to:
 * Query the prediction API.
 * View the generated results.
 
-## Backend**
+## Backend
 
 The backend was developed using FastAPI and deployed on Render.
 
@@ -103,7 +112,7 @@ Implemented endpoints:
 | /predict       | Prediction generation    |
 | /latest-window | Retrieval of recent data |
 
-## Models Available in Production**
+## Models Available in Production
 * LSTM
 * LSTM1
 * DeepLSTM1

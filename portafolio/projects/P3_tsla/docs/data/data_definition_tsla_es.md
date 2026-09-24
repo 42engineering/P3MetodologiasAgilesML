@@ -1,42 +1,20 @@
-[Back to README](../../../../README.md)
+[Volver al README](../../../../README.md)
 
-# Data Definition
+# Definición de Datos
 
-## Project
+## Proyecto
 
-TSLA Financial Direction Prediction Using Neural Networks
+Predicción de la Dirección Financiera de TSLA utilizando Redes Neuronales
 
-## Data Source
+## Fuente de Datos
 
-The data used comes from Yahoo Finance, a public financial information platform that provides historical stock price series and market metrics. Data extraction is performed using the Python `yfinance` library, which allows the automatic download of historical information for Tesla’s stock ticker.
+Los datos utilizados provienen de Yahoo Finance, una plataforma pública de información financiera que proporciona series históricas de precios de acciones y métricas de mercado. La extracción de datos se realiza mediante la librería de Python `yfinance`, que permite descargar automáticamente información histórica del ticker de Tesla.
 
-Data extraction is performed using the Python `yfinance` library, which allows the automatic download of historical information for Tesla’s stock ticker.
+## Modelo
 
-## Model
+El modelo debe clasificar si:
 
-The model must classify whether:
+* el precio subirá (`1`)
+* o bajará / no subirá (`0`)
 
-- the price will rise (`1`)
-- or fall / not rise (`0`)
-
-using historical financial market information.
-
-## [Pending] Specification of Scripts for Data Loading
-
-- [Pending] Specify the scripts used for loading the data.
-
-## [Pending] References to Source and Destination Paths or Databases
-
-- [Pending] Specify the source and destination paths or databases for the data.
-
-### [Pending] Source Data Paths
-
-- [Pending] Specify the location of the source data files.
-- [Pending] Specify the structure of the source data files.
-- [Pending] Describe the data transformation and cleaning procedures.
-
-### [Pending] Destination Database
-
-- [Pending] Specify the destination database for the data.
-- [Pending] Specify the structure of the destination database.
-- [Pending] Describe the data loading and transformation procedures in the destination database.
+utilizando información histórica del mercado financiero.

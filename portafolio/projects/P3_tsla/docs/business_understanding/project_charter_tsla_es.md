@@ -59,13 +59,3 @@ Para ello se utilizarán métricas de evaluación como:
 Los resultados esperados del proyecto consisten en desarrollar un modelo LSTM capaz de identificar patrones en el comportamiento histórico de las acciones de Tesla y predecir la dirección futura del precio de la acción, específicamente si el valor tenderá a subir o bajar durante el siguiente período de negociación.
 
 Se espera que el modelo aproveche las capacidades de las redes neuronales convolucionales para detectar patrones locales y de las redes LSTM para modelar dependencias temporales de largo plazo, permitiendo generar predicciones más robustas y útiles para el análisis financiero.
-
-## Cronograma
-
-| Etapa                                                                                        | Duración Estimada | Fechas                   |
-| -------------------------------------------------------------------------------------------- | ----------------- | ------------------------ |
-| Comprensión del negocio y carga de datos históricos de TSLA                                  | 1 semana          | 1 de mayo al 7 de mayo   |
-| Preprocesamiento y análisis exploratorio de datos financieros                                | 1 semana          | 8 de mayo al 14 de mayo  |
-| Modelado y extracción de características mediante indicadores técnicos y ventanas temporales | 1 semana          | 15 de mayo al 21 de mayo |
-| Despliegue del modelo CNN-LSTM y pruebas de predicción                                       | 1 semana          | 22 de mayo al 28 de mayo |
-| Evaluación del modelo, backtesting financiero y entrega final                                | 1 semana          | 29 de mayo al 4 de junio |

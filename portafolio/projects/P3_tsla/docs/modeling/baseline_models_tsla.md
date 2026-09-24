@@ -1,6 +1,6 @@
 [Back to README](/portafolio/projects/P3_tsla/README.md)
 
-# Modeling Objective**
+# Modeling Objective
 
 PT1.1 — Up/Down Direction Prediction using LSTM and hybrid LSTM+CNN models
 Predict the direction of Tesla (TSLA) stock closing price for the next trading day.
@@ -12,7 +12,7 @@ The model must classify whether:
 using historical financial market information.
 
 
-# Baseline Model Report**
+# Baseline Model Report
 
 The baseline model corresponds to the first learning approach implemented using LSTM. This model was named LSTM1.
 Its objective is to establish a performance baseline that can later be used to compare more complex architectures such as DeepLSTM1 and CNNLSTM1.
@@ -101,7 +101,7 @@ The main weaknesses of the model include:
 
 ---
 
-# Conclusions**
+# Conclusions
 
 The `SimpleLSTM` model served as an appropriate baseline for the project and established a reference point for comparing more complex architectures.
 The results show that predicting stock market movements is a highly complex and nonlinear problem. Possible future improvements include:
@@ -112,9 +112,9 @@ The results show that predicting stock market movements is a highly complex and 
 * Tuning hyperparameters.
 * Increasing the size and diversity of historical data.
 
-**---**
+---
 
-**# References**
+# References
 
 * Yahoo Finance (`yfinance`) – Source of historical Tesla financial data.
 * TensorFlow/Keras – Implementation of LSTM neural networks.

@@ -20,23 +20,3 @@ The model must classify whether:
 - or fall / not rise (`0`)
 
 using historical financial market information.
-
-## [Pending] Specification of Scripts for Data Loading
-
-- [Pending] Specify the scripts used for loading the data.
-
-## [Pending] References to Source and Destination Paths or Databases
-
-- [Pending] Specify the source and destination paths or databases for the data.
-
-### [Pending] Source Data Paths
-
-- [Pending] Specify the location of the source data files.
-- [Pending] Specify the structure of the source data files.
-- [Pending] Describe the data transformation and cleaning procedures.
-
-### [Pending] Destination Database
-
-- [Pending] Specify the destination database for the data.
-- [Pending] Specify the structure of the destination database.
-- [Pending] Describe the data loading and transformation procedures in the destination database.
