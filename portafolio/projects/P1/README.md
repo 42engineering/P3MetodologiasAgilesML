@@ -1,6 +1,9 @@
-# Project Name
+[Back to Portafolio](/portafolio/README.md)
 
-#Abstract
+# Project 
+Sentiment Analysis through NLP Applied to *The Odyssey*, a Book Written by Homer: Emotion and Divine Assistance to Odysseus
+
+# Abstract
 The project used a supervised ML combining FastText word embeddings. Sentence embeddings and sentiment features were used to train the model, with an 80/20 train-test.
 Additionally, three JSON dictionaries were used: `epitetosDic.json` to normalize character names and epithets, `verbWeights.json` to assign weights to actions and determine whether relationships represent help, obstruction, or neutrality, and `genderDic.json` to resolve personal pronouns to the corresponding character entities.
 It include plots of sentiment interactions per chapter.
@@ -8,5 +11,5 @@ It include plots of sentiment interactions per chapter.
 
 # NoteBooks
 
-[View Notebook](/portafolio/projects/P1/notebooks/ProyectoLibroLaOdiseaV4_10_Master_EN.ipynb)
+[View Notebook English](/portafolio/projects/P1/notebooks/ProyectoLibroLaOdiseaV4_10_Master_EN.ipynb)
 

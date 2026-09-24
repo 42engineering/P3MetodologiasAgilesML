@@ -139,7 +139,6 @@ Durante el despliegue se identificaron varios desafíos técnicos:
 ### Compatibilidad de Dependencias
 
 La librería pandas_ta utilizada para generar indicadores técnicos presentó problemas de compatibilidad entre el entorno de entrenamiento y el entorno de producción.
-
 La versión utilizada durante el entrenamiento no pudo instalarse correctamente en Render, impidiendo la reconstrucción automática de indicadores técnicos durante la inferencia.
 
 ---

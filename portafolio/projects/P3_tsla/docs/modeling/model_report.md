@@ -26,7 +26,7 @@ This project addressed the binary classification problem of Tesla (TSLA) daily s
 
 CNNLSTM1 is a hybrid architecture that combines one-dimensional convolutional neural networks (CNN) with recurrent LSTM neural networks.
 
-The convolutional layer detects local patterns and short-term trends within temporal sequences, while the LSTM layer models long-term temporal dependencies.
+The convolutional layer detects local patterns and short-term tren ds within temporal sequences, while the LSTM layer models long-term temporal dependencies.
 
 # DeepLSTM1_Indicadores1
 

@@ -8,14 +8,14 @@ In this portfolio you will see some projects machine learning applied to medical
 
 Deep learning project for analyzing fluorescence microscopy images and detecting morphological changes in biological cells after exposure to different compounds. Using computer vision, image processing, CNN-based models, and MoA-related analysis, the project explores how cellular features can help predict drug effects. The dataset is provided by the Broad Institute, a biomedical research organization that collaborates with MIT and Harvard.
 
-[View Notebook](/portafolio/projects/P2/notebooks/ProyectoMedicinaBiologia_V5_1_EN.ipynb)
+[View Notebook English](/portafolio/projects/P2/notebooks/ProyectoMedicinaBiologia_V5_1_EN.ipynb)
 
 
 ## NLP Sentiment Analysis of Emotion and Divine Intervention in Homer's Odyssey
 
 **Category:** Natural Language Processing / Sentiment Analysis / Digital Humanities
 
-NLP-based analysis of The Odyssey focused on identifying emotional patterns throughout Odysseus' journey and examining their relationship with moments of characters intervention and help, neutral or punish to Odyseo. The project applies sentiment analysis, text preprocessing, tokenization, emotion classification, and other NLP techniques to study emotional and thematic patterns in the text.
+NLP-based analysis of The Odyssey focused on identifying emotional patterns throughout Odysseus' journey and examining their relationship with moments of characters intervention and help, neutral or punish to Ulises the main character of the book. The project applies sentiment analysis, text preprocessing, tokenization, emotion classification, and other NLP techniques to study emotional and thematic patterns in the text.
 
 [View Notebook](/portafolio/projects/P1/notebooks/ProyectoLibroLaOdiseaV4_10_Master_EN.ipynb)
 
