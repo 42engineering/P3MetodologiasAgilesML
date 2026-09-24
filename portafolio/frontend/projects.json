@@ -123,7 +123,7 @@
         "size": "100%"
       }
     },
-    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P1/notebooks/DP1B_5_0_ProyectoMedicinaBiologia_V5.ipynb",
+    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/main/portafolio/projects/P1/notebooks/ProyectoLibroLaOdiseaV4_10_Master_EN.ipynb",
     "notebookLinkEnabled": true,
     "githubRepoEnabled": true,
     "continueExploring": {
@@ -150,7 +150,7 @@
       "Scikit-learn",
       "Matplotlib"
     ],
-    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2",
+    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/main/portafolio/projects/P2",
     "modelInterpretation": "This model of deep learning approach to classify the Mechanism of Action (MOA) of  compounds from biological cell images.The images contains fluorescence microscopy images of cells treated with different compounds and concentrations.\n\nThe project  includes data exploration, preprocessing, image normalization, train-validation-test partitioning, class encoding, data augmentation, class balancing, use in differtents convolutional neural networks (CNN) models with different droputs, batch sizes and others hyperparameters.\n\nSensitivity analyses were also performed to assess the impact of visual effects that can be also in the microsopy such as rotation, zoom, contrast, and Gaussian noise.",
     "interpretationGraphs": {
       "graphs": [
@@ -255,7 +255,7 @@
         "size": "50%"
       }
     },
-    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2/notebooks/P2-ProyectoLibroLaOdiseaV4_9_Master.ipynb",
+    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/main/portafolio/projects/P2/notebooks/ProyectoMedicinaBiologia_V5_1_EN.ipynb",
     "notebookLinkEnabled": true,
     "githubRepoEnabled": false,
     "continueExploring": {
@@ -286,7 +286,7 @@
       "docker",
       "javaScript"
       ],
-    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/8e6ced72fc64ca0d9469be590be98af5f3d9a1a3/portafolio/projects/P3_tsla/notebooks",
+    "githubRepo": "https://github.com/42engineering/P3MetodologiasAgilesML/tree/main/portafolio/projects/P3_tsla",
     "modelInterpretation": "The project compares Simple LSTM architecture and hybrid models combining  CNN and LSTM models.\n\nTechnical indicators were used such as RSI, MACD, ATR, and EMA. with  different time windows were implemented as 5,10 and 20 days to compare the performance. Overall accuracy remains close to 0.50–0.54, suggesting limited predictive power for next-day TSLA direction.  However the release a prediction app was done as a part of the project.",
     "interpretationGraphs": {
       "graphs": [
@@ -391,7 +391,7 @@
         "size": "100%"
       }
     },
-    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/ecdc863e9c6ed1af7d67adf666306de0aefaa88d/portafolio/projects/P2/notebooks/P2-ProyectoLibroLaOdiseaV4_9_Master.ipynb",
+    "notebookLink": "https://github.com/42engineering/P3MetodologiasAgilesML/blob/main/portafolio/projects/P3_tsla/notebooks/PT3.1ColabV2E.ipynb",
     "notebookLinkEnabled": true,
     "githubRepoEnabled": true,
     "continueExploring": {
