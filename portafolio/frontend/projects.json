@@ -2,7 +2,7 @@
   {
     "projectId": "P1",
     "shortTitle": "Book Odyssey Sentiment Analysis",
-    "mainTitle": "Natural Language Processing (NLP) Sentiment Analysis of the book Odyssey by written by Homer",
+    "mainTitle": "Natural Language Processing (NLP) Sentiment Analysis of the book Odyssey written by Homer",
     "category": "Natural Language Processing / Sentiment Analysis / Digital Humanities",
     "description": "The project used a supervised ML combining FastText word embeddings. Sentence embeddings and sentiment features were used to train the model, with an 80/20 train-test.\n\nAdditionally, three dictionaries were used to normalize character names, epithets, assign weights to actions and determine whether relationships represent help, obstruction, or neutrality, and a final dictionary to resolve personal pronouns to the corresponding character entities.\n\nAs a result it was possible to get  plots of sentiment interactions per chapter.",
     "technologies": [
@@ -140,7 +140,7 @@
     "shortTitle": "Deep Learning CNN for Cell Morphology",
     "mainTitle": "Deep Learning for Biological Cell Morphology Analysis",
     "category": "Deep Learning / Biomedical AI / Computer Vision / Image Processing",
-    "description": "This project of deep learning project for images in biological cells after exposure to different compounds. Using different CNN  models, the project explores how cellular features can help predict compoung effects throught morfology. The images are provided by the Broad Institute, a biomedical research organization that collaborates with MIT and Harvard.",
+    "description": "This project of deep learninggit for images in biological cells after exposure to different compounds. Using different CNN  models, the project explores how cellular features can help predict compoung effects throught morfology. The images are provided by the Broad Institute, a biomedical research organization that collaborates with MIT and Harvard.",
     "technologies": [
       "Python",
       "Tensorflow",
