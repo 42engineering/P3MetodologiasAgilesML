@@ -2,14 +2,14 @@ import os
 import yfinance as yf
 import pandas as pd
 
-def dataTeslaCsv():
+from P3_tsla.api.constants import CSV_PATH
 
-    filePath = "data/raw/TeslaData.csv"
+def dataTeslaCsv():
     os.makedirs("data/raw", exist_ok=True)
 
-    if os.path.exists(filePath):
-        print(f"El archivo ya existe: {filePath}")
-        df = pd.read_csv(filePath)
+    if os.path.exists(CSV_PATH):
+        print(f"El archivo ya existe: {CSV_PATH}")
+        df = pd.read_csv(CSV_PATH)
 
         return df
 
@@ -20,8 +20,8 @@ def dataTeslaCsv():
         end="2025-12-31"
     )
 
-    df.to_csv(filePath)
-    print(f"Archivo guardado en: {filePath}")
+    df.to_csv(CSV_PATH)
+    print(f"Archivo guardado en: {CSV_PATH}")
     return df
 
 

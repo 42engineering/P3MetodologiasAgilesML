@@ -7,16 +7,9 @@ MODELS_DIR = (
     "models"
 )
 
-CSV_PATH = (
-    P3_TSLA_ROOT /
-    "data" /
-    "raw" /
-    "TeslaData.csv"
-)
+CSV_PATH = (P3_TSLA_ROOT/"data"/"raw"/"TeslaData.csv")
 
-DEFAULT_MODEL_NAME = (
-    "PT1_1_TSLA_30DAYS_LSTM.keras"
-)
+DEFAULT_MODEL_NAME = ("PT1_1_TSLA_30DAYS_LSTM.keras")
 
 MODEL_PATH = (
     MODELS_DIR /
