@@ -5,8 +5,8 @@ import numpy as np
 import pandas as pd
 import traceback
 
-from P3_tsla.api.utils import getWindowFromDate
-from P3_tsla.api.model_loader import getModel
+from P3_tsla.api.utils import getWindowFromDate  #ventana historica
+from P3_tsla.api.model_loader import getModel #obtener modelo
 
 from P3_tsla.api.scaler_loader import getScaler
 
@@ -95,7 +95,7 @@ def predict(request: PredictionRequest):
 
         elif "date" in window.columns:
 
-            windowStart = str(window.iloc[0]["date"]) 7
+            windowStart = str(window.iloc[0]["date"])
             windowEnd = str(window.iloc[-1]["date"])
 
         else:
