@@ -1,3 +1,4 @@
+
 from fastapi import APIRouter
 from pydantic import BaseModel
 import numpy as np
@@ -5,8 +6,9 @@ import pandas as pd
 import traceback
 
 from P3_tsla.api.utils import getWindowFromDate
-from P3_tsla.api.scaler_loader import scaler5, scaler10
 from P3_tsla.api.model_loader import getModel
+
+from P3_tsla.api.scaler_loader import getScaler
 
 from P3_tsla.api.constants import (
     CSV_PATH,
@@ -18,25 +20,18 @@ from P3_tsla.api.constants import (
 
 router = APIRouter()
 
+
 class PredictionRequest(BaseModel):
     start_date: str
     model_name: str
 
 @router.get("/models")
 def getModels():
+    return {"models": list(AVAILABLE_MODELS.keys())}
 
-    return {
-        "models":
-        list(
-            AVAILABLE_MODELS.keys()
-        )
-    }
-
+# Ejecutar predicción con el modelo seleccionado
 @router.post("/predict")
-def predict(
-    request: PredictionRequest
-):
-
+def predict(request: PredictionRequest):
     try:
 
         print("=" * 50)
@@ -44,204 +39,112 @@ def predict(
         print(request)
         print("=" * 50)
 
+        
         if request.model_name not in AVAILABLE_MODELS:
+            return {"error": f"Unknown model: {request.model_name}"}
 
-            return {
-                "error":
-                f"Unknown model: {request.model_name}"
-            }
+        modelFile = AVAILABLE_MODELS[request.model_name]
+        modelPath = MODELS_DIR / modelFile
 
-        modelFile = AVAILABLE_MODELS[
-            request.model_name
-        ]
+        sequenceLength = int(modelFile.split("_")[3].replace("DAYS", ""))
+        features = MODEL_FEATURES[request.model_name]
 
-        modelPath = (
-            MODELS_DIR /
-            modelFile
-        )
+        print("MODEL:", modelFile)
+        print("SEQUENCE_LENGTH:", sequenceLength)
+        print("FEATURES:", features)
 
-        sequenceLength = int(
-            modelFile.split("_")[3]
-            .replace("DAYS", "")
-        )
+        model = getModel(modelPath)
 
-        features = MODEL_FEATURES[
-            request.model_name
-        ]
-
-        print(
-            "MODEL:",
-            modelFile
-        )
-
-        print(
-            "SEQUENCE_LENGTH:",
-            sequenceLength
-        )
-
-        print(
-            "FEATURES:",
-            features
-        )
-
-        model = getModel(
-            modelPath
-        )
-
-        window = getWindowFromDate(
-            request.start_date,
-            sequenceLength
-        )
-
-        print(
-            "WINDOW SHAPE:",
-            window.shape
-        )
-
+        # Obtener ventana histórica según fecha y longitud de secuencia
+        window = getWindowFromDate(request.start_date, sequenceLength)
+        print("WINDOW SHAPE:", window.shape)
+        # Seleccionar variables que necesita el modelo
         xInput = window[features].values
 
-        print("X ORIGINAL:",xInput.shape)
+        print("X ORIGINAL:", xInput.shape)
 
-        if len(features) == 5:
-            scaler = scaler5
-        else:
-            scaler = scaler10
+        # CAMBIO: obtener scaler bajo demanda según número de variables
+        # getScaler reutiliza el scaler si ya está cargado en memoria
+        scaler = getScaler(len(features))
 
-        xInput = scaler.transform(
-            xInput
-        )
+        # Normalizar datos con el scaler correspondiente
+        xInput = scaler.transform(xInput)
 
-        xInput = np.expand_dims(
-            xInput,
-            axis=0
-        )
+        # Adaptar dimensiones al formato esperado por la red neuronal
+        xInput = np.expand_dims(xInput, axis=0)
 
-        print(
-            "X FINAL:",
-            xInput.shape
-        )
+        print("X FINAL:", xInput.shape)
 
-        prediction = model.predict(
-            xInput,
-            verbose=0
-        )
+        # Ejecutar inferencia con el modelo seleccionado
+        prediction = model.predict(xInput, verbose=0)
 
-        probability = float(
-            prediction[0][0]
-        )
+        # Extraer probabilidad de la predicción
+        probability = float(prediction[0][0])
 
-        predictionLabel = (
-            "SUBIRÁ"
-            if probability > 0.5
-            else "BAJARÁ"
-        )
+        # Clasificar la dirección prevista del precio
+        predictionLabel = "SUBIRÁ" if probability > 0.5 else "BAJARÁ"
 
-        realMovement = (
-            "SUBIÓ"
-            if float(
-                window.iloc[-1]["Close"]
-            ) >
-            float(
-                window.iloc[-2]["Close"]
-            )
-            else "BAJÓ"
-        )
+        # Calcular movimiento real comparando los dos últimos cierres
+        realMovement = "SUBIÓ" if float(window.iloc[-1]["Close"]) > float(window.iloc[-2]["Close"]) else "BAJÓ"
 
+        # Obtener fechas inicial y final según estructura del dataframe
         if "Date" in window.columns:
 
-            windowStart = str(
-                window.iloc[0]["Date"]
-            )
-
-            windowEnd = str(
-                window.iloc[-1]["Date"]
-            )
+            windowStart = str(window.iloc[0]["Date"])
+            windowEnd = str(window.iloc[-1]["Date"])
 
         elif "date" in window.columns:
 
-            windowStart = str(
-                window.iloc[0]["date"]
-            )
-
-            windowEnd = str(
-                window.iloc[-1]["date"]
-            )
+            windowStart = str(window.iloc[0]["date"]) 7
+            windowEnd = str(window.iloc[-1]["date"])
 
         else:
 
-            windowStart = str(
-                window.index[0]
-            )
+            windowStart = str(window.index[0])
+            windowEnd = str(window.index[-1])
 
-            windowEnd = str(
-                window.index[-1]
-            )
-
+        # Devolver resultado de predicción al frontend
         return {
-
-            "model":
-            request.model_name,
-
-            "sequence_length":
-            sequenceLength,
-
-            "prediction":
-            predictionLabel,
-
-            "probability":
-            probability,
-
-            "real_movement":
-            realMovement,
-
-            "window_start":
-            windowStart,
-
-            "window_end":
-            windowEnd
+            "model": request.model_name,
+            "sequence_length": sequenceLength,
+            "prediction": predictionLabel,
+            "probability": probability,
+            "real_movement": realMovement,
+            "window_start": windowStart,
+            "window_end": windowEnd
         }
 
     except Exception as e:
 
+        # Registrar información del error para diagnóstico
         print("=" * 50)
         print("ERROR EN /predict")
         print(str(e))
         traceback.print_exc()
         print("=" * 50)
 
-        return {
-            "error":
-            str(e)
-        }
+        # Mantener el contrato de errores utilizado por el frontend
+        return {"error": str(e)}
 
+
+# Consultar cantidad de registros del dataset histórico
 @router.get("/latest-window")
 def latestWindow():
 
-    df = pd.read_csv(
-        CSV_PATH
-    )
+    # Leer dataset de Tesla
+    df = pd.read_csv(CSV_PATH)
 
-    return {
-        "rows":
-        len(df)
-    }
+    return {"rows": len(df)}
 
+
+# Comprobar estado y configuración básica de la API
 @router.get("/health")
 def health():
 
+    # Devolver estado del servicio sin cargar modelos
     return {
-
-        "status":
-        "running",
-
-        "pipeline":
-        PIPELINE_NAME,
-
-        "available_models":
-        len(
-            AVAILABLE_MODELS
-        ),
-
-        "framework":
-        "TensorFlow"
+        "status": "running",
+        "pipeline": PIPELINE_NAME,
+        "available_models": len(AVAILABLE_MODELS),
+        "framework": "TensorFlow"
     }

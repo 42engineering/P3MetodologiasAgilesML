@@ -8,17 +8,12 @@ from P3_tsla.api.constants import PIPELINE_NAME
 app = FastAPI(
     title=PIPELINE_NAME,
     version="1.0.0",
-    description="""
-    API REST para inferencia histórica
-    del modelo PT1_1_TSLA_30DAYS_LSTM.keras
-    """
+    description="API REST para inferencia histórica de la accion de TSLA"
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://portafolioml1.vercel.app"
-    ],
+    allow_origins=["https://portafolioml1.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
