@@ -15,7 +15,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "https://portafolioml1.vercel.app",
-         "https://portafolio1-brhsdk1gk-42engineering-projects.vercel.app"
+         "https://portafolio1-brhsdk1gk-42engineering-projects.vercel.app",
+         "https://portafolio1-8f2oa6a2-42engineering-projects.vercel.app"
+
         ],
     allow_credentials=True,
     allow_methods=["*"],
