@@ -1,5 +1,7 @@
 // const API_URL = "https://p3metodologiasagilesml-1.onrender.com";
-const API_URL = "https://portafolio-pr-2-u0sm.onrender.com";
+// const API_URL = "https://portafolio-pr-2-u0sm.onrender.com";
+const API_URL = "https://portafolio-pr-3-iv9t.onrender.com";
+
 const MAX_PREDICTION_DATE = "2025-12-30";
 const MODEL_CATALOG = {
     LSTM: {
