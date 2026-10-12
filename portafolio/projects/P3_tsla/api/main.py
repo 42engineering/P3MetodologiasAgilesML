@@ -13,7 +13,10 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://portafolioml1.vercel.app"],
+    allow_origins=[
+        "https://portafolioml1.vercel.app",
+         "https://portafolio1-brhsdk1gk-42engineering-projects.vercel.app"
+        ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
