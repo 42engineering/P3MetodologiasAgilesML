@@ -3,22 +3,32 @@
 const API_URL = "https://portafolio-pr-3-iv9t.onrender.com";
 
 const MAX_PREDICTION_DATE = "2025-12-30";
+
 const MODEL_CATALOG = {
     LSTM: {
         fullName: "Long Short-Term Memory",
-        description: "A recurrent neural network that analyzes patterns in sequential financial data.",
+        description: "A recurrent neural network LSTM simple layers that predicts  using historical market data and sequential time windows.",
         features: 5
     },
-    GRU: {
-        fullName: "Gated Recurrent Unit",
-        description: "A recurrent neural network designed to learn patterns in sequential data."
+    DeepLSTM: {
+        fullName: "Deep Long Short-Term Memory",
+        description: "A multi-layer (Deep) LSTM network designed to learn complex temporal patterns.",
+        features: 5
     },
-    RNN: {
-        fullName: "Recurrent Neural Network",
-        description: "A neural network that processes sequential observations."
+    LSTMCNN: {
+        fullName: "Long Short-Term Memory + Convolutional Neural Network",
+        description: "A hybrid neural network combining CNN feature extraction with LSTM temporal pattern learning.",
+        features: 5
+    },
+    DeepLSTMIndicators: {
+        fullName: "Deep LSTM with Technical Indicators",
+        description: "A deep recurrent network that incorporates OHLCV data and technical indicators such as RSI, MACD, ATR, and EMA.",
+        features: 10
     }
 };
+
 const WEAK_SIGNAL_THRESHOLD = 5; // Distancia máxima al 50%, en puntos porcentuales.
+
 let isPredicting = false;
 
 window.addEventListener("DOMContentLoaded", () => {
