@@ -5,16 +5,21 @@ const MAX_PREDICTION_DATE = "2025-12-30";
 const MODEL_CATALOG = {
     LSTM: {
         fullName: "Long Short-Term Memory",
-        description: "A recurrent neural network LSTM simple layers that predicts  using historical market data and sequential time windows.",
+        description: "A recurrent neural network LSTM simple layers that predicts  using historical market data and sequential time windows, training 0.",
         features: 5
     },
-    DeepLSTM: {
+    LSTM1: {
+        fullName: "Long Short-Term Memory",
+        description: "A recurrent neural network LSTM simple layers that predicts using historical market data and sequential time windows, training 1.",
+        features: 5
+    },
+    DeepLSTM1: {
         fullName: "Deep Long Short-Term Memory",
         description: "A multi-layer (Deep) LSTM network designed to learn complex temporal patterns.",
         features: 5
     },
-    LSTMCNN: {
-        fullName: "Long Short-Term Memory + Convolutional Neural Network",
+    CNNLSTM1: {
+        fullName: "Convolutional Neural Network",
         description: "A hybrid neural network combining CNN feature extraction with LSTM temporal pattern learning.",
         features: 5
     },
