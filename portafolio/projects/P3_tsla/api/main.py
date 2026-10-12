@@ -10,7 +10,10 @@ corsOrigins = os.getenv(
     "CORS_ORIGINS",
     "https://portafolioml1.vercel.app"
 ).split(",")
+
 corsOrigins = [origin.strip() for origin in corsOrigins if origin.strip()]
+corsOriginRegex = os.getenv("CORS_ORIGIN_REGEX") or None
+
 
 app = FastAPI(
     title=PIPELINE_NAME,
@@ -24,7 +27,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
-)
+) 
 
 @app.get("/")
 def root():
