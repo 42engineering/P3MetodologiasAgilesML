@@ -131,7 +131,7 @@ function getModelInfo(modelName, sequenceLength) {
     const family = String(modelName ?? "").split("_")[0].toUpperCase();
     const model = MODEL_CATALOG[family];
     const sessions = Number(sequenceLength);
-    const sessionsText = Number.isInteger(sessions) && sessions > 0 ? `${sessions} trading sessions` : "Sessions unavailable";
+    const sessionsText = Number.isInteger(sessions) && sessions > 0 ? `${sessions} days` : "days unavailable";
     const featuresText = model?.features ? `${model.features} financial variables` : "Feature count unavailable";
     const description = model
         ? `${model.fullName} (${family}) is ${model.description.charAt(0).toLowerCase()}${model.description.slice(1)}`
@@ -201,7 +201,8 @@ function renderPredictionDashboard(data) {
             </section>
             <section class="dashboard-section history-panel" aria-label="Historical window analyzed">
                 <h3>Historical window analyzed</h3>
-                <div class="history-grid"><div><span>Start date</span><strong>${escapeHTML(formatPredictionDate(data.window_start))}</strong></div><div><span>End date</span><strong>${escapeHTML(formatPredictionDate(data.window_end))}</strong></div></div>
+                <div class="history-grid">
+                    <div><span>Start date</span><strong>${escapeHTML(formatPredictionDate(data.window_start))}</strong></div><div><span>End date</span><strong>${escapeHTML(formatPredictionDate(data.window_end))}</strong></div></div>
                 <div class="history-sessions"><span>Model window</span><strong>${escapeHTML(modelInfo.sessionsText)}</strong></div>
             </section>
         </div>
