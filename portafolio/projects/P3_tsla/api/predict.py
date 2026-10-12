@@ -56,7 +56,8 @@ def predict(request: PredictionRequest):
         startTime = time.perf_counter()
 
         window = getWindowFromDate(request.start_date, sequenceLength)
-        xInput = window[features].values
+        # xInput = window[features].values
+        xInput = window[features].copy()
 
         print("X ORIGINAL:", xInput.shape, flush=True)
         print(f"Window preparation: {time.perf_counter() - startTime:.3f}s", flush=True)
