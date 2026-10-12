@@ -1,9 +1,16 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from P3_tsla.api.predict import router
 from P3_tsla.api.constants import PIPELINE_NAME
 
+
+corsOrigins = os.getenv(
+    "CORS_ORIGINS",
+    "https://portafolioml1.vercel.app"
+).split(",")
+corsOrigins = [origin.strip() for origin in corsOrigins if origin.strip()]
 
 app = FastAPI(
     title=PIPELINE_NAME,
@@ -13,12 +20,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://portafolioml1.vercel.app",
-         "https://portafolio1-brhsdk1gk-42engineering-projects.vercel.app",
-         "https://portafolio1-8f2oa6a2-42engineering-projects.vercel.app"
-
-        ],
+    allow_origins=corsOrigins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
