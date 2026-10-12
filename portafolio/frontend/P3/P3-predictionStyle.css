@@ -5,7 +5,8 @@
     --bg:#ffffff;
     --accent:#2d6b91;
     --project-divider:#a7c6d6;
-    --spectrum-1:#0f2a43;
+    /* --spectrum-1:#0f2a43; */
+    --spectrum-1:#2d6b91;
     --spectrum-2:#163d5c;
     --spectrum-3:#1f5275;
     --spectrum-4:#2d6b91;
@@ -14,7 +15,7 @@
     --spectrum-7:#a7c6d6;
     --spectrum-8:#dcebf2;
     /* CAMBIO 1: variables de color financieras y panel histórico. */
-    --dashboard-blue:#103B70;
+    --dashboard-blue:#2d6b91;
     --dashboard-up:#19845b;
     --dashboard-down:#b44444;
 }
