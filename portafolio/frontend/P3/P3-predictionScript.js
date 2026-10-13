@@ -89,8 +89,10 @@ async function predictMovement() {
     predictButton.disabled = true;
     predictButton.textContent = "Predicting...";
     resultBox.setAttribute("aria-busy", "true");
-    showResultMessage("Loading prediction...", "Please wait while the model runs.");
+    // showResultMessage("Loading prediction...", "Please wait while the model runs.");
+    showResultMessage("**Getting your prediction models ready...**", "Thank you for your patience!",  "We're connecting to our Machine Learning system to load the available models.","This may take a few moments.");
 
+                        
     try {
         const response = await fetch(`${API_URL}/predict`, {
             method: "POST",
