@@ -39,10 +39,7 @@ FEATURES_INDICADORES1 = [
     "EMA_20"
 ]
 
-SCALER_PATH_5 = (
-    MODELS_DIR /
-    "minmax_scaler.pkl"
-)
+SCALER_PATH_5 = (MODELS_DIR /"minmax_scaler.pkl")
 
 SCALER_PATH_10 = (
     MODELS_DIR /

@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -5,24 +6,29 @@ from P3_tsla.api.predict import router
 from P3_tsla.api.constants import PIPELINE_NAME
 
 
+corsOrigins = os.getenv(
+    "CORS_ORIGINS",
+    "https://portafolioml1.vercel.app"
+).split(",")
+
+corsOrigins = [origin.strip() for origin in corsOrigins if origin.strip()]
+corsOriginRegex = os.getenv("CORS_ORIGIN_REGEX") or None
+
+
 app = FastAPI(
     title=PIPELINE_NAME,
     version="1.0.0",
-    description="""
-    API REST para inferencia histórica
-    del modelo PT1_1_TSLA_30DAYS_LSTM.keras
-    """
+    description="API REST para inferencia histórica de la accion de TSLA"
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://portafolioml1.vercel.app"
-    ],
+    allow_origins=corsOrigins,
+    allow_origin_regex=corsOriginRegex,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"]
-)
+) 
 
 @app.get("/")
 def root():
