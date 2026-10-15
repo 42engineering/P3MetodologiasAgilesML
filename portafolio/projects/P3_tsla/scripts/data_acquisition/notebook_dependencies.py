@@ -15,22 +15,22 @@ notebookPackages = {
     "scikit-learn",
     "mlflow",
     "keras",
-    "joblib"
+    "joblib",
+    "numpy",
+    "numpy"
 }
 
 requiredExcludedPackages = {
-    "numpy",
-    "pandas",
     "python",
     "tensorflow-cpu"
 }
 
 excludedPackages = requiredExcludedPackages | {
     "pip",
+    "tomllib",
     "setuptools",
     "setuptools-scm",
     "wheel",
-    "tomllib",
     "pathlib",
     "sys",
     "os",
@@ -273,4 +273,5 @@ def installProjectDependencies(pyprojectPath="./pyproject.toml"):
 
 if __name__ == "__main__":
     installProjectDependencies()
+    showDependencyReport(dependencyReport)
     
