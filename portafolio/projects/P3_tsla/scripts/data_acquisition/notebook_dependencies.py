@@ -8,49 +8,206 @@ from packaging.specifiers import SpecifierSet
 from packaging.version import Version
 from packaging.utils import canonicalize_name
 
+
+notebookPackages = {
+    "matplotlib",
+    "yfinance",
+    "scikit-learn",
+    "mlflow",
+    "keras",
+    "joblib"
+}
+
+requiredExcludedPackages = {
+    "numpy",
+    "pandas",
+    "python",
+    "tensorflow-cpu"
+}
+
+excludedPackages = requiredExcludedPackages | {
+    "pip",
+    "setuptools",
+    "setuptools-scm",
+    "wheel",
+    "tomllib",
+    "pathlib",
+    "sys",
+    "os",
+    "subprocess",
+    "importlib",
+    "json",
+    "datetime",
+    "time",
+    "math",
+    "collections"
+}
+
+
+def getInstalledVersion(packageName):
+    if canonicalize_name(packageName) == "python":
+        return Version(".".join(map(str, sys.version_info[:3])))
+
+    try:
+        return Version(metadata.version(packageName))
+    except metadata.PackageNotFoundError:
+        return None
+
+
+def compareVersions(installedVersion, specifier):
+    if installedVersion is None:
+        return "NO INSTALADO"
+
+    if specifier is None or not str(specifier):
+        return "NO DEFINIDO"
+
+    if installedVersion in specifier:
+        return "COINCIDE"
+
+    exactVersions = [
+        Version(spec.version)
+        for spec in specifier
+        if spec.operator == "==" and "*" not in spec.version
+    ]
+
+    if exactVersions:
+        referenceVersion = exactVersions[0]
+        return "SUPERIOR" if installedVersion > referenceVersion else "INFERIOR"
+
+    lowerBounds = [
+        (Version(spec.version), spec.operator)
+        for spec in specifier
+        if spec.operator in (">=", ">")
+    ]
+
+    upperBounds = [
+        (Version(spec.version), spec.operator)
+        for spec in specifier
+        if spec.operator in ("<=", "<")
+    ]
+
+    if lowerBounds:
+        lowerVersion, lowerOperator = max(lowerBounds, key=lambda item: (item[0], item[1] == ">"))
+
+        if installedVersion < lowerVersion or (installedVersion == lowerVersion and lowerOperator == ">"):
+            return "INFERIOR"
+
+    if upperBounds:
+        upperVersion, upperOperator = min(upperBounds, key=lambda item: (item[0], item[1] == "<"))
+
+        if installedVersion > upperVersion or (installedVersion == upperVersion and upperOperator == "<"):
+            return "SUPERIOR"
+
+    return "NO COINCIDE"
+
+
+def installDependency(requirement):
+    packageName = requirement.name
+    installedVersion = getInstalledVersion(packageName)
+
+    if installedVersion is not None and installedVersion in requirement.specifier:
+        status = "YA INSTALADO"
+
+    else:
+        print(f"  Instalando {requirement}...", flush=True)
+        # Mostrar salida de pip durante la instalación
+        installResult = subprocess.run([sys.executable, "-m", "pip", "install", str(requirement)], check=False)
+
+        installedVersion = getInstalledVersion(packageName)
+
+        if installResult.returncode == 0 and installedVersion is not None and installedVersion in requirement.specifier:
+            status = "INSTALADO"
+        else:
+            status = "ERROR"
+
+    print(f"  {status}: {packageName} {installedVersion or 'No instalado'}", flush=True)
+
+    return {
+        "Librería": packageName,
+        "Versión requerida": str(requirement.specifier) or "No definida",
+        "Versión instalada": str(installedVersion) if installedVersion is not None else "No instalado",
+        "Estado": status
+    }
+
+
+def verifyExcludedDependency(packageName, projectDependencies, pythonRequired):
+    # Obtener requisitos sin instalar ni modificar directamente la librería
+    if packageName == "python":
+        requiredVersion = pythonRequired
+        specifier = SpecifierSet(pythonRequired) if pythonRequired else None
+
+    else:
+        requirement = projectDependencies.get(packageName)
+        requiredVersion = str(requirement.specifier) if requirement else ""
+        specifier = requirement.specifier if requirement else None
+
+    installedVersion = getInstalledVersion(packageName)
+    status = compareVersions(installedVersion, specifier)
+
+    return {
+        "Librería": packageName,
+        "Versión requerida": requiredVersion or "No definida",
+        "Versión instalada": str(installedVersion) if installedVersion is not None else "No instalado",
+        "Estado": status
+    }
+
+def printDependencyReport(title, results):
+    columns = ["Librería", "Versión requerida", "Versión instalada", "Estado"]
+
+    print(f"\n{title}\n")
+
+    if not results:
+        print("No hay dependencias para mostrar.")
+        return
+
+    widths = [
+        max(len(column), *(len(str(row[column])) for row in results))
+        for column in columns
+    ]
+
+    print(" | ".join(column.ljust(width) for column, width in zip(columns, widths)))
+    print("-+-".join("-" * width for width in widths))
+
+    for result in results:
+        print(" | ".join(str(result[column]).ljust(width) for column, width in zip(columns, widths)))
+
+
+def showDependencyReport(dependencyReport):
+    installedResults = dependencyReport["installedDependencies"]
+    excludedResults = dependencyReport["excludedDependencies"]
+    missingPackages = dependencyReport.get("missingDependencies", [])
+
+    printDependencyReport("REPORTE DE INSTALACIÓN", installedResults)
+    printDependencyReport("REPORTE DE LIBRERÍAS EXCLUIDAS REQUERIDAS", excludedResults)
+
+    # Calcular estadísticas de instalación
+    installed = sum(result["Estado"] == "INSTALADO" for result in installedResults)
+    alreadyInstalled = sum(result["Estado"] == "YA INSTALADO" for result in installedResults)
+    errors = sum(result["Estado"] == "ERROR" for result in installedResults)
+
+    excludedMatched = sum(result["Estado"] == "COINCIDE" for result in excludedResults)
+    excludedNotMatched = len(excludedResults) - excludedMatched
+
+    print("\nRESUMEN FINAL\n")
+    print(f"Proyecto: {dependencyReport.get('projectName', 'Sin nombre')}")
+    print(f"Python: {dependencyReport.get('pythonVersion', 'Desconocida')}")
+    print(f"Dependencias seleccionadas: {len(installedResults)}")
+    print(f"Instaladas: {installed}")
+    print(f"Ya instaladas: {alreadyInstalled}")
+    print(f"Errores: {errors}")
+    print(f"Excluidas requeridas que cumplen: {excludedMatched}/{len(excludedResults)}")
+    print(f"Excluidas que no cumplen o faltan: {excludedNotMatched}")
+
+    if missingPackages:
+        print(f"Dependencias no declaradas: {', '.join(missingPackages)}")
+
+    if errors == 0 and not missingPackages:
+        print("\nInstalación de dependencias seleccionadas completada.")
+    else:
+        print("\nExisten dependencias pendientes de revisar.")
+
+
 def installProjectDependencies(pyprojectPath="./pyproject.toml"):
-
-    # Librerías utilizadas en el notebook que deben instalarse
-    notebookPackages = {
-        "matplotlib",
-        "yfinance",
-        "scikit-learn",
-        "mlflow",
-        "keras",
-        "joblib"
-    }
-
-    # Librerías excluidas que requieren verificación de versiones
-    requeridasNotbookExcluded = {
-        "numpy",
-        "pandas",
-        "python",
-        "tensorflow-cpu"
-    }
-
-    # Librerías y componentes que no deben instalarse
-    excludedPackages = {
-        "numpy",
-        "pandas",
-        "python",
-        "tensorflow-cpu",
-        "pip",
-        "setuptools",
-        "setuptools-scm",
-        "wheel",
-        "tomllib",
-        "pathlib",
-        "sys",
-        "os",
-        "subprocess",
-        "importlib",
-        "json",
-        "datetime",
-        "time",
-        "math",
-        "collections"
-    }
-
     # Leer configuración del proyecto
     projectPath = Path(pyprojectPath)
 
@@ -61,42 +218,30 @@ def installProjectDependencies(pyprojectPath="./pyproject.toml"):
         config = tomllib.load(file)
 
     project = config["project"]
-    dependencies = project.get("dependencies", [])
     pythonRequired = project.get("requires-python", "")
-
-    # Validar versión de Python
-    pythonVersion = Version(".".join(map(str, sys.version_info[:3])))
+    pythonVersion = getInstalledVersion("python")
 
     if pythonRequired and pythonVersion not in SpecifierSet(pythonRequired):
         raise RuntimeError(f"Python {pythonVersion} no cumple {pythonRequired}")
 
-    # Normalizar nombres de librerías
-    notebookPackages = {canonicalize_name(package) for package in notebookPackages}
-    excludedPackages = {canonicalize_name(package) for package in excludedPackages}
-    requeridasNotbookExcluded = {canonicalize_name(package) for package in requeridasNotbookExcluded}
-
-    # Identificar dependencias declaradas
+    # Obtener dependencias declaradas en pyproject.toml
     projectDependencies = {
-        canonicalize_name(Requirement(dependency).name): Requirement(dependency)
-        for dependency in dependencies
+        canonicalize_name(requirement.name): requirement
+        for dependency in project.get("dependencies", [])
+        for requirement in [Requirement(dependency)]
     }
 
-    selectedDependencies = []
-    omittedDependencies = []
+    selectedPackages = {canonicalize_name(package) for package in notebookPackages}
+    excludedNames = {canonicalize_name(package) for package in excludedPackages}
+    selectedPackages -= excludedNames
 
-    for dependency in dependencies:
+    missingPackages = selectedPackages - projectDependencies.keys()
 
-        requirement = Requirement(dependency)
-        packageName = canonicalize_name(requirement.name)
-
-        if packageName in excludedPackages:
-            omittedDependencies.append(requirement.name)
-
-        elif packageName in notebookPackages:
-            selectedDependencies.append(dependency)
-
-    selectedPackages = {canonicalize_name(Requirement(dependency).name) for dependency in selectedDependencies}
-    missingPackages = notebookPackages - selectedPackages - excludedPackages
+    selectedDependencies = [
+        requirement
+        for packageName, requirement in projectDependencies.items()
+        if packageName in selectedPackages
+    ]
 
     print(f"Proyecto: {project.get('name', 'Sin nombre')}")
     print(f"Python: {pythonVersion}")
@@ -105,174 +250,27 @@ def installProjectDependencies(pyprojectPath="./pyproject.toml"):
     if missingPackages:
         print(f"No declaradas: {', '.join(sorted(missingPackages))}", flush=True)
 
+    installedResults = []
 
-    results = []
-    total = len(selectedDependencies)
+    for index, requirement in enumerate(selectedDependencies, start=1):
+        print(f"\n[{index}/{len(selectedDependencies)}] Verificando {requirement.name}...", flush=True)
+        installedResults.append(installDependency(requirement))
 
-    for index, dependency in enumerate(selectedDependencies, start=1):
+    # Verificar librerías excluidas requeridas
+    excludedResults = [
+        verifyExcludedDependency(packageName, projectDependencies, pythonRequired)
+        for packageName in sorted(requiredExcludedPackages)
+    ]
 
-        requirement = Requirement(dependency)
-        packageName = requirement.name
-
-        print(f"\n[{index}/{total}] Verificando {dependency}...", flush=True)
-
-        # Comprobar si ya está instalada la versión requerida
-        try:
-            installedVersion = metadata.version(packageName)
-            matches = Version(installedVersion) in requirement.specifier
-        except metadata.PackageNotFoundError:
-            installedVersion = "No instalado"
-            matches = False
-
-        if matches:
-            status = "YA INSTALADO"
-            print(f"  {status}: {packageName} {installedVersion}", flush=True)
-
-        else:
-            print(f"  Instalando {dependency}...", flush=True)
-
-            installResult = subprocess.run(
-                [sys.executable, "-m", "pip", "install", dependency],
-                check=False
-            )
-
-            try:
-                installedVersion = metadata.version(packageName)
-                matches = Version(installedVersion) in requirement.specifier
-            except metadata.PackageNotFoundError:
-                installedVersion = "No instalado"
-                matches = False
-
-            if installResult.returncode == 0 and matches:
-                status = "INSTALADO"
-            else:
-                status = "ERROR"
-
-            print(f"  {status}: {packageName} {installedVersion}", flush=True)
-
-        results.append({
-            "Librería": packageName,
-            "Versión requerida": str(requirement.specifier),
-            "Versión instalada": installedVersion,
-            "Estado": status
-        })
-
-    # Mostrar reporte de instalación sin Pandas
-    columns = ["Librería", "Versión requerida", "Versión instalada", "Estado"]
-
-    print("\nREPORTE DE INSTALACIÓN\n")
-
-    if results:
-        widths = [max(len(column), *(len(str(row[column])) for row in results)) for column in columns]
-
-        print(" | ".join(column.ljust(width) for column, width in zip(columns, widths)))
-        print("-+-".join("-" * width for width in widths))
-
-        for result in results:
-            print(" | ".join(str(result[column]).ljust(width) for column, width in zip(columns, widths)))
-
-    excludedResults = []
-
-    for packageName in sorted(requeridasNotbookExcluded):
-
-        if packageName == "python":
-            installedVersion = str(pythonVersion)
-            requiredVersion = pythonRequired
-            specifier = SpecifierSet(pythonRequired) if pythonRequired else None
-
-        else:
-            requirement = projectDependencies.get(packageName)
-            requiredVersion = str(requirement.specifier) if requirement else ""
-            specifier = requirement.specifier if requirement else None
-
-            try:
-                installedVersion = metadata.version(packageName)
-            except metadata.PackageNotFoundError:
-                installedVersion = "No instalado"
-
-        if not requiredVersion:
-            status = "NO DEFINIDO"
-
-        elif installedVersion == "No instalado":
-            status = "NO INSTALADO"
-
-        else:
-            currentVersion = Version(installedVersion)
-
-            if currentVersion in specifier:
-                status = "COINCIDE"
-
-            else:
-                lowerBounds = [
-                    spec.version for spec in specifier
-                    if spec.operator in (">=", ">")
-                ]
-
-                upperBounds = [
-                    spec.version for spec in specifier
-                    if spec.operator in ("<=", "<")
-                ]
-
-                exactVersions = [
-                    spec.version for spec in specifier
-                    if spec.operator in ("==", "===") and "*" not in spec.version
-                ]
-
-                if exactVersions:
-                    referenceVersion = Version(exactVersions[0])
-
-                    if currentVersion > referenceVersion:
-                        status = "SUPERIOR"
-                    else:
-                        status = "INFERIOR"
-
-                elif lowerBounds and currentVersion < max(Version(version) for version in lowerBounds):
-                    status = "INFERIOR"
-
-                elif upperBounds and currentVersion >= min(Version(version) for version in upperBounds):
-                    status = "SUPERIOR"
-
-                else:
-                    status = "NO COINCIDE"
-
-        excludedResults.append({
-            "Librería": packageName,
-            "Versión requerida": requiredVersion or "No definida",
-            "Versión instalada": installedVersion,
-            "Estado": status
-        })
-
-    # Mostrar reporte de librerías excluidas
-    print("\nREPORTE DE LIBRERÍAS EXCLUIDAS REQUERIDAS\n")
-
-    widths = [max(len(column), *(len(str(row[column])) for row in excludedResults)) for column in columns]
-
-    print(" | ".join(column.ljust(width) for column, width in zip(columns, widths)))
-    print("-+-".join("-" * width for width in widths))
-
-    for result in excludedResults:
-        print(" | ".join(str(result[column]).ljust(width) for column, width in zip(columns, widths)))
-
-    # Resumen de instalación y verificación
-    installed = sum(result["Estado"] == "INSTALADO" for result in results)
-    alreadyInstalled = sum(result["Estado"] == "YA INSTALADO" for result in results)
-    errors = sum(result["Estado"] == "ERROR" for result in results)
-    excludedMatched = sum(result["Estado"] == "COINCIDE" for result in excludedResults)
-
-    print("\nRESUMEN FINAL\n")
-    print(f"Dependencias seleccionadas: {total}")
-    print(f"Instaladas: {installed}")
-    print(f"Ya instaladas: {alreadyInstalled}")
-    print(f"Errores: {errors}")
-    print(f"Excluidas requeridas que cumplen: {excludedMatched}/{len(excludedResults)}")
-    print(f"Dependencias omitidas explícitamente: {len(omittedDependencies)}")
-
-    if errors == 0 and not missingPackages:
-        print("\nInstalación de dependencias seleccionadas completada.")
-    else:
-        print("\nExisten dependencias pendientes de revisar.")
-
+    # Devolver los resultados sin imprimir los reportes
     return {
-        "installedDependencies": results,
-        "excludedDependencies": excludedResults
+        "projectName": project.get("name", "Sin nombre"),
+        "pythonVersion": str(pythonVersion),
+        "installedDependencies": installedResults,
+        "excludedDependencies": excludedResults,
+        "missingDependencies": sorted(missingPackages)
     }
+
+if __name__ == "__main__":
+    installProjectDependencies()
+    
