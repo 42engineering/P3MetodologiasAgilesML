@@ -1,0 +1,17 @@
+{
+    "model": "model3Grouped",
+    "input_shape": [
+        224,
+        224,
+        3
+    ],
+    "classes": [
+        "DMSO",
+        "DNA processes",
+        "Microtubule destabilizers",
+        "Microtubule stabilizers",
+        "Mitosis inhibitors",
+        "Others",
+        "Protein metabolism"
+    ]
+}
